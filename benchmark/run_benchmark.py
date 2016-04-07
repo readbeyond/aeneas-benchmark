@@ -9,10 +9,10 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 import io
+import json
 import numpy
 import os
 import sys
-import toml
 
 from aeneas.tools.abstract_cli_program import AbstractCLIProgram
 from aeneas.tools.execute_task import ExecuteTaskCLI
@@ -31,7 +31,7 @@ class RunBenchmarkCLI(AbstractCLIProgram):
     """
     Run the benchmark suite or selected tests.
     """
-    CONFIG_FILE_NAME = "config.toml"
+    CONFIG_DIRECTORY_PATH = "configs"
     INPUT_DIRECTORY_PATH = "input"
     OUTPUT_DIRECTORY_PATH = "output"
 
@@ -199,7 +199,7 @@ class RunBenchmarkCLI(AbstractCLIProgram):
             audio_length = config_obj["audio_length"]
             audio_file_path = os.path.join(self.INPUT_DIRECTORY_PATH, config_obj["arguments"]["audio"])
             text_file_path = os.path.join(self.INPUT_DIRECTORY_PATH, config_obj["arguments"]["text"])
-            config_string = config_obj["arguments"]["config"]
+            config_string = config_obj["arguments"]["conf"]
             rconf_string = config_obj["arguments"]["rconf"]
             warmup_runs = config_obj["execution"]["warmup_runs"]
             timed_runs = config_obj["execution"]["timed_runs"]
@@ -231,50 +231,15 @@ class RunBenchmarkCLI(AbstractCLIProgram):
                     labels = self.get_labels(logger)
            
             # save results
-            self.save_results(test, labels, runs, machine_label)
+            self.save_results(test, config_obj, labels, runs, machine_label)
             self.print_info(u"Test %s ... completed" % test)
         self.print_success(u"Benchmark completed")
         return self.NO_ERROR_EXIT_CODE
 
-    def save_results(self, test, labels, runs, machine_label):
-        runs_matrix = numpy.array(runs, dtype=float)
-        total_times = runs_matrix[:, -1]
-        self.log(u"  Total time")
-        self.log([u"    Min: %.3f", numpy.min(total_times)])
-        self.log([u"    Max: %.3f" % numpy.max(total_times)])
-        self.log([u"    Avg: %.3f" % numpy.mean(total_times)])
-        self.log([u"    Std: %.3f" % numpy.std(total_times)])
-        # use machine label, if any
-        output_file_name = test
-        if len(machine_label) > 0:
-            output_file_name += ".%s" % (machine_label)
-        # save times, txt format
-        output_file_path = os.path.join(self.OUTPUT_DIRECTORY_PATH, "%s.dat" % (output_file_name))
-        self.log([u"  Saving %s", output_file_path])
-        numpy.savetxt(output_file_path, runs_matrix, fmt="%.3f")
-        # save times, numpy format
-        output_file_path = os.path.join(self.OUTPUT_DIRECTORY_PATH, "%s.npy" % (output_file_name))
-        self.log([u"  Saving %s", output_file_path])
-        numpy.save(output_file_path, runs_matrix)
-        # save labels
-        output_file_path = os.path.join(self.OUTPUT_DIRECTORY_PATH, "%s.lab" % (output_file_name))
-        self.log([u"  Saving %s", output_file_path])
-        with io.open(output_file_path, "w", encoding="utf-8") as output_file:
-            output_file.write("\n".join(labels))
-        # save global stats (min, max, mean, std)
-        stats = numpy.zeros((4, runs_matrix.shape[1]))
-        stats[0] = numpy.min(runs_matrix, axis=0)
-        stats[1] = numpy.max(runs_matrix, axis=0)
-        stats[2] = numpy.mean(runs_matrix, axis=0)
-        stats[3] = numpy.std(runs_matrix, axis=0)
-        output_file_path = os.path.join(self.OUTPUT_DIRECTORY_PATH, "%s.res" % (output_file_name))
-        numpy.savetxt(output_file_path, stats, fmt="%.3f")
-
     def get_config(self, test):
         config_obj = {}
-        config_file_path = os.path.join(test, self.CONFIG_FILE_NAME)
-        with open(config_file_path) as config_file:
-            config_obj = toml.loads(config_file.read())
+        with open(os.path.join(self.CONFIG_DIRECTORY_PATH, test + u".json")) as config_file:
+            config_obj = json.loads(config_file.read())
         return config_obj
 
     def perform_run(self, audio_file_path, text_file_path, config_string, rconf_string):
@@ -293,7 +258,7 @@ class RunBenchmarkCLI(AbstractCLIProgram):
 
     def get_run_values(self, logger):
         run = []
-        for msg in [e.message for e in logger.entries if "DURATION" in e.message]:
+        for msg in [e.message for e in logger.entries if ("DURATION" in e.message) and ("STEP T " not in e.message)]:
             l = msg.split(" ")
             index = l.index("DURATION")
             duration = float(l[index+1])
@@ -302,15 +267,66 @@ class RunBenchmarkCLI(AbstractCLIProgram):
 
     def get_labels(self, logger):
         labels = []
-        for msg in [e.message for e in logger.entries if "DURATION" in e.message]:
+        for msg in [e.message for e in logger.entries if ("DURATION" in e.message) and ("STEP T " not in e.message)]:
             l = msg.split(" ")
             index = l.index("DURATION")
-            label = " ".join(l[index+2:])
-            label = "(total)" if len(label) < 1 else label
-            label = label.replace("(", "").replace(")", "")
-            labels.append(label)
+            labels.append((" ".join(l[index+2:])).replace("(", "").replace(")", ""))
         return labels 
 
+    def save_results(self, test, config_obj, labels, runs, machine_label):
+        # convert to numpy matrix
+        runs_matrix = numpy.array(runs, dtype=float)
+        # use machine label, if any
+        output_file_name = test
+        if len(machine_label) > 0:
+            output_file_name += ".%s" % (machine_label)
+        # save times, numpy format
+        output_file_path = os.path.join(self.OUTPUT_DIRECTORY_PATH, "%s.npy" % (output_file_name))
+        numpy.save(output_file_path, runs_matrix)
+        # save times, txt format
+        output_file_path = os.path.join(self.OUTPUT_DIRECTORY_PATH, "%s.dat" % (output_file_name))
+        numpy.savetxt(output_file_path, runs_matrix, fmt="%.3f", delimiter="\t")
+        # save labels
+        output_file_path = os.path.join(self.OUTPUT_DIRECTORY_PATH, "%s.lab" % (output_file_name))
+        with io.open(output_file_path, "w", encoding="utf-8") as output_file:
+            output_file.write(u"\t".join(labels))
+            output_file.write(u"\n")
+        # save json
+        s_min = numpy.min(runs_matrix, axis=0)
+        s_max = numpy.max(runs_matrix, axis=0)
+        s_mean = numpy.mean(runs_matrix, axis=0)
+        s_mean_cum = numpy.cumsum(s_mean)
+        s_std = numpy.std(runs_matrix, axis=0)
+        s_total = numpy.sum(runs_matrix, axis=1)
+        info = {}
+        info["id"] = test
+        info["configuration"] = config_obj
+        info["labels"] = labels
+        info["total_min"] = self.format_float(numpy.min(s_total))
+        info["total_max"] = self.format_float(numpy.max(s_total))
+        info["total_std"] = self.format_float(numpy.std(s_total))
+        info["total_mean"] = self.format_float(numpy.mean(s_total))
+        info["rtf_min"] = self.format_float(numpy.min(s_total) / config_obj["audio_length"])
+        info["rtf_max"] = self.format_float(numpy.max(s_total) / config_obj["audio_length"])
+        info["rtf_std"] = self.format_float(numpy.std(s_total) / config_obj["audio_length"])
+        info["rtf_mean"] = self.format_float(numpy.mean(s_total) / config_obj["audio_length"])
+        info["steps_min"] = self.format_list(s_min)
+        info["steps_max"] = self.format_list(s_max)
+        info["steps_mean"] = self.format_list(s_mean)
+        info["steps_std"] = self.format_list(s_std)
+        info["steps_mean_cum"] = self.format_list(s_mean_cum)
+        info["steps_mean_lab"] = [{"label": l, "value": self.format_float(v)} for (l, v) in zip(labels, s_mean)]
+        info["steps_mean_cum_lab"] = [{"label": l, "value": self.format_float(v)} for (l, v) in zip(labels, s_mean_cum)]
+        output_file_path = os.path.join(self.OUTPUT_DIRECTORY_PATH, "%s.out.json" % (output_file_name))
+        with io.open(output_file_path, "w", encoding="utf-8") as output_file:
+            string = unicode(json.dumps(info, indent=4, separators=(',', ': '), sort_keys=True))
+            output_file.write(string)
+
+    def format_float(self, f):
+        return float("%.03f" % f)
+
+    def format_list(self, array):
+        return [float("%.03f" % a) for a in array]
 
 
 

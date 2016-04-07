@@ -1,0 +1,15 @@
+{
+    "arguments": {
+        "audio": "005m.mp3",
+        "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+        "rconf": "mfcc_window_length=1.250|mfcc_window_shift=0.500|dtw_margin=10.000",
+        "text": "005m.plain.sentence.txt"
+    },
+    "audio_length": 320.91,
+    "description": "plain, sentence, 500ms",
+    "execution": {
+        "timed_runs": 16,
+        "warmup_runs": 1
+    },
+    "text_length": 84
+}

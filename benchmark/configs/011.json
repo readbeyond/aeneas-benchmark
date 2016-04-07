@@ -1,0 +1,15 @@
+{
+    "arguments": {
+        "audio": "020m.mp3",
+        "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+        "rconf": "",
+        "text": "020m.plain.word.txt"
+    },
+    "audio_length": 1216.63,
+    "description": "plain, word",
+    "execution": {
+        "timed_runs": 4,
+        "warmup_runs": 0
+    },
+    "text_length": 3200
+}

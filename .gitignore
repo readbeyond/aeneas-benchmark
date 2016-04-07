@@ -9,8 +9,8 @@ bak
 build
 dist
 docs/build
-machines
 tmp
+zzz_leftovers
 
 # service scripts
 zzz_*.py
