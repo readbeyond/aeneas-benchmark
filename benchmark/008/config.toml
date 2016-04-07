@@ -1,0 +1,14 @@
+description = "plain, word"
+audio_length = 614.45
+text_length = 1492
+
+[arguments]
+audio = "010m.mp3"
+text = "010m.plain.word.txt"
+config = "task_language=eng|is_text_type=plain|os_task_file_format=json"
+rconf = ""
+
+[execution]
+warmup_runs = 0
+timed_runs = 8
+

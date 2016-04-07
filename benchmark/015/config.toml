@@ -1,0 +1,14 @@
+description = "mplain"
+audio_length = 1880.450
+text_length = 4512
+
+[arguments]
+audio = "030m.mp3"
+text = "030m.mplain.txt"
+config = "task_language=eng|is_text_type=mplain|os_task_file_format=json"
+rconf = ""
+
+[execution]
+warmup_runs = 0
+timed_runs = 2
+

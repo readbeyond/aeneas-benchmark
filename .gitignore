@@ -1,0 +1,24 @@
+*.pyc
+*.pyd
+*.pyo
+*.swp
+*.so
+.pybuild
+aeneas/
+bak
+build
+dist
+docs/build
+machines
+tmp
+
+# service scripts
+zzz_*.py
+zzz_*.sh
+zzz_long_tests
+
+# Eclipse/PyDev
+.project
+.pydevproject
+.settings
+

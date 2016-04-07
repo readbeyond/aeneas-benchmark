@@ -1,0 +1,14 @@
+description = "mplain, no C extensions"
+audio_length = 320.91
+text_length = 868
+
+[arguments]
+audio = "005m.mp3"
+text = "005m.mplain.txt"
+config = "task_language=eng|is_text_type=mplain|os_task_file_format=json"
+rconf = "c_extensions=False"
+
+[execution]
+warmup_runs = 0
+timed_runs = 4
+

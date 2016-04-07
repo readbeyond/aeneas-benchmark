@@ -1,0 +1,14 @@
+description = "plain, sentence, 500ms"
+audio_length = 320.91
+text_length = 84
+
+[arguments]
+audio = "005m.mp3"
+text = "005m.plain.sentence.txt"
+config = "task_language=eng|is_text_type=plain|os_task_file_format=json"
+rconf = "mfcc_window_length=1.250|mfcc_window_shift=0.500|dtw_margin=10.000"
+
+[execution]
+warmup_runs = 1
+timed_runs = 16
+
