@@ -67,129 +67,177 @@
     <script src="assets/js/d3.min.js"></script>
     <script src="assets/js/c3.min.js"></script>
     <script>
-var data = {"title": "Test 001","type": "single","machine": "GNU/Linux 4.3.0-1-amd64, AMD E-350 1.6GHz, 4GB RAM","raw":{
+var data = {"title": "Test 003","type": "single","machine": "GNU/Linux 4.3.0-1-amd64, AMD E-350 1.6GHz, 4GB RAM","raw":{
     "configuration": {
         "arguments": {
             "audio": "001m.mp3",
-            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "conf": "task_language=eng|is_text_type=mplain|os_task_file_format=json",
             "rconf": "",
-            "text": "001m.plain.sentence.txt"
+            "text": "001m.mplain.txt"
         },
         "audio_length": 53.32,
-        "description": "1m, plain, sentence",
+        "description": "1m, mplain",
         "execution": {
-            "timed_runs": 16,
-            "warmup_runs": 1
+            "timed_runs": 8,
+            "warmup_runs": 0
         },
-        "text_length": 15
+        "text_length": 107
     },
-    "id": "001",
+    "id": "003",
     "labels": [
-        "extract MFCC real wave",
+        "load audio file",
+        "extract MFCC real wave level 1",
+        "extract MFCC real wave level 2",
+        "extract MFCC real wave level 3",
+        "clear audio file",
         "compute head tail",
-        "synthesize text",
-        "extract MFCC synt wave",
-        "align waves",
-        "adjust boundaries",
+        "compute alignment level 1",
+        "compute alignment level 2",
+        "compute alignment level 3",
+        "select levels",
         "create sync map",
         "check zero duration"
     ],
-    "rtf_max": 0.027,
-    "rtf_mean": 0.024,
-    "rtf_min": 0.021,
-    "rtf_std": 0.003,
+    "rtf_max": 0.118,
+    "rtf_mean": 0.105,
+    "rtf_min": 0.098,
+    "rtf_std": 0.009,
     "steps_max": [
-        1.036,
+        1.105,
+        0.12,
+        0.264,
+        1.207,
         0.001,
-        0.196,
-        0.117,
-        0.115,
-        0.003,
-        0.002,
+        0.001,
+        0.298,
+        0.41,
+        2.934,
+        0.0,
+        0.001,
         0.0
     ],
     "steps_mean": [
-        0.842,
+        0.757,
+        0.098,
+        0.182,
+        0.954,
+        0.0,
         0.001,
-        0.196,
-        0.116,
-        0.112,
-        0.003,
-        0.002,
+        0.287,
+        0.407,
+        2.919,
+        0.0,
+        0.001,
         0.0
     ],
     "steps_mean_cum": [
-        0.842,
-        0.843,
-        1.039,
-        1.154,
-        1.267,
-        1.27,
-        1.272,
-        1.272
+        0.757,
+        0.855,
+        1.037,
+        1.991,
+        1.992,
+        1.993,
+        2.279,
+        2.687,
+        5.606,
+        5.606,
+        5.607,
+        5.607
     ],
     "steps_mean_cum_lab": [
         {
-            "label": "extract MFCC real wave",
-            "value": 0.842
+            "label": "load audio file",
+            "value": 0.757
+        },
+        {
+            "label": "extract MFCC real wave level 1",
+            "value": 0.855
+        },
+        {
+            "label": "extract MFCC real wave level 2",
+            "value": 1.037
+        },
+        {
+            "label": "extract MFCC real wave level 3",
+            "value": 1.991
+        },
+        {
+            "label": "clear audio file",
+            "value": 1.992
         },
         {
             "label": "compute head tail",
-            "value": 0.843
+            "value": 1.993
         },
         {
-            "label": "synthesize text",
-            "value": 1.039
+            "label": "compute alignment level 1",
+            "value": 2.279
         },
         {
-            "label": "extract MFCC synt wave",
-            "value": 1.154
+            "label": "compute alignment level 2",
+            "value": 2.687
         },
         {
-            "label": "align waves",
-            "value": 1.267
+            "label": "compute alignment level 3",
+            "value": 5.606
         },
         {
-            "label": "adjust boundaries",
-            "value": 1.27
+            "label": "select levels",
+            "value": 5.606
         },
         {
             "label": "create sync map",
-            "value": 1.272
+            "value": 5.607
         },
         {
             "label": "check zero duration",
-            "value": 1.272
+            "value": 5.607
         }
     ],
     "steps_mean_lab": [
         {
-            "label": "extract MFCC real wave",
-            "value": 0.842
+            "label": "load audio file",
+            "value": 0.757
+        },
+        {
+            "label": "extract MFCC real wave level 1",
+            "value": 0.098
+        },
+        {
+            "label": "extract MFCC real wave level 2",
+            "value": 0.182
+        },
+        {
+            "label": "extract MFCC real wave level 3",
+            "value": 0.954
+        },
+        {
+            "label": "clear audio file",
+            "value": 0.0
         },
         {
             "label": "compute head tail",
             "value": 0.001
         },
         {
-            "label": "synthesize text",
-            "value": 0.196
+            "label": "compute alignment level 1",
+            "value": 0.287
         },
         {
-            "label": "extract MFCC synt wave",
-            "value": 0.116
+            "label": "compute alignment level 2",
+            "value": 0.407
         },
         {
-            "label": "align waves",
-            "value": 0.112
+            "label": "compute alignment level 3",
+            "value": 2.919
         },
         {
-            "label": "adjust boundaries",
-            "value": 0.003
+            "label": "select levels",
+            "value": 0.0
         },
         {
             "label": "create sync map",
-            "value": 0.002
+            "value": 0.001
         },
         {
             "label": "check zero duration",
@@ -197,29 +245,37 @@ var data = {"title": "Test 001","type": "single","machine": "GNU/Linux 4.3.0-1-a
         }
     ],
     "steps_min": [
-        0.692,
-        0.001,
-        0.195,
-        0.114,
-        0.111,
-        0.003,
-        0.002,
-        0.0
-    ],
-    "steps_std": [
-        0.144,
-        0.0,
+        0.578,
+        0.083,
+        0.134,
+        0.808,
         0.0,
         0.001,
-        0.002,
+        0.278,
+        0.406,
+        2.906,
         0.0,
         0.0,
         0.0
     ],
-    "total_max": 1.466,
-    "total_mean": 1.272,
-    "total_min": 1.122,
-    "total_std": 0.144
+    "steps_std": [
+        0.246,
+        0.016,
+        0.058,
+        0.18,
+        0.0,
+        0.0,
+        0.008,
+        0.002,
+        0.011,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "total_max": 6.295,
+    "total_mean": 5.607,
+    "total_min": 5.224,
+    "total_std": 0.488
 }}
     </script>
     <script src="assets/js/custom.js"></script>

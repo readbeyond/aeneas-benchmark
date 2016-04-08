@@ -67,23 +67,23 @@
     <script src="assets/js/d3.min.js"></script>
     <script src="assets/js/c3.min.js"></script>
     <script>
-var data = {"title": "Test 001","type": "single","machine": "GNU/Linux 4.3.0-1-amd64, AMD E-350 1.6GHz, 4GB RAM","raw":{
+var data = {"title": "Test 005","type": "single","machine": "GNU/Linux 4.3.0-1-amd64, AMD E-350 1.6GHz, 4GB RAM","raw":{
     "configuration": {
         "arguments": {
-            "audio": "001m.mp3",
+            "audio": "005m.mp3",
             "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
             "rconf": "",
-            "text": "001m.plain.sentence.txt"
+            "text": "005m.plain.word.txt"
         },
-        "audio_length": 53.32,
-        "description": "1m, plain, sentence",
+        "audio_length": 320.91,
+        "description": "5m, plain, word",
         "execution": {
             "timed_runs": 16,
             "warmup_runs": 1
         },
-        "text_length": 15
+        "text_length": 868
     },
-    "id": "001",
+    "id": "005",
     "labels": [
         "extract MFCC real wave",
         "compute head tail",
@@ -94,78 +94,78 @@ var data = {"title": "Test 001","type": "single","machine": "GNU/Linux 4.3.0-1-a
         "create sync map",
         "check zero duration"
     ],
-    "rtf_max": 0.027,
-    "rtf_mean": 0.024,
-    "rtf_min": 0.021,
-    "rtf_std": 0.003,
+    "rtf_max": 0.039,
+    "rtf_mean": 0.037,
+    "rtf_min": 0.034,
+    "rtf_std": 0.002,
     "steps_max": [
-        1.036,
+        4.371,
         0.001,
-        0.196,
-        0.117,
-        0.115,
-        0.003,
-        0.002,
+        3.48,
+        2.064,
+        2.526,
+        0.105,
+        0.189,
         0.0
     ],
     "steps_mean": [
-        0.842,
+        4.062,
         0.001,
-        0.196,
-        0.116,
-        0.112,
-        0.003,
-        0.002,
+        3.13,
+        2.029,
+        2.506,
+        0.105,
+        0.127,
         0.0
     ],
     "steps_mean_cum": [
-        0.842,
-        0.843,
-        1.039,
-        1.154,
-        1.267,
-        1.27,
-        1.272,
-        1.272
+        4.062,
+        4.063,
+        7.193,
+        9.222,
+        11.728,
+        11.833,
+        11.96,
+        11.96
     ],
     "steps_mean_cum_lab": [
         {
             "label": "extract MFCC real wave",
-            "value": 0.842
+            "value": 4.062
         },
         {
             "label": "compute head tail",
-            "value": 0.843
+            "value": 4.063
         },
         {
             "label": "synthesize text",
-            "value": 1.039
+            "value": 7.193
         },
         {
             "label": "extract MFCC synt wave",
-            "value": 1.154
+            "value": 9.222
         },
         {
             "label": "align waves",
-            "value": 1.267
+            "value": 11.728
         },
         {
             "label": "adjust boundaries",
-            "value": 1.27
+            "value": 11.833
         },
         {
             "label": "create sync map",
-            "value": 1.272
+            "value": 11.96
         },
         {
             "label": "check zero duration",
-            "value": 1.272
+            "value": 11.96
         }
     ],
     "steps_mean_lab": [
         {
             "label": "extract MFCC real wave",
-            "value": 0.842
+            "value": 4.062
         },
         {
             "label": "compute head tail",
@@ -173,23 +173,23 @@ var data = {"title": "Test 001","type": "single","machine": "GNU/Linux 4.3.0-1-a
         },
         {
             "label": "synthesize text",
-            "value": 0.196
+            "value": 3.13
         },
         {
             "label": "extract MFCC synt wave",
-            "value": 0.116
+            "value": 2.029
         },
         {
             "label": "align waves",
-            "value": 0.112
+            "value": 2.506
         },
         {
             "label": "adjust boundaries",
-            "value": 0.003
+            "value": 0.105
         },
         {
             "label": "create sync map",
-            "value": 0.002
+            "value": 0.127
         },
         {
             "label": "check zero duration",
@@ -197,29 +197,29 @@ var data = {"title": "Test 001","type": "single","machine": "GNU/Linux 4.3.0-1-a
         }
     ],
     "steps_min": [
-        0.692,
+        3.52,
         0.001,
-        0.195,
-        0.114,
-        0.111,
-        0.003,
-        0.002,
+        2.661,
+        1.984,
+        2.476,
+        0.105,
+        0.095,
         0.0
     ],
     "steps_std": [
-        0.144,
+        0.385,
         0.0,
+        0.345,
+        0.034,
+        0.022,
         0.0,
-        0.001,
-        0.002,
-        0.0,
-        0.0,
+        0.044,
         0.0
     ],
-    "total_max": 1.466,
-    "total_mean": 1.272,
-    "total_min": 1.122,
-    "total_std": 0.144
+    "total_max": 12.626,
+    "total_mean": 11.96,
+    "total_min": 10.842,
+    "total_std": 0.796
 }}
     </script>
     <script src="assets/js/custom.js"></script>

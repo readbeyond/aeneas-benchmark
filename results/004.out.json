@@ -1,0 +1,154 @@
+{
+    "configuration": {
+        "arguments": {
+            "audio": "005m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "005m.plain.sentence.txt"
+        },
+        "audio_length": 320.91,
+        "description": "5m, plain, sentence",
+        "execution": {
+            "timed_runs": 16,
+            "warmup_runs": 1
+        },
+        "text_length": 84
+    },
+    "id": "004",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "rtf_max": 0.027,
+    "rtf_mean": 0.026,
+    "rtf_min": 0.026,
+    "rtf_std": 0.001,
+    "steps_max": [
+        4.066,
+        0.001,
+        1.299,
+        0.927,
+        2.594,
+        0.007,
+        0.005,
+        0.0
+    ],
+    "steps_mean": [
+        3.716,
+        0.001,
+        1.299,
+        0.905,
+        2.508,
+        0.007,
+        0.005,
+        0.0
+    ],
+    "steps_mean_cum": [
+        3.716,
+        3.717,
+        5.016,
+        5.92,
+        8.429,
+        8.436,
+        8.441,
+        8.441
+    ],
+    "steps_mean_cum_lab": [
+        {
+            "label": "extract MFCC real wave",
+            "value": 3.716
+        },
+        {
+            "label": "compute head tail",
+            "value": 3.717
+        },
+        {
+            "label": "synthesize text",
+            "value": 5.016
+        },
+        {
+            "label": "extract MFCC synt wave",
+            "value": 5.92
+        },
+        {
+            "label": "align waves",
+            "value": 8.429
+        },
+        {
+            "label": "adjust boundaries",
+            "value": 8.436
+        },
+        {
+            "label": "create sync map",
+            "value": 8.441
+        },
+        {
+            "label": "check zero duration",
+            "value": 8.441
+        }
+    ],
+    "steps_mean_lab": [
+        {
+            "label": "extract MFCC real wave",
+            "value": 3.716
+        },
+        {
+            "label": "compute head tail",
+            "value": 0.001
+        },
+        {
+            "label": "synthesize text",
+            "value": 1.299
+        },
+        {
+            "label": "extract MFCC synt wave",
+            "value": 0.905
+        },
+        {
+            "label": "align waves",
+            "value": 2.508
+        },
+        {
+            "label": "adjust boundaries",
+            "value": 0.007
+        },
+        {
+            "label": "create sync map",
+            "value": 0.005
+        },
+        {
+            "label": "check zero duration",
+            "value": 0.0
+        }
+    ],
+    "steps_min": [
+        3.516,
+        0.001,
+        1.299,
+        0.892,
+        2.463,
+        0.007,
+        0.005,
+        0.0
+    ],
+    "steps_std": [
+        0.249,
+        0.0,
+        0.0,
+        0.016,
+        0.061,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "total_max": 8.738,
+    "total_mean": 8.441,
+    "total_min": 8.186,
+    "total_std": 0.227
+}
