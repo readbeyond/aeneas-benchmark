@@ -6,7 +6,7 @@
         "text": "005m.plain.word.txt"
     },
     "audio_length": 320.91,
-    "description": "plain, word, no C extensions",
+    "description": "5m, plain, word, no C extensions",
     "execution": {
         "timed_runs": 8,
         "warmup_runs": 1

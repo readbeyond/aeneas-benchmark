@@ -6,7 +6,7 @@
         "text": "005m.mplain.txt"
     },
     "audio_length": 320.91,
-    "description": "mplain",
+    "description": "5m, mplain",
     "execution": {
         "timed_runs": 8,
         "warmup_runs": 0

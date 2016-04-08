@@ -6,7 +6,7 @@
         "text": "060m.plain.sentence.txt"
     },
     "audio_length": 3613.7,
-    "description": "plain, sentence",
+    "description": "60m, plain, sentence",
     "execution": {
         "timed_runs": 4,
         "warmup_runs": 0
