@@ -1,1 +1,115 @@
-Available soon
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="Shortcut Icon" href="assets/favicon.png" type="image/x-icon">
+
+    <title>aeneas-benchmark</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.plus.checkbox.min.css" rel="stylesheet">
+    <link href="assets/css/c3.min.css" rel="stylesheet">
+
+    <style>
+      body {
+        padding-top: 70px;
+      }
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://readbeyond.github.io/aeneas-benchmark/">aeneas-benchmark</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="http://www.readbeyond.it/aeneas/" target="_blank"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Documentation</a></li>
+            <li><a href="https://github.com/readbeyond/aeneas/" target="_blank"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> aeneas GitHub</a></li>
+            <li><a href="https://github.com/readbeyond/aeneas-benchmark/" target="_blank"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> aeneas-benchmark GitHub</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container" role="main">
+    
+        <div id="title"></div>
+        <hr/>
+        <div id="chart"></div>
+        <hr/>
+        <div id="rawdata"></div>
+        <hr/>
+
+    </div><!-- /container -->
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">©2016 <a href="http://www.readbeyond.it/">ReadBeyond</a>, Venice, Italy.</p>
+      </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/d3.min.js"></script>
+    <script src="assets/js/c3.min.js"></script>
+
+    <script>
+        var chart = c3.generate({
+          data: {
+            x: 'x',
+            columns: [
+              ['x', 'extract MFCC real wave', 'synthesize text', 'extract MFCC synt wave', 'align waves', 'total'],
+              ['001', 1.226, 0.248, 0.138, 0.126, 1.745],
+              ['002', 1.137, 0.393, 0.270, 0.254, 2.085],
+              ['004', 1.302, 0.885, 0.211, 5.923, 8.328],
+              ['005', 1.306, 4.296, 0.393, 12.624, 18.647],
+            ],
+            type: 'bar',
+            names: {
+              '001': '1m, plain, sentence',
+              '002': '1m, plain, word',
+              '004': '5m, plain, sentence',
+              '005': '5m, plain, word',
+            } 
+          },
+          axis: {
+            x: {
+              type: 'category',
+              label: 'step'
+            },
+            y: {
+              label: 's'
+            }
+          }
+        });
+
+        $("#title").html("<h1>Run time of <code>execute_task</code></h1>");
+
+        $("#rawdata").html("<p>Raw data will go here, with links to the data JSON files, etc.</p>");
+
+    </script>
+
+
+  </body>
+</html>

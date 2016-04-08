@@ -1,0 +1,20 @@
+*.pyc
+*.pyd
+*.pyo
+*.swp
+*.so
+.pybuild
+benchmark
+sitebuilder
+zzz_leftovers
+
+# service scripts
+zzz_*.py
+zzz_*.sh
+zzz_long_tests
+
+# Eclipse/PyDev
+.project
+.pydevproject
+.settings
+
