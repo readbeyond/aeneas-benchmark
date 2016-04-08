@@ -51,16 +51,9 @@
       </div>
     </nav>
 
-    <div class="container" role="main">
-    
-        <div id="title"></div>
-        <hr/>
-        <div id="chart"></div>
-        <hr/>
-        <div id="rawdata"></div>
-        <hr/>
-
-    </div><!-- /container -->
+    <div id="content" class="container" role="main">
+    <!-- CONTENT -->
+    </div>
 
     <footer class="footer">
       <div class="container">
@@ -73,43 +66,18 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/d3.min.js"></script>
     <script src="assets/js/c3.min.js"></script>
-
     <script>
-        var chart = c3.generate({
-          data: {
-            x: 'x',
-            columns: [
-              ['x', 'extract MFCC real wave', 'synthesize text', 'extract MFCC synt wave', 'align waves', 'total'],
-              ['001', 1.226, 0.248, 0.138, 0.126, 1.745],
-              ['002', 1.137, 0.393, 0.270, 0.254, 2.085],
-              ['004', 1.302, 0.885, 0.211, 5.923, 8.328],
-              ['005', 1.306, 4.296, 0.393, 12.624, 18.647],
-            ],
-            type: 'bar',
-            names: {
-              '001': '1m, plain, sentence',
-              '002': '1m, plain, word',
-              '004': '5m, plain, sentence',
-              '005': '5m, plain, word',
-            } 
-          },
-          axis: {
-            x: {
-              type: 'category',
-              label: 'step'
-            },
-            y: {
-              label: 's'
-            }
-          }
-        });
-
-        $("#title").html("<h1>Run time of <code>execute_task</code> (this is a TEST!)</h1>");
-
-        $("#rawdata").html("<p>Raw data will go here, with links to the data JSON files, etc.</p>");
-
+        var data = {
+            "title": "aeneas Benchmark Suite",
+            "type": "index",
+            "links": [
+                {
+                    "id": "001",
+                    "description": "Test 001 (1m, plain, sentence)"
+                },
+            ]
+        };
     </script>
-
-
+    <script src="assets/js/custom.js"></script>
   </body>
 </html>
