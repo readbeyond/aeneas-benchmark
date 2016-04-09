@@ -30,7 +30,7 @@ output_directory_path = "output"
 
 inp = sys.argv[1]
 
-with io.open(os.path.join(input_directory_path, inp + ".out.json"), "r", encoding="utf-8") as input_file:
+with io.open(os.path.join(input_directory_path, inp + ".json"), "r", encoding="utf-8") as input_file:
     inp_data = input_file.read()
 
 with io.open(template_file_path, "r", encoding="utf-8") as template_file:
@@ -38,9 +38,8 @@ with io.open(template_file_path, "r", encoding="utf-8") as template_file:
 
 
 replaced  = "var data = {"
-replaced += "\"title\": \"Test " + inp + "\","
+replaced += "\"title\": \"Run " + inp + "\","
 replaced += "\"type\": \"single\","
-replaced += "\"machine\": \"GNU/Linux 4.3.0-1-amd64, AMD E-350 1.6GHz, 4GB RAM\","
 replaced += "\"raw\":"
 replaced += inp_data
 replaced += "}"

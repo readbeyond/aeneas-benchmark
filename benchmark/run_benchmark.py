@@ -32,6 +32,7 @@ class RunBenchmarkCLI(AbstractCLIProgram):
     Run the benchmark suite or selected tests.
     """
     CONFIG_DIRECTORY_PATH = "configs"
+    ENVIRONMENT_INFO_FILE_PATH = "ENVINFO"
     INPUT_DIRECTORY_PATH = "input"
     OUTPUT_DIRECTORY_PATH = "output"
 
@@ -91,6 +92,7 @@ class RunBenchmarkCLI(AbstractCLIProgram):
             (u"--tests=TEST1,TEST2,...", True),
         ],
         "examples": [
+            u"--list",
             u"--all",
             u"--tests=001,003,005",
             u"--tests=001-006,010-012",
@@ -98,8 +100,9 @@ class RunBenchmarkCLI(AbstractCLIProgram):
         "options": [
             u"-a, --all : run all tests",
             u"-d, --debug : run in debug mode (1 warmup, 3 timed)",
-            u"--label=LABEL : output results to file with this label", 
+            u"-e=ENVFILE, --environment=ENVFILE : add environment data from ENVFILE",
             u"--list : list all available tests",
+            u"-s, --single : perform one timed run only",
             u"-t=TESTS, --tests=TESTS : run tests TESTS"
         ]
     }
@@ -111,11 +114,10 @@ class RunBenchmarkCLI(AbstractCLIProgram):
         self.print_info(u"Available tests:")
         for test in self.TESTS:
             config_obj = self.get_config(test)
-            self.print_generic(u"%s : (%d+%dx) %s, %s" % (
+            self.print_generic(u"%s : (%d+%dx) %s" % (
                 test,
                 config_obj["execution"]["warmup_runs"],
                 config_obj["execution"]["timed_runs"],
-                gf.time_to_hhmmssmmm(config_obj["audio_length"]),
                 config_obj["description"]
             ))
         return self.HELP_EXIT_CODE
@@ -172,9 +174,18 @@ class RunBenchmarkCLI(AbstractCLIProgram):
         if debug:
             self.print_warning(u"Running in debug mode")
 
-        machine_label = self.has_option_with_value(u"--label")
-        if machine_label is None:
-            machine_label = u""
+        env_file_path = self.has_option_with_value(u"-e")
+        if env_file_path is None:
+            env_file_path = self.has_option_with_value(u"--environment")
+        if env_file_path is None:
+            env_file_path = self.ENVIRONMENT_INFO_FILE_PATH
+        if os.path.isfile(env_file_path):
+            with io.open(env_file_path, "r", encoding="utf-8") as env_file:
+                env_info = json.loads(env_file.read())
+                self.print_info(u"Environment info: '%s', '%s'" % (env_info["label"], env_info["description"]))
+        else:
+            self.print_warning(u"Environment info: UNKNOWN")
+            env_info = {u"label": u"unknown", u"description": u"unknown"}
 
         if self.has_option([u"-a", u"--all"]):
             tests = self.TESTS
@@ -231,14 +242,14 @@ class RunBenchmarkCLI(AbstractCLIProgram):
                     labels = self.get_labels(logger)
            
             # save results
-            self.save_results(test, config_obj, labels, runs, machine_label)
+            self.save_results(test, config_obj, labels, runs, env_info)
             self.print_info(u"Test %s ... completed" % test)
         self.print_success(u"Benchmark completed")
         return self.NO_ERROR_EXIT_CODE
 
     def get_config(self, test):
         config_obj = {}
-        with open(os.path.join(self.CONFIG_DIRECTORY_PATH, test + u".json")) as config_file:
+        with io.open(os.path.join(self.CONFIG_DIRECTORY_PATH, test + u".json"), "r", encoding="utf-8") as config_file:
             config_obj = json.loads(config_file.read())
         return config_obj
 
@@ -273,13 +284,11 @@ class RunBenchmarkCLI(AbstractCLIProgram):
             labels.append((" ".join(l[index+2:])).replace("(", "").replace(")", ""))
         return labels 
 
-    def save_results(self, test, config_obj, labels, runs, machine_label):
+    def save_results(self, test, config_obj, labels, runs, env_info):
         # convert to numpy matrix
         runs_matrix = numpy.array(runs, dtype=float)
-        # use machine label, if any
-        output_file_name = test
-        if len(machine_label) > 0:
-            output_file_name += ".%s" % (machine_label)
+        # use machine label
+        output_file_name = test + (".%s" % (env_info["label"]))
         # save times, numpy format
         output_file_path = os.path.join(self.OUTPUT_DIRECTORY_PATH, "%s.npy" % (output_file_name))
         numpy.save(output_file_path, runs_matrix)
@@ -292,6 +301,7 @@ class RunBenchmarkCLI(AbstractCLIProgram):
             output_file.write(u"\t".join(labels))
             output_file.write(u"\n")
         # save json
+        output_file_path = os.path.join(self.OUTPUT_DIRECTORY_PATH, "%s.json" % (output_file_name))
         s_min = numpy.min(runs_matrix, axis=0)
         s_max = numpy.max(runs_matrix, axis=0)
         s_mean = numpy.mean(runs_matrix, axis=0)
@@ -300,7 +310,9 @@ class RunBenchmarkCLI(AbstractCLIProgram):
         s_total = numpy.sum(runs_matrix, axis=1)
         info = {}
         info["id"] = test
+        info["output_file"] = "%s.json" % (output_file_name)
         info["configuration"] = config_obj
+        info["environment"] = env_info
         info["labels"] = labels
         info["total_min"] = self.format_float(numpy.min(s_total))
         info["total_max"] = self.format_float(numpy.max(s_total))
@@ -315,9 +327,6 @@ class RunBenchmarkCLI(AbstractCLIProgram):
         info["steps_mean"] = self.format_list(s_mean)
         info["steps_std"] = self.format_list(s_std)
         info["steps_mean_cum"] = self.format_list(s_mean_cum)
-        info["steps_mean_lab"] = [{"label": l, "value": self.format_float(v)} for (l, v) in zip(labels, s_mean)]
-        info["steps_mean_cum_lab"] = [{"label": l, "value": self.format_float(v)} for (l, v) in zip(labels, s_mean_cum)]
-        output_file_path = os.path.join(self.OUTPUT_DIRECTORY_PATH, "%s.out.json" % (output_file_name))
         with io.open(output_file_path, "w", encoding="utf-8") as output_file:
             string = unicode(json.dumps(info, indent=4, separators=(',', ': '), sort_keys=True))
             output_file.write(string)
