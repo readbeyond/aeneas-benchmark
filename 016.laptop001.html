@@ -67,23 +67,33 @@
     <script src="assets/js/d3.min.js"></script>
     <script src="assets/js/c3.min.js"></script>
     <script>
-var data = {"title": "Test 007","type": "single","machine": "GNU/Linux 4.3.0-1-amd64, AMD E-350 1.6GHz, 4GB RAM","raw":{
+var data = {"title": "Run 016.laptop001","type": "single","raw":{
     "configuration": {
         "arguments": {
-            "audio": "010m.mp3",
+            "audio": "060m.mp3",
             "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
             "rconf": "",
-            "text": "010m.plain.sentence.txt"
+            "text": "060m.plain.sentence.txt"
         },
-        "audio_length": 614.45,
-        "description": "10m, plain, sentence",
+        "audio_length": 3613.7,
+        "description": "60m, plain, sentence",
         "execution": {
-            "timed_runs": 8,
+            "timed_runs": 4,
             "warmup_runs": 0
         },
-        "text_length": 84
+        "text_length": 629
     },
-    "id": "007",
+    "environment": {
+        "description": "dev slow laptop",
+        "label": "laptop001",
+        "model": "ThinkPad X120e",
+        "notes": "",
+        "os": "GNU/Linux 4.3.0-1-amd64",
+        "processor": "AMD E-350 1.6GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "016",
     "labels": [
         "extract MFCC real wave",
         "compute head tail",
@@ -94,132 +104,65 @@ var data = {"title": "Test 007","type": "single","machine": "GNU/Linux 4.3.0-1-a
         "create sync map",
         "check zero duration"
     ],
-    "rtf_max": 0.03,
-    "rtf_mean": 0.029,
-    "rtf_min": 0.028,
+    "output_file": "016.laptop001.json",
+    "rtf_max": 0.027,
+    "rtf_mean": 0.026,
+    "rtf_min": 0.025,
     "rtf_std": 0.001,
     "steps_max": [
-        7.859,
-        0.001,
-        2.288,
-        1.614,
-        6.544,
-        0.012,
-        0.01,
+        41.923,
+        0.005,
+        14.597,
+        10.322,
+        31.112,
+        0.082,
+        0.139,
         0.0
     ],
     "steps_mean": [
-        7.248,
-        0.001,
-        2.241,
-        1.586,
-        6.439,
-        0.012,
-        0.009,
+        40.525,
+        0.002,
+        13.84,
+        9.892,
+        29.575,
+        0.079,
+        0.094,
         0.0
     ],
     "steps_mean_cum": [
-        7.248,
-        7.249,
-        9.49,
-        11.076,
-        17.515,
-        17.527,
-        17.536,
-        17.536
-    ],
-    "steps_mean_cum_lab": [
-        {
-            "label": "extract MFCC real wave",
-            "value": 7.248
-        },
-        {
-            "label": "compute head tail",
-            "value": 7.249
-        },
-        {
-            "label": "synthesize text",
-            "value": 9.49
-        },
-        {
-            "label": "extract MFCC synt wave",
-            "value": 11.076
-        },
-        {
-            "label": "align waves",
-            "value": 17.515
-        },
-        {
-            "label": "adjust boundaries",
-            "value": 17.527
-        },
-        {
-            "label": "create sync map",
-            "value": 17.536
-        },
-        {
-            "label": "check zero duration",
-            "value": 17.536
-        }
-    ],
-    "steps_mean_lab": [
-        {
-            "label": "extract MFCC real wave",
-            "value": 7.248
-        },
-        {
-            "label": "compute head tail",
-            "value": 0.001
-        },
-        {
-            "label": "synthesize text",
-            "value": 2.241
-        },
-        {
-            "label": "extract MFCC synt wave",
-            "value": 1.586
-        },
-        {
-            "label": "align waves",
-            "value": 6.439
-        },
-        {
-            "label": "adjust boundaries",
-            "value": 0.012
-        },
-        {
-            "label": "create sync map",
-            "value": 0.009
-        },
-        {
-            "label": "check zero duration",
-            "value": 0.0
-        }
+        40.525,
+        40.527,
+        54.367,
+        64.259,
+        93.834,
+        93.913,
+        94.007,
+        94.007
     ],
     "steps_min": [
-        6.914,
+        38.916,
         0.001,
-        2.192,
-        1.536,
-        6.383,
-        0.011,
-        0.009,
+        13.385,
+        9.482,
+        28.065,
+        0.077,
+        0.068,
         0.0
     ],
     "steps_std": [
-        0.433,
-        0.0,
-        0.039,
-        0.036,
-        0.074,
-        0.0,
-        0.0,
+        1.237,
+        0.002,
+        0.539,
+        0.343,
+        1.244,
+        0.002,
+        0.032,
         0.0
     ],
-    "total_max": 18.282,
-    "total_mean": 17.536,
-    "total_min": 17.111,
-    "total_std": 0.529
+    "total_max": 98.116,
+    "total_mean": 94.007,
+    "total_min": 89.995,
+    "total_std": 3.316
 }}
     </script>
     <script src="assets/js/custom.js"></script>

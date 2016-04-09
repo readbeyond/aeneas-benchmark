@@ -67,23 +67,33 @@
     <script src="assets/js/d3.min.js"></script>
     <script src="assets/js/c3.min.js"></script>
     <script>
-var data = {"title": "Test 006","type": "single","machine": "GNU/Linux 4.3.0-1-amd64, AMD E-350 1.6GHz, 4GB RAM","raw":{
+var data = {"title": "Run 003.laptop001","type": "single","raw":{
     "configuration": {
         "arguments": {
-            "audio": "005m.mp3",
+            "audio": "001m.mp3",
             "conf": "task_language=eng|is_text_type=mplain|os_task_file_format=json",
             "rconf": "",
-            "text": "005m.mplain.txt"
+            "text": "001m.mplain.txt"
         },
-        "audio_length": 320.91,
-        "description": "5m, mplain",
+        "audio_length": 53.32,
+        "description": "1m, mplain",
         "execution": {
             "timed_runs": 8,
             "warmup_runs": 0
         },
-        "text_length": 868
+        "text_length": 107
     },
-    "id": "006",
+    "environment": {
+        "description": "dev slow laptop",
+        "label": "laptop001",
+        "model": "ThinkPad X120e",
+        "notes": "",
+        "os": "GNU/Linux 4.3.0-1-amd64",
+        "processor": "AMD E-350 1.6GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "003",
     "labels": [
         "load audio file",
         "extract MFCC real wave level 1",
@@ -98,184 +108,85 @@ var data = {"title": "Test 006","type": "single","machine": "GNU/Linux 4.3.0-1-a
         "create sync map",
         "check zero duration"
     ],
-    "rtf_max": 0.195,
-    "rtf_mean": 0.194,
-    "rtf_min": 0.192,
-    "rtf_std": 0.001,
+    "output_file": "003.laptop001.json",
+    "rtf_max": 0.119,
+    "rtf_mean": 0.107,
+    "rtf_min": 0.098,
+    "rtf_std": 0.009,
     "steps_max": [
-        2.991,
-        0.362,
-        0.814,
-        4.981,
-        0.006,
+        0.681,
+        0.115,
+        0.255,
+        1.405,
         0.001,
-        2.006,
-        3.5,
-        48.286,
+        0.002,
+        0.293,
+        0.476,
+        3.285,
         0.0,
         0.001,
         0.0
     ],
     "steps_mean": [
-        2.881,
-        0.358,
-        0.774,
-        4.939,
-        0.006,
-        0.001,
-        1.977,
-        3.45,
-        47.877,
+        0.626,
+        0.078,
+        0.175,
+        1.014,
         0.0,
         0.001,
+        0.283,
+        0.433,
+        3.117,
+        0.0,
+        0.0,
         0.0
     ],
     "steps_mean_cum": [
-        2.881,
-        3.239,
-        4.013,
-        8.953,
-        8.959,
-        8.96,
-        10.937,
-        14.386,
-        62.263,
-        62.263,
-        62.264,
-        62.264
-    ],
-    "steps_mean_cum_lab": [
-        {
-            "label": "load audio file",
-            "value": 2.881
-        },
-        {
-            "label": "extract MFCC real wave level 1",
-            "value": 3.239
-        },
-        {
-            "label": "extract MFCC real wave level 2",
-            "value": 4.013
-        },
-        {
-            "label": "extract MFCC real wave level 3",
-            "value": 8.953
-        },
-        {
-            "label": "clear audio file",
-            "value": 8.959
-        },
-        {
-            "label": "compute head tail",
-            "value": 8.96
-        },
-        {
-            "label": "compute alignment level 1",
-            "value": 10.937
-        },
-        {
-            "label": "compute alignment level 2",
-            "value": 14.386
-        },
-        {
-            "label": "compute alignment level 3",
-            "value": 62.263
-        },
-        {
-            "label": "select levels",
-            "value": 62.263
-        },
-        {
-            "label": "create sync map",
-            "value": 62.264
-        },
-        {
-            "label": "check zero duration",
-            "value": 62.264
-        }
-    ],
-    "steps_mean_lab": [
-        {
-            "label": "load audio file",
-            "value": 2.881
-        },
-        {
-            "label": "extract MFCC real wave level 1",
-            "value": 0.358
-        },
-        {
-            "label": "extract MFCC real wave level 2",
-            "value": 0.774
-        },
-        {
-            "label": "extract MFCC real wave level 3",
-            "value": 4.939
-        },
-        {
-            "label": "clear audio file",
-            "value": 0.006
-        },
-        {
-            "label": "compute head tail",
-            "value": 0.001
-        },
-        {
-            "label": "compute alignment level 1",
-            "value": 1.977
-        },
-        {
-            "label": "compute alignment level 2",
-            "value": 3.45
-        },
-        {
-            "label": "compute alignment level 3",
-            "value": 47.877
-        },
-        {
-            "label": "select levels",
-            "value": 0.0
-        },
-        {
-            "label": "create sync map",
-            "value": 0.001
-        },
-        {
-            "label": "check zero duration",
-            "value": 0.0
-        }
+        0.626,
+        0.704,
+        0.88,
+        1.894,
+        1.894,
+        1.895,
+        2.179,
+        2.612,
+        5.729,
+        5.729,
+        5.729,
+        5.729
     ],
     "steps_min": [
-        2.815,
-        0.354,
-        0.75,
-        4.862,
-        0.006,
-        0.001,
-        1.957,
-        3.379,
-        47.203,
+        0.576,
+        0.06,
+        0.135,
+        0.804,
         0.0,
         0.001,
+        0.273,
+        0.406,
+        2.931,
+        0.0,
+        0.0,
         0.0
     ],
     "steps_std": [
-        0.078,
-        0.003,
-        0.028,
-        0.055,
+        0.043,
+        0.026,
+        0.056,
+        0.277,
         0.0,
         0.0,
-        0.021,
-        0.051,
-        0.48,
+        0.008,
+        0.031,
+        0.145,
         0.0,
         0.0,
         0.0
     ],
-    "total_max": 62.695,
-    "total_mean": 62.264,
-    "total_min": 61.615,
-    "total_std": 0.467
+    "total_max": 6.356,
+    "total_mean": 5.729,
+    "total_min": 5.227,
+    "total_std": 0.469
 }}
     </script>
     <script src="assets/js/custom.js"></script>

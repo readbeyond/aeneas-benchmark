@@ -47,7 +47,7 @@
             <li><a href="https://github.com/readbeyond/aeneas/" target="_blank"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> aeneas GitHub</a></li>
             <li><a href="https://github.com/readbeyond/aeneas-benchmark/" target="_blank"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> aeneas-benchmark GitHub</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>
 
@@ -67,62 +67,103 @@
     <script src="assets/js/d3.min.js"></script>
     <script src="assets/js/c3.min.js"></script>
     <script>
-        var data = {
-            "title": "aeneas Benchmark Suite",
-            "type": "index",
-            "links": [
-                {
-                    "id": "001",
-                    "description": "1m, plain, sentence",
-                    "environments": ["laptop001"]
-                },
-                {
-                    "id": "002",
-                    "description": "1m, plain, word",
-                    "environments": ["laptop001"]
-                },
-                {
-                    "id": "003",
-                    "description": "1m, mplain",
-                    "environments": ["laptop001"]
-                },
-                {
-                    "id": "004",
-                    "description": "5m, plain, sentence",
-                    "environments": ["laptop001"]
-                },
-                {
-                    "id": "005",
-                    "description": "5m, plain, word",
-                    "environments": ["laptop001"]
-                },
-                {
-                    "id": "006",
-                    "description": "5m, mplain",
-                    "environments": ["laptop001"]
-                },
-                {
-                    "id": "007",
-                    "description": "10m, plain, sentence",
-                    "environments": ["laptop001"]
-                },
-                {
-                    "id": "010",
-                    "description": "20m, plain, sentence",
-                    "environments": ["laptop001"]
-                },
-                {
-                    "id": "013",
-                    "description": "30m, plain, sentence",
-                    "environments": ["laptop001"]
-                },
-                {
-                    "id": "016",
-                    "description": "60m, plain, sentence",
-                    "environments": ["laptop001"]
-                },
-            ]
-        };
+var data = {"title": "Run 007.laptop001","type": "single","raw":{
+    "configuration": {
+        "arguments": {
+            "audio": "010m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "010m.plain.sentence.txt"
+        },
+        "audio_length": 614.45,
+        "description": "10m, plain, sentence",
+        "execution": {
+            "timed_runs": 8,
+            "warmup_runs": 0
+        },
+        "text_length": 84
+    },
+    "environment": {
+        "description": "dev slow laptop",
+        "label": "laptop001",
+        "model": "ThinkPad X120e",
+        "notes": "",
+        "os": "GNU/Linux 4.3.0-1-amd64",
+        "processor": "AMD E-350 1.6GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "007",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "007.laptop001.json",
+    "rtf_max": 0.029,
+    "rtf_mean": 0.028,
+    "rtf_min": 0.027,
+    "rtf_std": 0.001,
+    "steps_max": [
+        7.502,
+        0.001,
+        2.308,
+        2.396,
+        6.319,
+        0.012,
+        0.009,
+        0.0
+    ],
+    "steps_mean": [
+        6.963,
+        0.001,
+        2.232,
+        1.861,
+        6.196,
+        0.012,
+        0.009,
+        0.0
+    ],
+    "steps_mean_cum": [
+        6.963,
+        6.964,
+        9.196,
+        11.057,
+        17.253,
+        17.264,
+        17.273,
+        17.273
+    ],
+    "steps_min": [
+        6.6,
+        0.001,
+        2.188,
+        1.577,
+        6.081,
+        0.011,
+        0.009,
+        0.0
+    ],
+    "steps_std": [
+        0.389,
+        0.0,
+        0.054,
+        0.378,
+        0.097,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "total_max": 17.642,
+    "total_mean": 17.273,
+    "total_min": 16.881,
+    "total_std": 0.311
+}}
     </script>
     <script src="assets/js/custom.js"></script>
   </body>
