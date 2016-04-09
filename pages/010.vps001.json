@@ -1,0 +1,97 @@
+{
+    "configuration": {
+        "arguments": {
+            "audio": "020m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "020m.plain.sentence.txt"
+        },
+        "audio_length": 1216.63,
+        "description": "20m, plain, sentence",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 217
+    },
+    "environment": {
+        "description": "dev VPS",
+        "label": "vps001",
+        "model": "unknown",
+        "notes": "",
+        "os": "GNU/Linux 3.16.0-4-amd64",
+        "processor": "AMD Athlon II X2 240 2.8GHz",
+        "python": "2.7.9",
+        "ram": "4 GB"
+    },
+    "id": "010",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "010.vps001.json",
+    "rtf_max": 0.01,
+    "rtf_mean": 0.01,
+    "rtf_min": 0.01,
+    "rtf_std": 0.0,
+    "steps_max": [
+        4.899,
+        0.0,
+        2.339,
+        1.32,
+        3.834,
+        0.013,
+        0.009,
+        0.0
+    ],
+    "steps_mean": [
+        4.694,
+        0.0,
+        2.335,
+        1.315,
+        3.822,
+        0.013,
+        0.009,
+        0.0
+    ],
+    "steps_mean_cum": [
+        4.694,
+        4.694,
+        7.028,
+        8.343,
+        12.165,
+        12.178,
+        12.187,
+        12.187
+    ],
+    "steps_min": [
+        4.619,
+        0.0,
+        2.33,
+        1.313,
+        3.817,
+        0.013,
+        0.009,
+        0.0
+    ],
+    "steps_std": [
+        0.119,
+        0.0,
+        0.004,
+        0.003,
+        0.007,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "total_max": 12.392,
+    "total_mean": 12.188,
+    "total_min": 12.104,
+    "total_std": 0.119
+}

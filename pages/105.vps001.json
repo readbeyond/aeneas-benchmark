@@ -1,0 +1,97 @@
+{
+    "configuration": {
+        "arguments": {
+            "audio": "005m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "c_extensions=False",
+            "text": "005m.plain.word.txt"
+        },
+        "audio_length": 320.91,
+        "description": "5m, plain, word, no C extensions",
+        "execution": {
+            "timed_runs": 8,
+            "warmup_runs": 1
+        },
+        "text_length": 868
+    },
+    "environment": {
+        "description": "dev VPS",
+        "label": "vps001",
+        "model": "unknown",
+        "notes": "",
+        "os": "GNU/Linux 3.16.0-4-amd64",
+        "processor": "AMD Athlon II X2 240 2.8GHz",
+        "python": "2.7.9",
+        "ram": "4 GB"
+    },
+    "id": "105",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "105.vps001.json",
+    "rtf_max": 0.103,
+    "rtf_mean": 0.095,
+    "rtf_min": 0.089,
+    "rtf_std": 0.005,
+    "steps_max": [
+        1.63,
+        0.0,
+        28.805,
+        1.443,
+        1.033,
+        0.051,
+        0.112,
+        0.0
+    ],
+    "steps_mean": [
+        1.61,
+        0.0,
+        26.242,
+        1.418,
+        1.027,
+        0.051,
+        0.064,
+        0.0
+    ],
+    "steps_mean_cum": [
+        1.61,
+        1.61,
+        27.852,
+        29.27,
+        30.298,
+        30.349,
+        30.412,
+        30.412
+    ],
+    "steps_min": [
+        1.592,
+        0.0,
+        24.563,
+        1.405,
+        1.025,
+        0.051,
+        0.038,
+        0.0
+    ],
+    "steps_std": [
+        0.015,
+        0.0,
+        1.465,
+        0.012,
+        0.002,
+        0.0,
+        0.032,
+        0.0
+    ],
+    "total_max": 32.977,
+    "total_mean": 30.412,
+    "total_min": 28.701,
+    "total_std": 1.477
+}

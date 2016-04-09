@@ -1,0 +1,97 @@
+{
+    "configuration": {
+        "arguments": {
+            "audio": "010m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "010m.plain.word.txt"
+        },
+        "audio_length": 614.45,
+        "description": "10m, plain, word",
+        "execution": {
+            "timed_runs": 8,
+            "warmup_runs": 0
+        },
+        "text_length": 1492
+    },
+    "environment": {
+        "description": "dev VPS",
+        "label": "vps001",
+        "model": "unknown",
+        "notes": "",
+        "os": "GNU/Linux 3.16.0-4-amd64",
+        "processor": "AMD Athlon II X2 240 2.8GHz",
+        "python": "2.7.9",
+        "ram": "4 GB"
+    },
+    "id": "008",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "008.vps001.json",
+    "rtf_max": 0.015,
+    "rtf_mean": 0.014,
+    "rtf_min": 0.014,
+    "rtf_std": 0.0,
+    "steps_max": [
+        2.421,
+        0.0,
+        2.005,
+        1.347,
+        3.107,
+        0.091,
+        0.194,
+        0.0
+    ],
+    "steps_mean": [
+        2.383,
+        0.0,
+        2.0,
+        1.342,
+        2.894,
+        0.09,
+        0.108,
+        0.0
+    ],
+    "steps_mean_cum": [
+        2.383,
+        2.383,
+        4.384,
+        5.726,
+        8.62,
+        8.709,
+        8.817,
+        8.817
+    ],
+    "steps_min": [
+        2.372,
+        0.0,
+        1.996,
+        1.334,
+        2.84,
+        0.089,
+        0.064,
+        0.0
+    ],
+    "steps_std": [
+        0.015,
+        0.0,
+        0.003,
+        0.004,
+        0.086,
+        0.001,
+        0.055,
+        0.0
+    ],
+    "total_max": 8.984,
+    "total_mean": 8.817,
+    "total_min": 8.719,
+    "total_std": 0.102
+}

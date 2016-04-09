@@ -1,0 +1,97 @@
+{
+    "configuration": {
+        "arguments": {
+            "audio": "001m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "001m.plain.word.txt"
+        },
+        "audio_length": 53.32,
+        "description": "1m, plain, word",
+        "execution": {
+            "timed_runs": 16,
+            "warmup_runs": 1
+        },
+        "text_length": 107
+    },
+    "environment": {
+        "description": "dev slow laptop",
+        "label": "laptop001",
+        "model": "ThinkPad X120e",
+        "notes": "",
+        "os": "GNU/Linux 4.3.0-1-amd64",
+        "processor": "AMD E-350 1.6GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "002",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "002.laptop001.json",
+    "rtf_max": 0.044,
+    "rtf_mean": 0.034,
+    "rtf_min": 0.029,
+    "rtf_std": 0.007,
+    "steps_max": [
+        1.242,
+        0.002,
+        0.548,
+        0.252,
+        0.272,
+        0.014,
+        0.012,
+        0.0
+    ],
+    "steps_mean": [
+        0.88,
+        0.001,
+        0.42,
+        0.246,
+        0.245,
+        0.014,
+        0.011,
+        0.0
+    ],
+    "steps_mean_cum": [
+        0.88,
+        0.882,
+        1.302,
+        1.548,
+        1.793,
+        1.807,
+        1.818,
+        1.818
+    ],
+    "steps_min": [
+        0.698,
+        0.001,
+        0.356,
+        0.241,
+        0.229,
+        0.014,
+        0.011,
+        0.0
+    ],
+    "steps_std": [
+        0.256,
+        0.0,
+        0.09,
+        0.005,
+        0.019,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "total_max": 2.342,
+    "total_mean": 1.818,
+    "total_min": 1.553,
+    "total_std": 0.371
+}

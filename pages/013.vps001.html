@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="Shortcut Icon" href="assets/favicon.png" type="image/x-icon">
+
+    <title>aeneas-benchmark</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.plus.checkbox.min.css" rel="stylesheet">
+    <link href="assets/css/c3.min.css" rel="stylesheet">
+
+    <style>
+      body {
+        padding-top: 70px;
+      }
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://readbeyond.github.io/aeneas-benchmark/">aeneas-benchmark</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="http://www.readbeyond.it/aeneas/" target="_blank"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Documentation</a></li>
+            <li><a href="https://github.com/readbeyond/aeneas/" target="_blank"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> aeneas GitHub</a></li>
+            <li><a href="https://github.com/readbeyond/aeneas-benchmark/" target="_blank"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> aeneas-benchmark GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="content" class="container" role="main">
+    <!-- CONTENT -->
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">©2016 <a href="http://www.readbeyond.it/">ReadBeyond</a>, Venice, Italy.</p>
+      </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/d3.min.js"></script>
+    <script src="assets/js/c3.min.js"></script>
+    <script>
+var data = {"title": "Run 013.vps001","type": "single","raw":{
+    "configuration": {
+        "arguments": {
+            "audio": "030m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "030m.plain.sentence.txt"
+        },
+        "audio_length": 1880.45,
+        "description": "30m, plain, sentence",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 308
+    },
+    "environment": {
+        "description": "dev VPS",
+        "label": "vps001",
+        "model": "unknown",
+        "notes": "",
+        "os": "GNU/Linux 3.16.0-4-amd64",
+        "processor": "AMD Athlon II X2 240 2.8GHz",
+        "python": "2.7.9",
+        "ram": "4 GB"
+    },
+    "id": "013",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "013.vps001.json",
+    "rtf_max": 0.01,
+    "rtf_mean": 0.01,
+    "rtf_min": 0.01,
+    "rtf_std": 0.0,
+    "steps_max": [
+        7.548,
+        0.0,
+        3.378,
+        2.0,
+        6.037,
+        0.019,
+        0.015,
+        0.0
+    ],
+    "steps_mean": [
+        7.238,
+        0.0,
+        3.374,
+        1.985,
+        5.93,
+        0.019,
+        0.014,
+        0.0
+    ],
+    "steps_mean_cum": [
+        7.238,
+        7.238,
+        10.612,
+        12.597,
+        18.527,
+        18.546,
+        18.56,
+        18.56
+    ],
+    "steps_min": [
+        7.127,
+        0.0,
+        3.372,
+        1.975,
+        5.888,
+        0.019,
+        0.013,
+        0.0
+    ],
+    "steps_std": [
+        0.179,
+        0.0,
+        0.002,
+        0.01,
+        0.062,
+        0.0,
+        0.001,
+        0.0
+    ],
+    "total_max": 18.841,
+    "total_mean": 18.56,
+    "total_min": 18.405,
+    "total_std": 0.172
+}}
+    </script>
+    <script src="assets/js/custom.js"></script>
+  </body>
+</html>
