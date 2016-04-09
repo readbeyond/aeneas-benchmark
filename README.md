@@ -1,15 +1,14 @@
-# aeneas-benchmark 
+# aeneas-benchmark
 
 The official benchmark suite for **aeneas**
 
-* aeneas-benchmark Version: 0.0.1
-* aeneas Version: 1.5.0
-* Date: 2016-04-06
+* Version: 0.0.1
+* Date: 2016-04-09
 * Developed by: [ReadBeyond](http://www.readbeyond.it/)
 * Lead Developer: [Alberto Pettarin](http://www.albertopettarin.it/)
 * License: the GNU Affero General Public License Version 3 (AGPL v3)
 * Contact: [aeneas@readbeyond.it](mailto:aeneas@readbeyond.it)
-* Quick Links: [aeneas-benchmark GitHub](https://github.com/readbeyond/aeneas-benchmark/) - [aeneas Home](http://www.readbeyond.it/aeneas/) - [aeneas GitHub](https://github.com/readbeyond/aeneas/) - [Mailing List](https://groups.google.com/d/forum/aeneas-forced-alignment)
+* Quick Links: [Results](https://readbeyond.github.io/aeneas-benchmark/) - [Code](https://github.com/readbeyond/aeneas-benchmark/) - [aeneas](http://www.readbeyond.it/aeneas/)
 
 
 ## Goal
@@ -21,10 +20,37 @@ on different machines and under different I/O and parameter configurations.
 
 ## Usage
 
-```bash
-cd benchmark
-python run_benchmark.py
-```
+### Running the benchmark
+
+1. Clone the repository from GitHub and switch to the ``master`` branch:
+
+   ```bash
+    $ git clone https://github.com/ReadBeyond/aeneas-benchmark
+    $ cd aeneas-benchmark
+    $ git checkout master
+    ```
+
+2. Enter the ``benchmark`` directory:
+   
+   ```bash
+   $ cd benchmark
+   ```
+
+3. Rename the ``ENVINFO.editme`` file to ``ENVINFO``, and edit it with your system info.
+
+4. Run the benchmark suit (IMPORTANT: it requires several minutes to complete!):
+
+   ```bash
+   $ python run_benchmark.py --all
+   ```
+
+If you want to contribute your benchmark,
+please contact us via email
+(the email address is written at the beginning of the page).
+
+### Creating the static site
+
+TBW
 
 
 ## License

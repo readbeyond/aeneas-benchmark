@@ -3,22 +3,10 @@
 *.pyo
 *.swp
 *.so
-.pybuild
-aeneas/
-bak
-build
-dist
-docs/build
 tmp
 zzz_leftovers
 
 # service scripts
 zzz_*.py
 zzz_*.sh
-zzz_long_tests
-
-# Eclipse/PyDev
-.project
-.pydevproject
-.settings
 

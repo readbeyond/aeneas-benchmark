@@ -43,7 +43,7 @@ if (data["type"] === "index") {
         div += "    <td>";
         for (var j=0; j < el["environments"].length; ++j) {
             var env = el["environments"][j];
-            div += "<a class=\"btn btn-primary btn-sm\" href=\"" + el["id"] + "." + env + ".html\">" + env + "</a>";
+            div += "<a class=\"btn btn-primary btn-sm\" href=\"pages/" + el["id"] + "." + env + ".html\">" + env + "</a>&#160;";
         }
         div += "    </td>";
         div += "   </tr>";
@@ -76,6 +76,7 @@ if (data["type"] === "single") {
     div += "    <tr><td>Description</td><td>" + d_conf["description"] + "</td></tr>";
     div += "    <tr><td>Text length (frags)</td><td>" + d_conf["text_length"] + "</td></tr>";
     div += "    <tr><td>Audio length (s)</td><td>" + d3.format(".03f")(d_conf["audio_length"]) + "</td></tr>";
+    div += "    <tr><td>Runs (warmup/timed)</td><td>" + d_conf["execution"]["warmup_runs"] + " / " + d_conf["execution"]["timed_runs"] + "</td></tr>";
     div += "  </table>";
     div += " </div>";
     div += " <div class=\"col-md-8\">";
@@ -92,7 +93,7 @@ if (data["type"] === "single") {
     }
     div += "    <tr><td>Run time avg/std/min/max (s)</td><td>" + d3.format(".03f")(d_raw["total_mean"]) + " / " + d3.format(".03f")(d_raw["total_std"]) + " / " + d3.format(".03f")(d_raw["total_min"]) + " / " + d3.format(".03f")(d_raw["total_max"]) + "</td></tr>";
     div += "    <tr><td>RTF avg/std/min/max</td><td>" + d3.format(".03f")(d_raw["rtf_mean"]) + " / " + d3.format(".03f")(d_raw["rtf_std"]) + " / " + d3.format(".03f")(d_raw["rtf_min"]) + " / " + d3.format(".03f")(d_raw["rtf_max"]) + "</td></tr>";
-    div += "    <tr><td>Download</td><td><a class=\"btn btn-primary btn-sm\" href=\"results/" + d_raw["output_file"] + "\" role=\"button\" target=\"_blank\">JSON</a></td></tr>";
+    div += "    <tr><td>Download</td><td><a class=\"btn btn-primary btn-sm\" href=\"" + d_raw["output_file"] + "\" role=\"button\" target=\"_blank\">JSON</a></td></tr>";
     div += "   </tbody>";
     div += "   </tbody>";
     div += "  </table>";

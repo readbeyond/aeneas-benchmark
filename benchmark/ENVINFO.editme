@@ -1,0 +1,21 @@
+// edit this file and rename it to ENVINFO
+// do not forget to remove the comments,
+// including these three lines!
+{
+    // pick a short label
+    "label": "server431",
+    // a slightly longer description
+    "description": "super secret server",
+    // machine model, if helpful
+    "model": "ThinkPad X1 Carbon",
+    // processor model and clock frequency
+    "processor": "Intel Core i7 3.6 GHz",
+    // amount of RAM
+    "ram": "16 GB",
+    // OS name and version
+    "os": "GNU/Linux 4.3.0-1-amd64",
+    // Python version
+    "python": "3.5.4",
+    // further notes
+    "notes": ""
+}

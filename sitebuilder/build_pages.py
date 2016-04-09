@@ -2,7 +2,7 @@
 # coding=utf-8
 
 """
-Run the benchmark suite or selected tests.
+Temporary script to build HTML pages from result JSON files.
 """
 
 from __future__ import absolute_import
@@ -26,7 +26,7 @@ __status__ = "Production"
 template_file_path = "templates/base.html"
 
 input_directory_path = "input"
-output_directory_path = "output"
+output_directory_path = "output/pages"
 
 inp = sys.argv[1]
 
