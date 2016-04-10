@@ -67,21 +67,21 @@
     <script src="assets/js/d3.min.js"></script>
     <script src="assets/js/c3.min.js"></script>
     <script>
-var data = {"title": "Run 102.vps001","type": "single","raw":{
+var data = {"title": "Compare Machines Test 012","type": "cm","raw": [{
     "configuration": {
         "arguments": {
-            "audio": "001m.mp3",
-            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
-            "rconf": "c_extensions=False",
-            "text": "001m.plain.word.txt"
+            "audio": "020m.mp3",
+            "conf": "task_language=eng|is_text_type=mplain|os_task_file_format=json",
+            "rconf": "",
+            "text": "020m.mplain.txt"
         },
-        "audio_length": 53.32,
-        "description": "1m, plain, word, no C extensions",
+        "audio_length": 1216.63,
+        "description": "20m, mplain",
         "execution": {
-            "timed_runs": 8,
-            "warmup_runs": 1
+            "timed_runs": 2,
+            "warmup_runs": 0
         },
-        "text_length": 107
+        "text_length": 3200
     },
     "environment": {
         "description": "dev VPS",
@@ -93,77 +93,101 @@ var data = {"title": "Run 102.vps001","type": "single","raw":{
         "python": "2.7.9",
         "ram": "4 GB"
     },
-    "id": "102",
+    "id": "012",
     "labels": [
-        "extract MFCC real wave",
+        "load audio file",
+        "extract MFCC real wave level 1",
+        "extract MFCC real wave level 2",
+        "extract MFCC real wave level 3",
+        "clear audio file",
         "compute head tail",
-        "synthesize text",
-        "extract MFCC synt wave",
-        "align waves",
-        "adjust boundaries",
+        "compute alignment level 1",
+        "compute alignment level 2",
+        "compute alignment level 3",
+        "select levels",
         "create sync map",
         "check zero duration"
     ],
-    "output_file": "102.vps001.json",
-    "rtf_max": 0.137,
-    "rtf_mean": 0.136,
-    "rtf_min": 0.135,
-    "rtf_std": 0.001,
+    "output_file": "012.vps001.json",
+    "rtf_max": 0.058,
+    "rtf_mean": 0.058,
+    "rtf_min": 0.058,
+    "rtf_std": 0.0,
     "steps_max": [
-        0.323,
+        3.537,
+        0.437,
+        1.11,
+        7.492,
+        0.008,
         0.0,
-        2.021,
-        0.156,
-        4.812,
-        0.007,
-        0.006,
+        3.266,
+        4.361,
+        50.322,
+        0.0,
+        0.0,
         0.0
     ],
     "steps_mean": [
-        0.321,
-        0.0,
-        1.981,
-        0.156,
-        4.775,
+        3.531,
+        0.437,
+        1.106,
+        7.459,
         0.007,
-        0.004,
+        0.0,
+        3.262,
+        4.319,
+        50.281,
+        0.0,
+        0.0,
         0.0
     ],
     "steps_mean_cum": [
-        0.321,
-        0.321,
-        2.302,
-        2.458,
-        7.233,
-        7.24,
-        7.244,
-        7.244
+        3.531,
+        3.968,
+        5.073,
+        12.532,
+        12.54,
+        12.54,
+        15.802,
+        20.121,
+        70.401,
+        70.401,
+        70.401,
+        70.401
     ],
     "steps_min": [
-        0.32,
-        0.0,
-        1.944,
-        0.155,
-        4.759,
+        3.525,
+        0.437,
+        1.101,
+        7.426,
         0.007,
-        0.004,
+        0.0,
+        3.258,
+        4.277,
+        50.239,
+        0.0,
+        0.0,
         0.0
     ],
     "steps_std": [
+        0.006,
+        0.0,
+        0.005,
+        0.033,
         0.001,
         0.0,
-        0.023,
+        0.004,
+        0.042,
+        0.042,
         0.0,
-        0.016,
         0.0,
-        0.001,
         0.0
     ],
-    "total_max": 7.295,
-    "total_mean": 7.244,
-    "total_min": 7.2,
-    "total_std": 0.03
-}}
+    "total_max": 70.428,
+    "total_mean": 70.401,
+    "total_min": 70.375,
+    "total_std": 0.026
+},]}
     </script>
     <script src="assets/js/custom.js"></script>
   </body>

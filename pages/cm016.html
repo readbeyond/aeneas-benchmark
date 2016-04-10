@@ -67,21 +67,117 @@
     <script src="assets/js/d3.min.js"></script>
     <script src="assets/js/c3.min.js"></script>
     <script>
-var data = {"title": "Run 102.laptop001","type": "single","raw":{
+var data = {"title": "Compare Machines Test 016","type": "cm","raw": [{
     "configuration": {
         "arguments": {
-            "audio": "001m.mp3",
+            "audio": "060m.mp3",
             "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
-            "rconf": "c_extensions=False",
-            "text": "001m.plain.word.txt"
+            "rconf": "",
+            "text": "060m.plain.sentence.txt"
         },
-        "audio_length": 53.32,
-        "description": "1m, plain, word, no C extensions",
+        "audio_length": 3613.7,
+        "description": "60m, plain, sentence",
         "execution": {
-            "timed_runs": 8,
-            "warmup_runs": 1
+            "timed_runs": 4,
+            "warmup_runs": 0
         },
-        "text_length": 107
+        "text_length": 629
+    },
+    "environment": {
+        "description": "dev VPS",
+        "label": "vps001",
+        "model": "unknown",
+        "notes": "",
+        "os": "GNU/Linux 3.16.0-4-amd64",
+        "processor": "AMD Athlon II X2 240 2.8GHz",
+        "python": "2.7.9",
+        "ram": "4 GB"
+    },
+    "id": "016",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "016.vps001.json",
+    "rtf_max": 0.013,
+    "rtf_mean": 0.011,
+    "rtf_min": 0.01,
+    "rtf_std": 0.001,
+    "steps_max": [
+        13.895,
+        0.0,
+        7.717,
+        3.849,
+        21.097,
+        0.436,
+        1.188,
+        0.0
+    ],
+    "steps_mean": [
+        13.72,
+        0.0,
+        6.909,
+        3.802,
+        13.83,
+        0.225,
+        0.401,
+        0.0
+    ],
+    "steps_mean_cum": [
+        13.72,
+        13.72,
+        20.628,
+        24.43,
+        38.261,
+        38.486,
+        38.887,
+        38.887
+    ],
+    "steps_min": [
+        13.57,
+        0.0,
+        6.629,
+        3.741,
+        11.306,
+        0.038,
+        0.028,
+        0.0
+    ],
+    "steps_std": [
+        0.135,
+        0.0,
+        0.467,
+        0.039,
+        4.196,
+        0.188,
+        0.46,
+        0.0
+    ],
+    "total_max": 46.753,
+    "total_mean": 38.887,
+    "total_min": 35.578,
+    "total_std": 4.585
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "060m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "060m.plain.sentence.txt"
+        },
+        "audio_length": 3613.7,
+        "description": "60m, plain, sentence",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 629
     },
     "environment": {
         "description": "dev slow laptop",
@@ -93,7 +189,7 @@ var data = {"title": "Run 102.laptop001","type": "single","raw":{
         "python": "2.7.11",
         "ram": "4 GB"
     },
-    "id": "102",
+    "id": "016",
     "labels": [
         "extract MFCC real wave",
         "compute head tail",
@@ -104,66 +200,66 @@ var data = {"title": "Run 102.laptop001","type": "single","raw":{
         "create sync map",
         "check zero duration"
     ],
-    "output_file": "102.laptop001.json",
-    "rtf_max": 0.365,
-    "rtf_mean": 0.346,
-    "rtf_min": 0.327,
-    "rtf_std": 0.016,
+    "output_file": "016.laptop001.json",
+    "rtf_max": 0.025,
+    "rtf_mean": 0.025,
+    "rtf_min": 0.025,
+    "rtf_std": 0.0,
     "steps_max": [
-        1.326,
+        40.168,
         0.001,
-        4.41,
-        0.441,
-        13.302,
-        0.015,
-        0.016,
+        14.098,
+        9.972,
+        27.83,
+        0.075,
+        0.131,
         0.0
     ],
     "steps_mean": [
-        1.013,
+        39.355,
         0.001,
-        4.236,
-        0.418,
-        12.756,
-        0.014,
-        0.013,
+        13.866,
+        9.76,
+        27.502,
+        0.075,
+        0.088,
         0.0
     ],
     "steps_mean_cum": [
-        1.013,
-        1.014,
-        5.25,
-        5.668,
-        18.424,
-        18.438,
-        18.451,
-        18.451
+        39.355,
+        39.356,
+        53.223,
+        62.983,
+        90.485,
+        90.56,
+        90.648,
+        90.648
     ],
     "steps_min": [
-        0.829,
+        38.924,
         0.001,
-        3.964,
-        0.402,
-        12.186,
-        0.014,
-        0.012,
+        13.414,
+        9.425,
+        27.186,
+        0.075,
+        0.065,
         0.0
     ],
     "steps_std": [
-        0.223,
+        0.575,
         0.0,
-        0.195,
-        0.017,
-        0.456,
+        0.32,
+        0.24,
+        0.263,
         0.0,
-        0.002,
+        0.031,
         0.0
     ],
-    "total_max": 19.472,
-    "total_mean": 18.451,
-    "total_min": 17.416,
-    "total_std": 0.839
-}}
+    "total_max": 90.943,
+    "total_mean": 90.648,
+    "total_min": 90.334,
+    "total_std": 0.249
+},]}
     </script>
     <script src="assets/js/custom.js"></script>
   </body>

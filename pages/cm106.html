@@ -67,103 +67,127 @@
     <script src="assets/js/d3.min.js"></script>
     <script src="assets/js/c3.min.js"></script>
     <script>
-var data = {"title": "Run 101.laptop001","type": "single","raw":{
+var data = {"title": "Compare Machines Test 106","type": "cm","raw": [{
     "configuration": {
         "arguments": {
-            "audio": "001m.mp3",
-            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "audio": "005m.mp3",
+            "conf": "task_language=eng|is_text_type=mplain|os_task_file_format=json",
             "rconf": "c_extensions=False",
-            "text": "001m.plain.sentence.txt"
+            "text": "005m.mplain.txt"
         },
-        "audio_length": 53.32,
-        "description": "1m, plain, sentence, no C extensions",
+        "audio_length": 320.91,
+        "description": "5m, mplain, no C extensions",
         "execution": {
-            "timed_runs": 8,
-            "warmup_runs": 1
+            "timed_runs": 4,
+            "warmup_runs": 0
         },
-        "text_length": 15
+        "text_length": 868
     },
     "environment": {
-        "description": "dev slow laptop",
-        "label": "laptop001",
-        "model": "ThinkPad X120e",
+        "description": "dev VPS",
+        "label": "vps001",
+        "model": "unknown",
         "notes": "",
-        "os": "GNU/Linux 4.3.0-1-amd64",
-        "processor": "AMD E-350 1.6GHz",
-        "python": "2.7.11",
+        "os": "GNU/Linux 3.16.0-4-amd64",
+        "processor": "AMD Athlon II X2 240 2.8GHz",
+        "python": "2.7.9",
         "ram": "4 GB"
     },
-    "id": "101",
+    "id": "106",
     "labels": [
-        "extract MFCC real wave",
+        "load audio file",
+        "extract MFCC real wave level 1",
+        "extract MFCC real wave level 2",
+        "extract MFCC real wave level 3",
+        "clear audio file",
         "compute head tail",
-        "synthesize text",
-        "extract MFCC synt wave",
-        "align waves",
-        "adjust boundaries",
+        "compute alignment level 1",
+        "compute alignment level 2",
+        "compute alignment level 3",
+        "select levels",
         "create sync map",
         "check zero duration"
     ],
-    "output_file": "101.laptop001.json",
-    "rtf_max": 0.162,
-    "rtf_mean": 0.151,
-    "rtf_min": 0.143,
-    "rtf_std": 0.008,
+    "output_file": "106.vps001.json",
+    "rtf_max": 1.739,
+    "rtf_mean": 1.72,
+    "rtf_min": 1.703,
+    "rtf_std": 0.013,
     "steps_max": [
-        0.903,
-        0.001,
-        0.95,
-        0.367,
-        6.415,
-        0.003,
+        0.966,
+        0.268,
+        0.67,
+        4.011,
         0.002,
+        0.0,
+        14.284,
+        21.255,
+        516.814,
+        0.0,
+        0.0,
         0.0
     ],
     "steps_mean": [
-        0.866,
-        0.001,
-        0.882,
-        0.279,
-        6.035,
-        0.003,
+        0.965,
+        0.24,
+        0.636,
+        3.989,
         0.002,
+        0.0,
+        14.2,
+        21.162,
+        510.643,
+        0.0,
+        0.0,
         0.0
     ],
     "steps_mean_cum": [
-        0.866,
-        0.867,
-        1.749,
-        2.028,
-        8.063,
-        8.066,
-        8.068,
-        8.068
+        0.965,
+        1.205,
+        1.841,
+        5.83,
+        5.832,
+        5.832,
+        20.032,
+        41.194,
+        551.837,
+        551.837,
+        551.837,
+        551.837
     ],
     "steps_min": [
-        0.84,
-        0.001,
-        0.774,
-        0.233,
-        5.794,
-        0.003,
+        0.962,
+        0.231,
+        0.623,
+        3.964,
         0.002,
+        0.0,
+        14.138,
+        21.019,
+        505.185,
+        0.0,
+        0.0,
         0.0
     ],
     "steps_std": [
-        0.027,
+        0.002,
+        0.016,
+        0.02,
+        0.017,
         0.0,
-        0.077,
-        0.062,
-        0.272,
+        0.0,
+        0.055,
+        0.099,
+        4.131,
         0.0,
         0.0,
         0.0
     ],
-    "total_max": 8.612,
-    "total_mean": 8.068,
-    "total_min": 7.647,
-    "total_std": 0.403
-}}
+    "total_max": 558.138,
+    "total_mean": 551.837,
+    "total_min": 546.43,
+    "total_std": 4.171
+},]}
     </script>
     <script src="assets/js/custom.js"></script>
   </body>

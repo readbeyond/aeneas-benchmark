@@ -67,21 +67,21 @@
     <script src="assets/js/d3.min.js"></script>
     <script src="assets/js/c3.min.js"></script>
     <script>
-var data = {"title": "Run 102.vps001","type": "single","raw":{
+var data = {"title": "Compare Machines Test 008","type": "cm","raw": [{
     "configuration": {
         "arguments": {
-            "audio": "001m.mp3",
+            "audio": "010m.mp3",
             "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
-            "rconf": "c_extensions=False",
-            "text": "001m.plain.word.txt"
+            "rconf": "",
+            "text": "010m.plain.word.txt"
         },
-        "audio_length": 53.32,
-        "description": "1m, plain, word, no C extensions",
+        "audio_length": 614.45,
+        "description": "10m, plain, word",
         "execution": {
             "timed_runs": 8,
-            "warmup_runs": 1
+            "warmup_runs": 0
         },
-        "text_length": 107
+        "text_length": 1492
     },
     "environment": {
         "description": "dev VPS",
@@ -93,7 +93,7 @@ var data = {"title": "Run 102.vps001","type": "single","raw":{
         "python": "2.7.9",
         "ram": "4 GB"
     },
-    "id": "102",
+    "id": "008",
     "labels": [
         "extract MFCC real wave",
         "compute head tail",
@@ -104,66 +104,162 @@ var data = {"title": "Run 102.vps001","type": "single","raw":{
         "create sync map",
         "check zero duration"
     ],
-    "output_file": "102.vps001.json",
-    "rtf_max": 0.137,
-    "rtf_mean": 0.136,
-    "rtf_min": 0.135,
-    "rtf_std": 0.001,
+    "output_file": "008.vps001.json",
+    "rtf_max": 0.015,
+    "rtf_mean": 0.014,
+    "rtf_min": 0.014,
+    "rtf_std": 0.0,
     "steps_max": [
-        0.323,
+        2.421,
         0.0,
-        2.021,
-        0.156,
-        4.812,
-        0.007,
-        0.006,
+        2.005,
+        1.347,
+        3.107,
+        0.091,
+        0.194,
         0.0
     ],
     "steps_mean": [
-        0.321,
+        2.383,
         0.0,
-        1.981,
-        0.156,
-        4.775,
-        0.007,
-        0.004,
+        2.0,
+        1.342,
+        2.894,
+        0.09,
+        0.108,
         0.0
     ],
     "steps_mean_cum": [
-        0.321,
-        0.321,
-        2.302,
-        2.458,
-        7.233,
-        7.24,
-        7.244,
-        7.244
+        2.383,
+        2.383,
+        4.384,
+        5.726,
+        8.62,
+        8.709,
+        8.817,
+        8.817
     ],
     "steps_min": [
-        0.32,
+        2.372,
         0.0,
-        1.944,
-        0.155,
-        4.759,
-        0.007,
-        0.004,
+        1.996,
+        1.334,
+        2.84,
+        0.089,
+        0.064,
         0.0
     ],
     "steps_std": [
+        0.015,
+        0.0,
+        0.003,
+        0.004,
+        0.086,
         0.001,
-        0.0,
-        0.023,
-        0.0,
-        0.016,
-        0.0,
-        0.001,
+        0.055,
         0.0
     ],
-    "total_max": 7.295,
-    "total_mean": 7.244,
-    "total_min": 7.2,
-    "total_std": 0.03
-}}
+    "total_max": 8.984,
+    "total_mean": 8.817,
+    "total_min": 8.719,
+    "total_std": 0.102
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "010m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "010m.plain.word.txt"
+        },
+        "audio_length": 614.45,
+        "description": "10m, plain, word",
+        "execution": {
+            "timed_runs": 8,
+            "warmup_runs": 0
+        },
+        "text_length": 1492
+    },
+    "environment": {
+        "description": "dev slow laptop",
+        "label": "laptop001",
+        "model": "ThinkPad X120e",
+        "notes": "",
+        "os": "GNU/Linux 4.3.0-1-amd64",
+        "processor": "AMD E-350 1.6GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "008",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "008.laptop001.json",
+    "rtf_max": 0.039,
+    "rtf_mean": 0.036,
+    "rtf_min": 0.035,
+    "rtf_std": 0.002,
+    "steps_max": [
+        7.957,
+        0.001,
+        4.614,
+        3.949,
+        6.837,
+        0.184,
+        0.164,
+        0.0
+    ],
+    "steps_mean": [
+        7.225,
+        0.001,
+        4.589,
+        3.657,
+        6.382,
+        0.182,
+        0.158,
+        0.0
+    ],
+    "steps_mean_cum": [
+        7.225,
+        7.226,
+        11.815,
+        15.472,
+        21.854,
+        22.036,
+        22.194,
+        22.194
+    ],
+    "steps_min": [
+        6.718,
+        0.001,
+        4.543,
+        3.458,
+        6.043,
+        0.18,
+        0.152,
+        0.0
+    ],
+    "steps_std": [
+        0.53,
+        0.0,
+        0.033,
+        0.211,
+        0.334,
+        0.002,
+        0.005,
+        0.0
+    ],
+    "total_max": 23.706,
+    "total_mean": 22.194,
+    "total_min": 21.275,
+    "total_std": 1.078
+},]}
     </script>
     <script src="assets/js/custom.js"></script>
   </body>
