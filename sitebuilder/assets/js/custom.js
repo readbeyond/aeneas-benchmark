@@ -24,6 +24,9 @@ if (data["title"] !== undefined) {
 if (data["type"] === "index") {
     var div;
     div  = "<div class=\"row\">";
+    div += "<p>Click on a button below to see the run details and charts of the corresponding test.";
+    div += "</div>";
+    div += "<div class=\"row\">";
     div += " <table class=\"table table-striped\">";
     div += "  <thead>";
     div += "  <tr></tr>";
@@ -41,9 +44,12 @@ if (data["type"] === "index") {
         div += "    <td>" + el["id"] + "</a></td>";
         div += "    <td>" + el["description"] + "</td>";
         div += "    <td>";
+        if (el["environments"].length > 1) {
+            div += "<a class=\"btn btn-primary btn-sm\" href=\"pages/cm" + el["id"] + ".html\">Compare</a>&#160;";
+        }
         for (var j=0; j < el["environments"].length; ++j) {
             var env = el["environments"][j];
-            div += "<a class=\"btn btn-primary btn-sm\" href=\"pages/" + el["id"] + "." + env + ".html\">" + env + "</a>&#160;";
+            div += "<a class=\"btn btn-default btn-sm\" href=\"pages/" + el["id"] + "." + env + ".html\">" + env + "</a>&#160;";
         }
         div += "    </td>";
         div += "   </tr>";
@@ -72,11 +78,12 @@ if (data["type"] === "single") {
     div += "   <tr><th>Property</th><th>Value</th></tr>";
     div += "   </thead>";
     div += "   <tbody>";
-    div += "    <tr><td>ID</td><td>" + d_raw["id"] + "</td></tr>";
+    div += "    <tr><td>ID</td><td><a href=\"#configuration\">" + d_raw["id"] + "</a></td></tr>";
     div += "    <tr><td>Description</td><td>" + d_conf["description"] + "</td></tr>";
     div += "    <tr><td>Text length (frags)</td><td>" + d_conf["text_length"] + "</td></tr>";
     div += "    <tr><td>Audio length (s)</td><td>" + d3.format(".03f")(d_conf["audio_length"]) + "</td></tr>";
     div += "    <tr><td>Runs (warmup/timed)</td><td>" + d_conf["execution"]["warmup_runs"] + " / " + d_conf["execution"]["timed_runs"] + "</td></tr>";
+    div += "   </tbody>";
     div += "  </table>";
     div += " </div>";
     div += " <div class=\"col-md-8\">";
@@ -94,7 +101,6 @@ if (data["type"] === "single") {
     div += "    <tr><td>Run time avg/std/min/max (s)</td><td>" + d3.format(".03f")(d_raw["total_mean"]) + " / " + d3.format(".03f")(d_raw["total_std"]) + " / " + d3.format(".03f")(d_raw["total_min"]) + " / " + d3.format(".03f")(d_raw["total_max"]) + "</td></tr>";
     div += "    <tr><td>RTF avg/std/min/max</td><td>" + d3.format(".03f")(d_raw["rtf_mean"]) + " / " + d3.format(".03f")(d_raw["rtf_std"]) + " / " + d3.format(".03f")(d_raw["rtf_min"]) + " / " + d3.format(".03f")(d_raw["rtf_max"]) + "</td></tr>";
     div += "    <tr><td>Download</td><td><a class=\"btn btn-primary btn-sm\" href=\"" + d_raw["output_file"] + "\" role=\"button\" target=\"_blank\">JSON</a></td></tr>";
-    div += "   </tbody>";
     div += "   </tbody>";
     div += "  </table>";
     div += " </div>"; 
@@ -167,9 +173,8 @@ if (data["type"] === "single") {
     $("#content").append(div);
     $("#content").append("<hr/>");
 
-
     div  = "<div class=\"row\">";
-    div += " <h2>Configuration</h2>";
+    div += " <h2 id=\"configuration\">Configuration</h2>";
     div += " <pre>";
     div += JSON.stringify(d_conf, null, "  ");
     div += " </pre>";
@@ -177,6 +182,9 @@ if (data["type"] === "single") {
     $("#content").append(div);
     $("#content").append("<hr/>");
 
+
+
+    // prepare data for c3
     var pie_data = [];
     var his_lab = ["x"];
     var his_val = ["v"];
@@ -243,5 +251,165 @@ if (data["type"] === "single") {
 }
 // end if single
 
+
+
+// if cm 
+if (data["type"] === "cm") {
+    var div;
+
+    var d_raw = data["raw"];
+    var d_conf = d_raw[0]["configuration"];
+
+    div  = "<div class=\"row\">";
+    div += " <div class=\"col-md-4\">";
+    div += "  <table class=\"table table-striped\">";
+    div += "   <h2>Test</h2>";
+    div += "   <thead>";
+    div += "   <tr><th>Property</th><th>Value</th></tr>";
+    div += "   </thead>";
+    div += "   <tbody>";
+    div += "    <tr><td>ID</td><td><a href=\"#configuration\">" + d_raw[0]["id"] + "</a></td></tr>";
+    div += "    <tr><td>Description</td><td>" + d_conf["description"] + "</td></tr>";
+    div += "    <tr><td>Text length (frags)</td><td>" + d_conf["text_length"] + "</td></tr>";
+    div += "    <tr><td>Audio length (s)</td><td>" + d3.format(".03f")(d_conf["audio_length"]) + "</td></tr>";
+    div += "    <tr><td>Runs (warmup/timed)</td><td>" + d_conf["execution"]["warmup_runs"] + " / " + d_conf["execution"]["timed_runs"] + "</td></tr>";
+    div += "  </table>";
+    div += " </div>";
+    div += " <div class=\"col-md-8\">";
+    div += "  <table class=\"table table-striped\">";
+    div += "   <h2>Environment</h2>";
+    div += "   <thead>";
+    div += "   <tr><th>Machine</th><th>Run time avg/std/min/max (s)</th><th>RTF avg/std/min/max</th><th>Download</th></tr>";
+    div += "   </thead>";
+    div += "   <tbody>";
+    for (var i=0; i < d_raw.length; ++i) {
+        var d_mraw = d_raw[i];
+        var d_env = d_mraw["environment"];
+        var d_env_desc = d_env["processor"] + ", " + d_env["ram"] + " RAM, " + d_env["os"] + ", Python " + d_env["python"];
+        div += "<tr>";
+        div += "<td><a title=\"" + d_env_desc + "\">" + d_env["label"] + "</a></td>";
+        div += "<td>" + d3.format(".03f")(d_mraw["total_mean"]) + " / " + d3.format(".03f")(d_mraw["total_std"]) + " / " + d3.format(".03f")(d_mraw["total_min"]) + " / " + d3.format(".03f")(d_mraw["total_max"]) + "</td>";
+        div += "<td>" + d3.format(".03f")(d_mraw["rtf_mean"]) + " / " + d3.format(".03f")(d_mraw["rtf_std"]) + " / " + d3.format(".03f")(d_mraw["rtf_min"]) + " / " + d3.format(".03f")(d_mraw["rtf_max"]) + "</td>";
+        div += "<td><a class=\"btn btn-primary btn-sm\" href=\"" + d_mraw["output_file"] + "\" role=\"button\" target=\"_blank\">JSON</a></td>";
+        div += "</tr>";
+    } 
+    div += "   </tbody>";
+    div += "  </table>";
+    div += " </div>"; 
+    div += "</div>";
+    $("#content").append(div);
+    $("#content").append("<hr/>");
+
+    // one column graphs
+    div  = "<div class=\"row\">";
+    div += " <div id=\"chart1\"></div>";
+    div += "</div>";
+    $("#content").append(div);
+    $("#content").append("<hr/>");
+
+    div  = "<div class=\"row\">";
+    div += " <h2>Detail</h2>";
+    div += " <table class=\"table table-hover\">";
+    div += "  <thead>";
+    div += "  <tr></tr>";
+    div += "   <th>#</th>";
+    div += "   <th>Step</th>";
+    for (var i=0; i < d_raw.length; ++i) {
+        var d_mraw = d_raw[i];
+        var d_env = d_mraw["environment"];
+        div += "   <th>" + d_env["label"] + " (s / %)</th>";
+    }
+    div += "  </tr>";
+    div += "  </thead>";
+    div += "  <tbody>";
+    for (var i=0; i < d_raw[0]["labels"].length; ++i) {
+        div += "   <tr>";
+        div += "    <td>" + (i+1) + "</td>";
+        div += "    <td>" + d_raw[0]["labels"][i] + "</td>";
+        for (var j=0; j < d_raw.length; ++j) {
+            var d_mraw = d_raw[j];
+            div += "<td>" + d3.format(".03f")(d_mraw["steps_mean"][i]) + " / " + d3.format(".01f")(d_mraw["steps_mean"][i] / d_mraw["total_mean"] * 100) + "%</td>";
+        }
+        div += "   </tr>";
+    }
+    div += "   <tr>";
+    div += "    <td></td>";
+    div += "    <td><strong>total</strong></td>";
+    for (var j=0; j < d_raw.length; ++j) {
+        var d_mraw = d_raw[j];
+        div += "<td>" + d3.format(".03f")(d_mraw["total_mean"]) + " / 100%</td>";
+    }
+    div += "   </tr>";
+    div += "  </tbody>";
+    div += " </table>";
+    div += "</div>";
+    $("#content").append(div);
+    $("#content").append("<hr/>");
+
+    div  = "<div class=\"row\">";
+    div += " <h2 id=\"configuration\">Configuration</h2>";
+    div += " <pre>";
+    div += JSON.stringify(d_conf, null, "  ");
+    div += " </pre>";
+    div += "</div>";
+    $("#content").append(div);
+    $("#content").append("<hr/>");
+
+
+
+    // prepare data for c3
+    var his_lab = ["x"];
+    for (var i=0; i < d_raw[0]["labels"].length; ++i) {
+        his_lab.push(d_raw[0]["labels"][i]);
+    }
+    his_lab.push("total");
+    var columns = [his_lab];
+    var names = {};
+    var groups = [];
+    for (var j=0; j < d_raw.length; ++j) {
+        var d_mraw = d_raw[j];
+        var vname = "v" + j;
+        var his_val = [vname];
+        for (var i=0; i < d_mraw["labels"].length; ++i) {
+            his_val.push(d_mraw["steps_mean"][i]);
+        }
+        his_val.push(d_mraw["total_mean"]);
+        columns.push(his_val);
+        names[vname] = d_mraw["environment"]["label"];
+        groups.push([vname]);
+    }
+
+    var chart1 = c3.generate({
+        "bindto": "#chart1",
+        "data": {
+            "x": "x",
+            "columns": columns,
+            "type": "bar",
+            "names": names,
+            "groups": groups,
+            /*
+            "labels": {
+                "format": function(v, id) {
+                    return d3.format(".03f")(v);
+                }
+            }
+            */
+        },
+        "axis": {
+            "x": {
+                "type": "category",
+                "label": "step"
+            },
+            "y": {
+                "label": "s"
+            }
+        },
+        "legend": {
+            "show": true,
+            "position": "right"
+        }
+    });
+}
+// end if cm
 
 })();
