@@ -35,17 +35,19 @@ with io.open(template_file_path, "r", encoding="utf-8") as template_file:
 
 replaced  = "var data = {"
 replaced += "\"title\": \"Compare Runs " + inp + "\","
-replaced += "\"type\": \"cm\","
+replaced += "\"type\": \"ct\","
 replaced += "\"raw\": ["
+
 for root, dirs, files in os.walk(input_directory_path):
-    for f in sorted([f for f in files if f.startswith(inp)]):
+    for f in sorted([f for f in files if inp in f]):
         with io.open(os.path.join(input_directory_path, f), "r", encoding="utf-8") as input_file:
             inp_data = input_file.read()
             replaced += inp_data
             replaced += ","
+
 replaced += "]}"
 
-with io.open(os.path.join(output_directory_path, "cm" + inp + ".html"), "w", encoding="utf-8") as output_file:
+with io.open(os.path.join(output_directory_path, "ct." + inp + ".html"), "w", encoding="utf-8") as output_file:
     output_file.write(template_data.replace("    <!-- DATA -->", replaced))
 
 

@@ -1,6 +1,7 @@
 // custom logic here
 
-// it assumes a data object exists
+// NOTE: eventually, the code "building" the HTML elements will be moved into the Python builders,
+//       in this JS only the c3-related stuff will be kept
 
 (function() {
 
@@ -22,11 +23,14 @@ if (data["title"] !== undefined) {
 
 // if index
 if (data["type"] === "index") {
-    var div;
-    div  = "<div class=\"row\">";
-    div += "<p>Click on a button below to see the run details and charts of the corresponding test.";
-    div += "</div>";
+    var div = "";
+
     div += "<div class=\"row\">";
+    div += "<div class=\"alert alert-warning\" role=\"alert\"><p><strong>Warning!</strong> This benchmark suite is work in progress!</p></div>";
+    div += "</div>";
+    
+    div += "<div class=\"row\">";
+    div += " <h2>Comparisons</h2>";
     div += " <table class=\"table table-striped\">";
     div += "  <thead>";
     div += "  <tr></tr>";
@@ -37,19 +41,64 @@ if (data["type"] === "index") {
     div += "  </tr>";
     div += "  </thead>";
     div += "  <tbody>";
-    for (var i=0; i < data["links"].length; ++i) {
-        var el = data["links"][i];
+
+    for (var i=0; i < data["ct"].length; ++i) {
+        var el = data["ct"][i];
+        div += "   <tr>";
+        div += "    <td>" + (i+1) + "</td>";
+        div += "    <td>" + el["id"] + "</a></td>";
+        div += "    <td>" + el["description"] + "</td>";
+        div += "    <td>";
+        /*
+        if (el["environments"].length > 1) {
+            div += "<a class=\"btn btn-primary btn-sm\" href=\"pages/ctm." + el["id"] + ".html\" target=\"_blank\">Compare</a>&#160;";
+        }
+        */
+        for (var j=0; j < el["environments"].length; ++j) {
+            var env = el["environments"][j];
+            if (env["has"]) {
+                div += "<a class=\"btn btn-success btn-sm\" href=\"pages/ct." + el["id"] + "." + env["m"] + ".html\" target=\"_blank\">" + env["m"] + "</a>&#160;";
+            } else {
+                div += "<a class=\"btn btn-danger btn-sm\">" + env["m"] + "</a>&#160;";
+            }
+        }
+        div += "    </td>";
+        div += "   </tr>";
+    }
+
+    div += "  </tbody>";
+    div += " </table>";
+    div += "</div>";
+
+    div += "<div class=\"row\">";
+    div += " <h2>Single Tests</h2>";
+    div += " <table class=\"table table-striped\">";
+    div += "  <thead>";
+    div += "  <tr></tr>";
+    div += "   <th>#</th>";
+    div += "   <th>ID</th>";
+    div += "   <th>Description</th>";
+    div += "   <th>Runs</th>";
+    div += "  </tr>";
+    div += "  </thead>";
+    div += "  <tbody>";
+    for (var i=0; i < data["single"].length; ++i) {
+        var el = data["single"][i];
         div += "   <tr>";
         div += "    <td>" + (i+1) + "</td>";
         div += "    <td>" + el["id"] + "</a></td>";
         div += "    <td>" + el["description"] + "</td>";
         div += "    <td>";
         if (el["environments"].length > 1) {
-            div += "<a class=\"btn btn-primary btn-sm\" href=\"pages/cm" + el["id"] + ".html\">Compare</a>&#160;";
+            div += "<a class=\"btn btn-primary btn-sm\" href=\"pages/cm" + el["id"] + ".html\" target=\"_blank\">Compare</a>&#160;";
         }
         for (var j=0; j < el["environments"].length; ++j) {
             var env = el["environments"][j];
-            div += "<a class=\"btn btn-default btn-sm\" href=\"pages/" + el["id"] + "." + env + ".html\">" + env + "</a>&#160;";
+            if (env["has"]) {
+                div += "<a class=\"btn btn-success btn-sm\" href=\"pages/" + el["id"] + "." + env["m"] + ".html\" target=\"_blank\">" + env["m"] + "</a>&#160;";
+            } else {
+                div += "<a class=\"btn btn-danger btn-sm\">" + env["m"] + "</a>&#160;";
+            }
         }
         div += "    </td>";
         div += "   </tr>";
@@ -82,7 +131,7 @@ if (data["type"] === "single") {
     div += "    <tr><td>Description</td><td>" + d_conf["description"] + "</td></tr>";
     div += "    <tr><td>Text length (frags)</td><td>" + d_conf["text_length"] + "</td></tr>";
     div += "    <tr><td>Audio length (s)</td><td>" + d3.format(".03f")(d_conf["audio_length"]) + "</td></tr>";
-    div += "    <tr><td>Runs (warmup/timed)</td><td>" + d_conf["execution"]["warmup_runs"] + " / " + d_conf["execution"]["timed_runs"] + "</td></tr>";
+    div += "    <tr><td>Runs (warmup+timed)</td><td>" + d_conf["execution"]["warmup_runs"] + " + " + d_conf["execution"]["timed_runs"] + "</td></tr>";
     div += "   </tbody>";
     div += "  </table>";
     div += " </div>";
@@ -160,7 +209,7 @@ if (data["type"] === "single") {
     }    
     div += "   <tr>";
     div += "    <td></td>";
-    div += "    <td><strong>total</strong></td>";
+    div += "    <td><strong>Total (s)</strong></td>";
     div += "    <td>" + d3.format(".03f")(d_raw["total_mean"]) + "</td>";
     div += "    <td></td>";
     div += "    <td>" + d3.format(".03f")(d_raw["total_std"]) + "</td>";
@@ -228,7 +277,7 @@ if (data["type"] === "single") {
                 "label": "step"
             },
             "y": {
-                "label": "s"
+                "label": "run time (s)"
             }
         },
         "legend": {
@@ -272,14 +321,14 @@ if (data["type"] === "cm") {
     div += "    <tr><td>Description</td><td>" + d_conf["description"] + "</td></tr>";
     div += "    <tr><td>Text length (frags)</td><td>" + d_conf["text_length"] + "</td></tr>";
     div += "    <tr><td>Audio length (s)</td><td>" + d3.format(".03f")(d_conf["audio_length"]) + "</td></tr>";
-    div += "    <tr><td>Runs (warmup/timed)</td><td>" + d_conf["execution"]["warmup_runs"] + " / " + d_conf["execution"]["timed_runs"] + "</td></tr>";
+    div += "    <tr><td>Runs (warmup+timed)</td><td>" + d_conf["execution"]["warmup_runs"] + " + " + d_conf["execution"]["timed_runs"] + "</td></tr>";
     div += "  </table>";
     div += " </div>";
     div += " <div class=\"col-md-8\">";
     div += "  <table class=\"table table-striped\">";
     div += "   <h2>Environment</h2>";
     div += "   <thead>";
-    div += "   <tr><th>Machine</th><th>Run time avg/std/min/max (s)</th><th>RTF avg/std/min/max</th><th>Download</th></tr>";
+    div += "   <tr><th>ID</th><th>Run time avg/std/min/max (s)</th><th>RTF avg/std/min/max</th><th>Download</th></tr>";
     div += "   </thead>";
     div += "   <tbody>";
     for (var i=0; i < d_raw.length; ++i) {
@@ -313,11 +362,12 @@ if (data["type"] === "cm") {
     div += "  <thead>";
     div += "  <tr></tr>";
     div += "   <th>#</th>";
-    div += "   <th>Step</th>";
+    div += "   <th>Step / Environment</th>";
     for (var i=0; i < d_raw.length; ++i) {
         var d_mraw = d_raw[i];
         var d_env = d_mraw["environment"];
-        div += "   <th>" + d_env["label"] + " (s / %)</th>";
+        var d_env_desc = d_env["processor"] + ", " + d_env["ram"] + " RAM, " + d_env["os"] + ", Python " + d_env["python"];
+        div += "   <th><a title=\"" + d_env_desc + "\">" + d_env["label"] + "</a> (s / %)</th>";
     }
     div += "  </tr>";
     div += "  </thead>";
@@ -334,10 +384,18 @@ if (data["type"] === "cm") {
     }
     div += "   <tr>";
     div += "    <td></td>";
-    div += "    <td><strong>total</strong></td>";
+    div += "    <td><strong>Total (s)</strong></td>";
     for (var j=0; j < d_raw.length; ++j) {
         var d_mraw = d_raw[j];
         div += "<td>" + d3.format(".03f")(d_mraw["total_mean"]) + "</td>";
+    }
+    div += "   </tr>";
+    div += "   <tr>";
+    div += "    <td></td>";
+    div += "    <td><strong>RTF</strong></td>";
+    for (var j=0; j < d_raw.length; ++j) {
+        var d_mraw = d_raw[j];
+        div += "<td>" + d3.format(".03f")(d_mraw["rtf_mean"]) + "</td>";
     }
     div += "   </tr>";
     div += "  </tbody>";
@@ -401,7 +459,7 @@ if (data["type"] === "cm") {
                 "label": "step"
             },
             "y": {
-                "label": "s"
+                "label": "run time (s)"
             }
         },
         "legend": {
@@ -421,6 +479,38 @@ if (data["type"] === "ct") {
     var div;
 
     var d_raw = data["raw"];
+    var d_conf = d_raw[0]["configuration"];
+    var d_env = d_raw[0]["environment"];
+
+    div  = "<div class=\"row\">";
+    div += " <table class=\"table table-striped\">";
+    div += "  <thead>";
+    div += "  <tr><th>Property</th><th>Values</th></tr>";
+    div += "  </thead>";
+    div += "  <tbody>";
+    div += "   <tr><td>Configurations</td>";
+    div += "    <td>";
+    for (var i=0; i < d_raw.length; ++i) {
+        div += "<a title=\"" + d_raw[i]["configuration"]["description"] + "\">" + d_raw[i]["id"] + "</a>&#160;&#160;&#160;";
+    } 
+    div += "    </td>";
+    div += "   </tr>";
+    div += "   <tr><td>Environment</td><td>" + d_env["label"] + " : " + d_env["processor"] + ", " + d_env["ram"] + " RAM, " + d_env["os"] + ", Python " + d_env["python"] + "</td></tr>";
+    if (d_env["notes"]) {
+        div += "    <tr><td>Notes</td><td>" + d_env["notes"] + "</td></tr>";
+    }
+    div += "  </tbody>";
+    div += " </table>";
+    div += "</div>";
+    $("#content").append(div);
+    $("#content").append("<hr/>");
+
+    // one column graphs
+    div  = "<div class=\"row\">";
+    div += " <div id=\"chart1\"></div>";
+    div += "</div>";
+    $("#content").append(div);
+    $("#content").append("<hr/>");
 
     div  = "<div class=\"row\">";
     div += " <h2>Detail</h2>";
@@ -428,10 +518,10 @@ if (data["type"] === "ct") {
     div += "  <thead>";
     div += "  <tr></tr>";
     div += "   <th>#</th>";
-    div += "   <th>Step</th>";
+    div += "   <th>Step / Test</th>";
     for (var i=0; i < d_raw.length; ++i) {
         var d_mraw = d_raw[i];
-        div += "   <th><a title=\"" + d_mraw["configuration"]["description"] + "\">Test " + d_mraw["id"] + "</a> (s / %)</th>";
+        div += "   <th><a title=\"" + d_mraw["configuration"]["description"] + "\">" + d_mraw["id"] + "</a> (s / %)</th>";
     }
     div += "  </tr>";
     div += "  </thead>";
@@ -448,7 +538,7 @@ if (data["type"] === "ct") {
     }
     div += "   <tr>";
     div += "    <td></td>";
-    div += "    <td><strong>total</strong></td>";
+    div += "    <td><strong>Total (s)</strong></td>";
     for (var j=0; j < d_raw.length; ++j) {
         var d_mraw = d_raw[j];
         div += "<td>" + d3.format(".03f")(d_mraw["total_mean"]) + "</td>";
@@ -456,7 +546,7 @@ if (data["type"] === "ct") {
     div += "   </tr>";
     div += "   <tr>";
     div += "    <td></td>";
-    div += "    <td><strong>audio length</strong></td>";
+    div += "    <td><strong>Audio length (s)</strong></td>";
     for (var j=0; j < d_raw.length; ++j) {
         var d_mraw = d_raw[j];
         div += "<td>" + d3.format(".03f")(d_mraw["configuration"]["audio_length"]) + "</td>";
@@ -475,6 +565,55 @@ if (data["type"] === "ct") {
     div += "</div>";
     $("#content").append(div);
     $("#content").append("<hr/>");
+
+
+
+    // prepare data for c3
+    var his_lab = ["x"];
+    for (var j=0; j < d_raw.length; ++j) {
+        his_lab.push(d_raw[j]["configuration"]["audio_length"]);
+    }
+    var columns = [his_lab];
+    var steps = [];
+    for (var j=0; j < d_raw[0]["labels"].length; ++j) {
+        steps.push([d_raw[0]["labels"][j]]);
+    }
+    for (var j=0; j < d_raw.length; ++j) {
+        var d_mraw = d_raw[j];
+        for (var i=0; i < d_mraw["steps_mean_cum"].length; ++i) {
+            steps[i].push(d_mraw["steps_mean_cum"][i]);
+        }
+    }
+    for (var j=0; j < d_raw[0]["labels"].length; ++j) {
+        columns.push(steps[j]);
+    }
+    var chart1 = c3.generate({
+        "bindto": "#chart1",
+        "data": {
+            "x": "x",
+            "columns": columns,
+            "type": "area",
+            /*
+            "labels": {
+                "format": function(v, id) {
+                    return d3.format(".03f")(v);
+                }
+            }
+            */
+        },
+        "axis": {
+            "x": {
+                "label": "audio length (s)"
+            },
+            "y": {
+                "label": "cumulated run time (s)"
+            }
+        },
+        "legend": {
+            "show": true,
+            "position": "right"
+        }
+    });
 }
 // end if ct
 
