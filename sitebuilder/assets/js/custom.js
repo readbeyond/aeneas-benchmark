@@ -337,7 +337,7 @@ if (data["type"] === "cm") {
     div += "    <td><strong>total</strong></td>";
     for (var j=0; j < d_raw.length; ++j) {
         var d_mraw = d_raw[j];
-        div += "<td>" + d3.format(".03f")(d_mraw["total_mean"]) + " / 100%</td>";
+        div += "<td>" + d3.format(".03f")(d_mraw["total_mean"]) + "</td>";
     }
     div += "   </tr>";
     div += "  </tbody>";
@@ -411,5 +411,73 @@ if (data["type"] === "cm") {
     });
 }
 // end if cm
+
+
+
+
+
+// if cm 
+if (data["type"] === "ct") {
+    var div;
+
+    var d_raw = data["raw"];
+
+    div  = "<div class=\"row\">";
+    div += " <h2>Detail</h2>";
+    div += " <table class=\"table table-hover\">";
+    div += "  <thead>";
+    div += "  <tr></tr>";
+    div += "   <th>#</th>";
+    div += "   <th>Step</th>";
+    for (var i=0; i < d_raw.length; ++i) {
+        var d_mraw = d_raw[i];
+        div += "   <th><a title=\"" + d_mraw["configuration"]["description"] + "\">Test " + d_mraw["id"] + "</a> (s / %)</th>";
+    }
+    div += "  </tr>";
+    div += "  </thead>";
+    div += "  <tbody>";
+    for (var i=0; i < d_raw[0]["labels"].length; ++i) {
+        div += "   <tr>";
+        div += "    <td>" + (i+1) + "</td>";
+        div += "    <td>" + d_raw[0]["labels"][i] + "</td>";
+        for (var j=0; j < d_raw.length; ++j) {
+            var d_mraw = d_raw[j];
+            div += "<td>" + d3.format(".03f")(d_mraw["steps_mean"][i]) + " / " + d3.format(".01f")(d_mraw["steps_mean"][i] / d_mraw["total_mean"] * 100) + "%</td>";
+        }
+        div += "   </tr>";
+    }
+    div += "   <tr>";
+    div += "    <td></td>";
+    div += "    <td><strong>total</strong></td>";
+    for (var j=0; j < d_raw.length; ++j) {
+        var d_mraw = d_raw[j];
+        div += "<td>" + d3.format(".03f")(d_mraw["total_mean"]) + "</td>";
+    }
+    div += "   </tr>";
+    div += "   <tr>";
+    div += "    <td></td>";
+    div += "    <td><strong>audio length</strong></td>";
+    for (var j=0; j < d_raw.length; ++j) {
+        var d_mraw = d_raw[j];
+        div += "<td>" + d3.format(".03f")(d_mraw["configuration"]["audio_length"]) + "</td>";
+    }
+    div += "   </tr>";
+    div += "   <tr>";
+    div += "    <td></td>";
+    div += "    <td><strong>RTF</strong></td>";
+    for (var j=0; j < d_raw.length; ++j) {
+        var d_mraw = d_raw[j];
+        div += "<td>" + d3.format(".03f")(d_mraw["rtf_mean"]) + "</td>";
+    }
+    div += "   </tr>";
+    div += "  </tbody>";
+    div += " </table>";
+    div += "</div>";
+    $("#content").append(div);
+    $("#content").append("<hr/>");
+}
+// end if ct
+
+
 
 })();

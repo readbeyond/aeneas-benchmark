@@ -36,52 +36,7 @@ class RunBenchmarkCLI(AbstractCLIProgram):
     INPUT_DIRECTORY_PATH = "input"
     OUTPUT_DIRECTORY_PATH = "output"
 
-    TESTS = [
-        "001",
-        "002",
-        "003",
-        "004",
-        "005",
-        "006",
-        "007",
-        "008",
-        "009",
-        "010",
-        "011",
-        "012",
-        "013",
-        "014",
-        "015",
-        "016",
-        "017",
-        "018",
-        "101",
-        "102",
-        "103",
-        "104",
-        "105",
-        "106",
-        "201",
-        "202",
-        "203",
-        "204",
-        "205",
-        "206",
-        "207",
-        "208",
-        "209",
-        "210",
-        "211",
-        "212",
-        "213",
-        "214",
-        "215",
-        "216",
-        "217",
-        "218",
-        "219",
-        "220",
-    ]
+    TESTS = []
 
     NAME = gf.file_name_without_extension(__file__)
 
@@ -94,25 +49,37 @@ class RunBenchmarkCLI(AbstractCLIProgram):
         "examples": [
             u"--list",
             u"--all",
-            u"--tests=001,003,005",
-            u"--tests=001-006,010-012",
+            u"--tests=001.pla.s",
+            u"--tests=001.pla.s,005.pla.s,010.pla.s",
         ],
         "options": [
             u"-a, --all : run all tests",
-            u"-d, --debug : run in debug mode (1 warmup, 3 timed)",
+            u"--all-rconf : run all tests, including those with rconf",
+            u"-d, --debug : run in debug mode (max: 1 warmup, 3 timed)",
             u"-e=ENVFILE, --environment=ENVFILE : add environment data from ENVFILE",
             u"--list : list all available tests",
+            u"--list-rconf : list all available tests, including those with rconf",
             u"-s, --single : perform one timed run only",
             u"-t=TESTS, --tests=TESTS : run tests TESTS"
         ]
     }
 
-    def print_list(self):
+    def load_tests(self):
+        self.TESTS = []
+        for root, dirs, files in os.walk(self.CONFIG_DIRECTORY_PATH):
+            for f in [f for f in files if f.endswith(".json")]:
+                self.TESTS.append(f[:-5])
+        self.TESTS = sorted(self.TESTS)
+
+    def print_list(self, show_rconf):
         """
         Print the list of all available tests and exit.
         """
         self.print_info(u"Available tests:")
-        for test in self.TESTS:
+        tests = self.TESTS
+        if not show_rconf:
+            tests = [t for t in self.TESTS if "rconf" not in t]
+        for test in tests:
             config_obj = self.get_config(test)
             self.print_generic(u"%s : (%d+%dx) %s" % (
                 test,
@@ -130,24 +97,15 @@ class RunBenchmarkCLI(AbstractCLIProgram):
         :rtype: list of strings
         """
         tests = set()
-        tokens = self.has_option_with_value(u"--tests")
-        if tokens is None:
-            tokens = self.has_option_with_value(u"-t")
-        tokens = tokens.split(",")
-        for token in tokens:
-            if u"-" in token:
-                if len(token.split(u"-")) == 2:
-                    start, stop = token.split(u"-")
-                    try:
-                        start = int(start)
-                        stop = int(stop)
-                    except:
-                        return None
-                    for i in range(start, stop + 1):
-                        tests.add(u"%03d" % i)
-                else:
-                    return None
-            else:
+        value = self.has_option_with_value(u"--tests")
+        if value is None:
+            value = self.has_option_with_value(u"-t")
+        if os.path.isfile(value):
+            with io.open(value, "r", encoding="utf-8") as value_file:
+                contents = value_file.read()
+                tests = set(contents.splitlines())
+        else:
+            for token in value.split(","):
                 tests.add(token)
         tests = tests & set(self.TESTS)
         if len(tests) == 0:
@@ -163,8 +121,12 @@ class RunBenchmarkCLI(AbstractCLIProgram):
         if len(self.actual_arguments) < 1:
             return self.print_help()
 
+        self.load_tests()
+        
         if self.has_option([u"--list"]):
-            return self.print_list()
+            return self.print_list(show_rconf=False)
+        if self.has_option([u"--list-rconf"]):
+            return self.print_list(show_rconf=True)
 
         single = self.has_option([u"-s", u"--single"])
         if single:
@@ -187,18 +149,23 @@ class RunBenchmarkCLI(AbstractCLIProgram):
             self.print_warning(u"Environment info: UNKNOWN")
             env_info = {u"label": u"unknown", u"description": u"unknown"}
 
-        if self.has_option([u"-a", u"--all"]):
+        if self.has_option([u"--all-rconf"]):
             tests = self.TESTS
+        elif self.has_option([u"-a", u"--all"]):
+            tests = [t for t in self.TESTS if "rconf" not in t]
         elif (self.has_option_with_value(u"--tests") is not None) or (self.has_option_with_value(u"-t") is not None):
             tests = self.parse_tests()
             if tests is None:
                 self.print_error(u"Invalid test id(s)")
                 return self.ERROR_EXIT_CODE
         else:
-            self.print_error(u"You must specify --all or --tests")
+            self.print_error(u"You must specify --all, --all-rconf, or --tests")
             return self.ERROR_EXIT_CODE
 
         self.log([u"Tests: %s", tests])
+
+        #print(tests)
+        #return self.ERROR_EXIT_CODE
 
         for test in tests:
             # get test config

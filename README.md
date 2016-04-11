@@ -38,7 +38,7 @@ on different machines and under different I/O and parameter configurations.
 
 3. Rename the ``ENVINFO.editme`` file to ``ENVINFO``, and edit it with your system info.
 
-4. Run the benchmark suit (IMPORTANT: it requires several minutes to complete!):
+4. Run the benchmark suite (IMPORTANT: it requires several minutes to complete!):
 
    ```bash
    $ python run_benchmark.py --all
