@@ -1,0 +1,121 @@
+{
+    "configuration": {
+        "arguments": {
+            "audio": "010m.mp3",
+            "conf": "task_language=eng|is_text_type=mplain|os_task_file_format=json",
+            "rconf": "",
+            "text": "010m.mplain.txt"
+        },
+        "audio_length": 614.45,
+        "description": "10m, mplain",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 1492
+    },
+    "environment": {
+        "description": "dev slow laptop",
+        "label": "laptop001",
+        "model": "ThinkPad X120e",
+        "notes": "",
+        "os": "GNU/Linux 4.3.0-1-amd64",
+        "processor": "AMD E-350 1.6GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "010.mpl.m",
+    "labels": [
+        "load audio file",
+        "extract MFCC real wave level 1",
+        "extract MFCC real wave level 2",
+        "extract MFCC real wave level 3",
+        "clear audio file",
+        "compute head tail",
+        "compute alignment level 1",
+        "compute alignment level 2",
+        "compute alignment level 3",
+        "select levels",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "010.mpl.m.laptop001.json",
+    "rtf_max": 0.179,
+    "rtf_mean": 0.174,
+    "rtf_min": 0.171,
+    "rtf_std": 0.003,
+    "steps_max": [
+        5.829,
+        0.973,
+        1.578,
+        9.824,
+        0.008,
+        0.001,
+        4.914,
+        4.345,
+        84.247,
+        0.0,
+        0.001,
+        0.0
+    ],
+    "steps_mean": [
+        5.546,
+        0.761,
+        1.475,
+        9.407,
+        0.008,
+        0.001,
+        3.954,
+        3.955,
+        82.003,
+        0.0,
+        0.001,
+        0.0
+    ],
+    "steps_mean_cum": [
+        5.546,
+        6.307,
+        7.782,
+        17.189,
+        17.197,
+        17.198,
+        21.152,
+        25.107,
+        107.111,
+        107.111,
+        107.112,
+        107.112
+    ],
+    "steps_min": [
+        5.344,
+        0.653,
+        1.423,
+        9.197,
+        0.008,
+        0.001,
+        3.387,
+        3.754,
+        79.701,
+        0.0,
+        0.001,
+        0.0
+    ],
+    "steps_std": [
+        0.206,
+        0.15,
+        0.073,
+        0.295,
+        0.0,
+        0.0,
+        0.683,
+        0.276,
+        1.856,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "total_max": 110.043,
+    "total_mean": 107.112,
+    "total_min": 105.162,
+    "total_std": 2.11
+}

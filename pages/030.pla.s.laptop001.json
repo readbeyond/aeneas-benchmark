@@ -1,0 +1,97 @@
+{
+    "configuration": {
+        "arguments": {
+            "audio": "030m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "030m.plain.sentence.txt"
+        },
+        "audio_length": 1880.45,
+        "description": "30m, plain, sentence",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 308
+    },
+    "environment": {
+        "description": "dev slow laptop",
+        "label": "laptop001",
+        "model": "ThinkPad X120e",
+        "notes": "",
+        "os": "GNU/Linux 4.3.0-1-amd64",
+        "processor": "AMD E-350 1.6GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "030.pla.s",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "030.pla.s.laptop001.json",
+    "rtf_max": 0.026,
+    "rtf_mean": 0.025,
+    "rtf_min": 0.025,
+    "rtf_std": 0.001,
+    "steps_max": [
+        21.724,
+        0.001,
+        7.326,
+        5.572,
+        14.843,
+        0.038,
+        0.03,
+        0.0
+    ],
+    "steps_mean": [
+        21.056,
+        0.001,
+        6.995,
+        5.15,
+        14.473,
+        0.038,
+        0.03,
+        0.0
+    ],
+    "steps_mean_cum": [
+        21.056,
+        21.057,
+        28.052,
+        33.202,
+        47.674,
+        47.712,
+        47.742,
+        47.742
+    ],
+    "steps_min": [
+        20.665,
+        0.001,
+        6.827,
+        4.933,
+        14.266,
+        0.038,
+        0.029,
+        0.0
+    ],
+    "steps_std": [
+        0.474,
+        0.0,
+        0.234,
+        0.299,
+        0.262,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "total_max": 49.534,
+    "total_mean": 47.742,
+    "total_min": 46.76,
+    "total_std": 1.269
+}

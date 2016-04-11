@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="Shortcut Icon" href="assets/favicon.png" type="image/x-icon">
+
+    <title>aeneas-benchmark</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.plus.checkbox.min.css" rel="stylesheet">
+    <link href="assets/css/c3.min.css" rel="stylesheet">
+
+    <style>
+      body {
+        padding-top: 70px;
+      }
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://readbeyond.github.io/aeneas-benchmark/">aeneas-benchmark</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="http://www.readbeyond.it/aeneas/" target="_blank"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Documentation</a></li>
+            <li><a href="https://github.com/readbeyond/aeneas/" target="_blank"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> aeneas GitHub</a></li>
+            <li><a href="https://github.com/readbeyond/aeneas-benchmark/" target="_blank"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> aeneas-benchmark GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="content" class="container" role="main">
+    <!-- CONTENT -->
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">©2016 <a href="http://www.readbeyond.it/">ReadBeyond</a>, Venice, Italy.</p>
+      </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/d3.min.js"></script>
+    <script src="assets/js/c3.min.js"></script>
+    <script>
+var data = {"title": "Compare Runs pla.w.vps001","type": "ct","raw": [{
+    "configuration": {
+        "arguments": {
+            "audio": "001m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "001m.plain.word.txt"
+        },
+        "audio_length": 53.32,
+        "description": "1m, plain, word",
+        "execution": {
+            "timed_runs": 16,
+            "warmup_runs": 1
+        },
+        "text_length": 107
+    },
+    "environment": {
+        "description": "dev VPS",
+        "label": "vps001",
+        "model": "unknown",
+        "notes": "",
+        "os": "GNU/Linux 3.16.0-4-amd64",
+        "processor": "AMD Athlon II X2 240 2.8GHz",
+        "python": "2.7.9",
+        "ram": "4 GB"
+    },
+    "id": "001.pla.w",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "001.pla.w.vps001.json",
+    "rtf_max": 0.012,
+    "rtf_mean": 0.012,
+    "rtf_min": 0.012,
+    "rtf_std": 0.0,
+    "steps_max": [
+        0.274,
+        0.0,
+        0.16,
+        0.095,
+        0.127,
+        0.007,
+        0.007,
+        0.0
+    ],
+    "steps_mean": [
+        0.268,
+        0.0,
+        0.157,
+        0.092,
+        0.097,
+        0.007,
+        0.004,
+        0.0
+    ],
+    "steps_mean_cum": [
+        0.268,
+        0.268,
+        0.425,
+        0.517,
+        0.615,
+        0.622,
+        0.626,
+        0.626
+    ],
+    "steps_min": [
+        0.265,
+        0.0,
+        0.156,
+        0.09,
+        0.094,
+        0.007,
+        0.004,
+        0.0
+    ],
+    "steps_std": [
+        0.003,
+        0.0,
+        0.001,
+        0.001,
+        0.008,
+        0.0,
+        0.001,
+        0.0
+    ],
+    "total_max": 0.654,
+    "total_mean": 0.626,
+    "total_min": 0.619,
+    "total_std": 0.008
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "005m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "005m.plain.word.txt"
+        },
+        "audio_length": 320.91,
+        "description": "5m, plain, word",
+        "execution": {
+            "timed_runs": 16,
+            "warmup_runs": 1
+        },
+        "text_length": 868
+    },
+    "environment": {
+        "description": "dev VPS",
+        "label": "vps001",
+        "model": "unknown",
+        "notes": "",
+        "os": "GNU/Linux 3.16.0-4-amd64",
+        "processor": "AMD Athlon II X2 240 2.8GHz",
+        "python": "2.7.9",
+        "ram": "4 GB"
+    },
+    "id": "005.pla.w",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "005.pla.w.vps001.json",
+    "rtf_max": 0.014,
+    "rtf_mean": 0.014,
+    "rtf_min": 0.014,
+    "rtf_std": 0.0,
+    "steps_max": [
+        1.281,
+        0.0,
+        1.299,
+        0.791,
+        1.124,
+        0.053,
+        0.153,
+        0.0
+    ],
+    "steps_mean": [
+        1.274,
+        0.0,
+        1.197,
+        0.773,
+        1.025,
+        0.053,
+        0.052,
+        0.0
+    ],
+    "steps_mean_cum": [
+        1.274,
+        1.274,
+        2.471,
+        3.244,
+        4.269,
+        4.322,
+        4.374,
+        4.374
+    ],
+    "steps_min": [
+        1.268,
+        0.0,
+        1.185,
+        0.766,
+        1.016,
+        0.052,
+        0.034,
+        0.0
+    ],
+    "steps_std": [
+        0.004,
+        0.0,
+        0.026,
+        0.005,
+        0.026,
+        0.0,
+        0.037,
+        0.0
+    ],
+    "total_max": 4.473,
+    "total_mean": 4.374,
+    "total_min": 4.34,
+    "total_std": 0.046
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "010m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "010m.plain.word.txt"
+        },
+        "audio_length": 614.45,
+        "description": "10m, plain, word",
+        "execution": {
+            "timed_runs": 8,
+            "warmup_runs": 0
+        },
+        "text_length": 1492
+    },
+    "environment": {
+        "description": "dev VPS",
+        "label": "vps001",
+        "model": "unknown",
+        "notes": "",
+        "os": "GNU/Linux 3.16.0-4-amd64",
+        "processor": "AMD Athlon II X2 240 2.8GHz",
+        "python": "2.7.9",
+        "ram": "4 GB"
+    },
+    "id": "010.pla.w",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "010.pla.w.vps001.json",
+    "rtf_max": 0.014,
+    "rtf_mean": 0.014,
+    "rtf_min": 0.014,
+    "rtf_std": 0.0,
+    "steps_max": [
+        2.38,
+        0.0,
+        2.136,
+        1.353,
+        3.033,
+        0.092,
+        0.072,
+        0.0
+    ],
+    "steps_mean": [
+        2.373,
+        0.0,
+        2.028,
+        1.332,
+        2.843,
+        0.091,
+        0.066,
+        0.0
+    ],
+    "steps_mean_cum": [
+        2.373,
+        2.373,
+        4.401,
+        5.734,
+        8.576,
+        8.667,
+        8.733,
+        8.733
+    ],
+    "steps_min": [
+        2.365,
+        0.0,
+        1.989,
+        1.32,
+        2.73,
+        0.09,
+        0.063,
+        0.0
+    ],
+    "steps_std": [
+        0.005,
+        0.0,
+        0.062,
+        0.01,
+        0.092,
+        0.001,
+        0.003,
+        0.0
+    ],
+    "total_max": 8.884,
+    "total_mean": 8.733,
+    "total_min": 8.665,
+    "total_std": 0.061
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "020m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "020m.plain.word.txt"
+        },
+        "audio_length": 1216.63,
+        "description": "20m, plain, word",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 3200
+    },
+    "environment": {
+        "description": "dev VPS",
+        "label": "vps001",
+        "model": "unknown",
+        "notes": "",
+        "os": "GNU/Linux 3.16.0-4-amd64",
+        "processor": "AMD Athlon II X2 240 2.8GHz",
+        "python": "2.7.9",
+        "ram": "4 GB"
+    },
+    "id": "020.pla.w",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "020.pla.w.vps001.json",
+    "rtf_max": 0.014,
+    "rtf_mean": 0.013,
+    "rtf_min": 0.013,
+    "rtf_std": 0.0,
+    "steps_max": [
+        4.637,
+        0.0,
+        4.601,
+        2.943,
+        3.842,
+        0.356,
+        0.313,
+        0.0
+    ],
+    "steps_mean": [
+        4.625,
+        0.0,
+        4.462,
+        2.928,
+        3.838,
+        0.235,
+        0.248,
+        0.0
+    ],
+    "steps_mean_cum": [
+        4.625,
+        4.625,
+        9.087,
+        12.015,
+        15.853,
+        16.087,
+        16.335,
+        16.335
+    ],
+    "steps_min": [
+        4.611,
+        0.0,
+        4.358,
+        2.908,
+        3.833,
+        0.194,
+        0.152,
+        0.0
+    ],
+    "steps_std": [
+        0.01,
+        0.0,
+        0.103,
+        0.013,
+        0.003,
+        0.07,
+        0.059,
+        0.0
+    ],
+    "total_max": 16.444,
+    "total_mean": 16.335,
+    "total_min": 16.252,
+    "total_std": 0.077
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "030m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "030m.plain.word.txt"
+        },
+        "audio_length": 1880.45,
+        "description": "30m, plain, word",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 4512
+    },
+    "environment": {
+        "description": "dev VPS",
+        "label": "vps001",
+        "model": "unknown",
+        "notes": "",
+        "os": "GNU/Linux 3.16.0-4-amd64",
+        "processor": "AMD Athlon II X2 240 2.8GHz",
+        "python": "2.7.9",
+        "ram": "4 GB"
+    },
+    "id": "030.pla.w",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "030.pla.w.vps001.json",
+    "rtf_max": 0.013,
+    "rtf_mean": 0.013,
+    "rtf_min": 0.013,
+    "rtf_std": 0.0,
+    "steps_max": [
+        7.07,
+        0.0,
+        6.244,
+        4.218,
+        6.0,
+        0.332,
+        0.298,
+        0.0
+    ],
+    "steps_mean": [
+        7.035,
+        0.0,
+        6.187,
+        4.143,
+        5.971,
+        0.283,
+        0.271,
+        0.0
+    ],
+    "steps_mean_cum": [
+        7.035,
+        7.035,
+        13.223,
+        17.366,
+        23.336,
+        23.619,
+        23.89,
+        23.89
+    ],
+    "steps_min": [
+        7.003,
+        0.0,
+        6.166,
+        4.072,
+        5.901,
+        0.266,
+        0.204,
+        0.0
+    ],
+    "steps_std": [
+        0.024,
+        0.0,
+        0.033,
+        0.052,
+        0.041,
+        0.028,
+        0.039,
+        0.0
+    ],
+    "total_max": 24.015,
+    "total_mean": 23.89,
+    "total_min": 23.775,
+    "total_std": 0.088
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "060m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "060m.plain.word.txt"
+        },
+        "audio_length": 3613.7,
+        "description": "60m, plain, word",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 8391
+    },
+    "environment": {
+        "description": "dev VPS",
+        "label": "vps001",
+        "model": "unknown",
+        "notes": "",
+        "os": "GNU/Linux 3.16.0-4-amd64",
+        "processor": "AMD Athlon II X2 240 2.8GHz",
+        "python": "2.7.9",
+        "ram": "4 GB"
+    },
+    "id": "060.pla.w",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "060.pla.w.vps001.json",
+    "rtf_max": 0.013,
+    "rtf_mean": 0.013,
+    "rtf_min": 0.013,
+    "rtf_std": 0.0,
+    "steps_max": [
+        13.457,
+        0.0,
+        11.919,
+        8.881,
+        11.3,
+        0.655,
+        0.583,
+        0.0
+    ],
+    "steps_mean": [
+        13.42,
+        0.0,
+        11.867,
+        8.063,
+        11.28,
+        0.643,
+        0.569,
+        0.0
+    ],
+    "steps_mean_cum": [
+        13.42,
+        13.42,
+        25.287,
+        33.35,
+        44.63,
+        45.273,
+        45.841,
+        45.841
+    ],
+    "steps_min": [
+        13.4,
+        0.0,
+        11.761,
+        7.747,
+        11.264,
+        0.616,
+        0.551,
+        0.0
+    ],
+    "steps_std": [
+        0.022,
+        0.0,
+        0.064,
+        0.475,
+        0.014,
+        0.016,
+        0.012,
+        0.0
+    ],
+    "total_max": 46.563,
+    "total_mean": 45.841,
+    "total_min": 45.577,
+    "total_std": 0.417
+},]}
+    </script>
+    <script src="assets/js/custom.js"></script>
+  </body>
+</html>

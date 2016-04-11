@@ -1,0 +1,97 @@
+{
+    "configuration": {
+        "arguments": {
+            "audio": "005m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "005m.plain.word.txt"
+        },
+        "audio_length": 320.91,
+        "description": "5m, plain, word",
+        "execution": {
+            "timed_runs": 16,
+            "warmup_runs": 1
+        },
+        "text_length": 868
+    },
+    "environment": {
+        "description": "dev VPS",
+        "label": "vps001",
+        "model": "unknown",
+        "notes": "",
+        "os": "GNU/Linux 3.16.0-4-amd64",
+        "processor": "AMD Athlon II X2 240 2.8GHz",
+        "python": "2.7.9",
+        "ram": "4 GB"
+    },
+    "id": "005.pla.w",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "005.pla.w.vps001.json",
+    "rtf_max": 0.014,
+    "rtf_mean": 0.014,
+    "rtf_min": 0.014,
+    "rtf_std": 0.0,
+    "steps_max": [
+        1.281,
+        0.0,
+        1.299,
+        0.791,
+        1.124,
+        0.053,
+        0.153,
+        0.0
+    ],
+    "steps_mean": [
+        1.274,
+        0.0,
+        1.197,
+        0.773,
+        1.025,
+        0.053,
+        0.052,
+        0.0
+    ],
+    "steps_mean_cum": [
+        1.274,
+        1.274,
+        2.471,
+        3.244,
+        4.269,
+        4.322,
+        4.374,
+        4.374
+    ],
+    "steps_min": [
+        1.268,
+        0.0,
+        1.185,
+        0.766,
+        1.016,
+        0.052,
+        0.034,
+        0.0
+    ],
+    "steps_std": [
+        0.004,
+        0.0,
+        0.026,
+        0.005,
+        0.026,
+        0.0,
+        0.037,
+        0.0
+    ],
+    "total_max": 4.473,
+    "total_mean": 4.374,
+    "total_min": 4.34,
+    "total_std": 0.046
+}

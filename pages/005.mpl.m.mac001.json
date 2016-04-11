@@ -1,0 +1,121 @@
+{
+    "configuration": {
+        "arguments": {
+            "audio": "005m.mp3",
+            "conf": "task_language=eng|is_text_type=mplain|os_task_file_format=json",
+            "rconf": "",
+            "text": "005m.mplain.txt"
+        },
+        "audio_length": 320.91,
+        "description": "5m, mplain",
+        "execution": {
+            "timed_runs": 8,
+            "warmup_runs": 0
+        },
+        "text_length": 868
+    },
+    "environment": {
+        "description": "personal Mac Mini",
+        "label": "mac001",
+        "model": "Apple Mac Mini",
+        "notes": "",
+        "os": "Mac OS X 10.9.5",
+        "processor": "Intel Core i5 2.3 GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "005.mpl.m",
+    "labels": [
+        "load audio file",
+        "extract MFCC real wave level 1",
+        "extract MFCC real wave level 2",
+        "extract MFCC real wave level 3",
+        "clear audio file",
+        "compute head tail",
+        "compute alignment level 1",
+        "compute alignment level 2",
+        "compute alignment level 3",
+        "select levels",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "005.mpl.m.mac001.json",
+    "rtf_max": 0.102,
+    "rtf_mean": 0.1,
+    "rtf_min": 0.096,
+    "rtf_std": 0.002,
+    "steps_max": [
+        0.859,
+        0.088,
+        0.212,
+        1.519,
+        0.004,
+        0.0,
+        1.317,
+        2.25,
+        26.538,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "steps_mean": [
+        0.834,
+        0.083,
+        0.21,
+        1.489,
+        0.004,
+        0.0,
+        1.263,
+        2.207,
+        25.901,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "steps_mean_cum": [
+        0.834,
+        0.917,
+        1.128,
+        2.616,
+        2.62,
+        2.62,
+        3.883,
+        6.09,
+        31.99,
+        31.99,
+        31.99,
+        31.99
+    ],
+    "steps_min": [
+        0.807,
+        0.078,
+        0.208,
+        1.474,
+        0.003,
+        0.0,
+        1.212,
+        2.155,
+        24.903,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "steps_std": [
+        0.017,
+        0.004,
+        0.001,
+        0.014,
+        0.001,
+        0.0,
+        0.034,
+        0.032,
+        0.566,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "total_max": 32.67,
+    "total_mean": 31.99,
+    "total_min": 30.927,
+    "total_std": 0.611
+}

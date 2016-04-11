@@ -1,0 +1,97 @@
+{
+    "configuration": {
+        "arguments": {
+            "audio": "010m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "010m.plain.word.txt"
+        },
+        "audio_length": 614.45,
+        "description": "10m, plain, word",
+        "execution": {
+            "timed_runs": 8,
+            "warmup_runs": 0
+        },
+        "text_length": 1492
+    },
+    "environment": {
+        "description": "dev VPS",
+        "label": "vps001",
+        "model": "unknown",
+        "notes": "",
+        "os": "GNU/Linux 3.16.0-4-amd64",
+        "processor": "AMD Athlon II X2 240 2.8GHz",
+        "python": "2.7.9",
+        "ram": "4 GB"
+    },
+    "id": "010.pla.w",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "010.pla.w.vps001.json",
+    "rtf_max": 0.014,
+    "rtf_mean": 0.014,
+    "rtf_min": 0.014,
+    "rtf_std": 0.0,
+    "steps_max": [
+        2.38,
+        0.0,
+        2.136,
+        1.353,
+        3.033,
+        0.092,
+        0.072,
+        0.0
+    ],
+    "steps_mean": [
+        2.373,
+        0.0,
+        2.028,
+        1.332,
+        2.843,
+        0.091,
+        0.066,
+        0.0
+    ],
+    "steps_mean_cum": [
+        2.373,
+        2.373,
+        4.401,
+        5.734,
+        8.576,
+        8.667,
+        8.733,
+        8.733
+    ],
+    "steps_min": [
+        2.365,
+        0.0,
+        1.989,
+        1.32,
+        2.73,
+        0.09,
+        0.063,
+        0.0
+    ],
+    "steps_std": [
+        0.005,
+        0.0,
+        0.062,
+        0.01,
+        0.092,
+        0.001,
+        0.003,
+        0.0
+    ],
+    "total_max": 8.884,
+    "total_mean": 8.733,
+    "total_min": 8.665,
+    "total_std": 0.061
+}

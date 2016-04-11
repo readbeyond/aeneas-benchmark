@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="Shortcut Icon" href="assets/favicon.png" type="image/x-icon">
+
+    <title>aeneas-benchmark</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.plus.checkbox.min.css" rel="stylesheet">
+    <link href="assets/css/c3.min.css" rel="stylesheet">
+
+    <style>
+      body {
+        padding-top: 70px;
+      }
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://readbeyond.github.io/aeneas-benchmark/">aeneas-benchmark</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="http://www.readbeyond.it/aeneas/" target="_blank"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Documentation</a></li>
+            <li><a href="https://github.com/readbeyond/aeneas/" target="_blank"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> aeneas GitHub</a></li>
+            <li><a href="https://github.com/readbeyond/aeneas-benchmark/" target="_blank"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> aeneas-benchmark GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="content" class="container" role="main">
+    <!-- CONTENT -->
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">©2016 <a href="http://www.readbeyond.it/">ReadBeyond</a>, Venice, Italy.</p>
+      </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/d3.min.js"></script>
+    <script src="assets/js/c3.min.js"></script>
+    <script>
+var data = {"title": "Compare Runs pla.s.laptop001","type": "ct","raw": [{
+    "configuration": {
+        "arguments": {
+            "audio": "001m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "001m.plain.sentence.txt"
+        },
+        "audio_length": 53.32,
+        "description": "1m, plain, sentence",
+        "execution": {
+            "timed_runs": 16,
+            "warmup_runs": 1
+        },
+        "text_length": 15
+    },
+    "environment": {
+        "description": "dev slow laptop",
+        "label": "laptop001",
+        "model": "ThinkPad X120e",
+        "notes": "",
+        "os": "GNU/Linux 4.3.0-1-amd64",
+        "processor": "AMD E-350 1.6GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "001.pla.s",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "001.pla.s.laptop001.json",
+    "rtf_max": 0.029,
+    "rtf_mean": 0.026,
+    "rtf_min": 0.021,
+    "rtf_std": 0.003,
+    "steps_max": [
+        0.836,
+        0.002,
+        0.393,
+        0.207,
+        0.113,
+        0.003,
+        0.002,
+        0.0
+    ],
+    "steps_mean": [
+        0.79,
+        0.002,
+        0.327,
+        0.146,
+        0.112,
+        0.003,
+        0.002,
+        0.0
+    ],
+    "steps_mean_cum": [
+        0.79,
+        0.792,
+        1.118,
+        1.264,
+        1.376,
+        1.379,
+        1.381,
+        1.381
+    ],
+    "steps_min": [
+        0.7,
+        0.001,
+        0.196,
+        0.114,
+        0.111,
+        0.003,
+        0.002,
+        0.0
+    ],
+    "steps_std": [
+        0.064,
+        0.0,
+        0.092,
+        0.043,
+        0.001,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "total_max": 1.554,
+    "total_mean": 1.381,
+    "total_min": 1.127,
+    "total_std": 0.183
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "005m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "005m.plain.sentence.txt"
+        },
+        "audio_length": 320.91,
+        "description": "5m, plain, sentence",
+        "execution": {
+            "timed_runs": 16,
+            "warmup_runs": 1
+        },
+        "text_length": 84
+    },
+    "environment": {
+        "description": "dev slow laptop",
+        "label": "laptop001",
+        "model": "ThinkPad X120e",
+        "notes": "",
+        "os": "GNU/Linux 4.3.0-1-amd64",
+        "processor": "AMD E-350 1.6GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "005.pla.s",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "005.pla.s.laptop001.json",
+    "rtf_max": 0.029,
+    "rtf_mean": 0.028,
+    "rtf_min": 0.025,
+    "rtf_std": 0.002,
+    "steps_max": [
+        4.589,
+        0.001,
+        1.314,
+        0.942,
+        2.622,
+        0.013,
+        0.01,
+        0.0
+    ],
+    "steps_mean": [
+        4.193,
+        0.001,
+        1.31,
+        0.901,
+        2.519,
+        0.009,
+        0.007,
+        0.0
+    ],
+    "steps_mean_cum": [
+        4.193,
+        4.194,
+        5.505,
+        6.406,
+        8.925,
+        8.934,
+        8.94,
+        8.94
+    ],
+    "steps_min": [
+        3.529,
+        0.001,
+        1.308,
+        0.878,
+        2.419,
+        0.007,
+        0.005,
+        0.0
+    ],
+    "steps_std": [
+        0.473,
+        0.0,
+        0.003,
+        0.029,
+        0.083,
+        0.003,
+        0.002,
+        0.0
+    ],
+    "total_max": 9.422,
+    "total_mean": 8.94,
+    "total_min": 8.159,
+    "total_std": 0.557
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "010m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "010m.plain.sentence.txt"
+        },
+        "audio_length": 614.45,
+        "description": "10m, plain, sentence",
+        "execution": {
+            "timed_runs": 8,
+            "warmup_runs": 0
+        },
+        "text_length": 84
+    },
+    "environment": {
+        "description": "dev slow laptop",
+        "label": "laptop001",
+        "model": "ThinkPad X120e",
+        "notes": "",
+        "os": "GNU/Linux 4.3.0-1-amd64",
+        "processor": "AMD E-350 1.6GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "010.pla.s",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "010.pla.s.laptop001.json",
+    "rtf_max": 0.028,
+    "rtf_mean": 0.027,
+    "rtf_min": 0.027,
+    "rtf_std": 0.0,
+    "steps_max": [
+        7.342,
+        0.001,
+        2.175,
+        1.535,
+        6.035,
+        0.012,
+        0.011,
+        0.0
+    ],
+    "steps_mean": [
+        7.238,
+        0.001,
+        2.174,
+        1.519,
+        5.87,
+        0.012,
+        0.01,
+        0.0
+    ],
+    "steps_mean_cum": [
+        7.238,
+        7.239,
+        9.413,
+        10.932,
+        16.802,
+        16.814,
+        16.824,
+        16.824
+    ],
+    "steps_min": [
+        7.134,
+        0.001,
+        2.173,
+        1.508,
+        5.689,
+        0.011,
+        0.009,
+        0.0
+    ],
+    "steps_std": [
+        0.085,
+        0.0,
+        0.001,
+        0.012,
+        0.142,
+        0.0,
+        0.001,
+        0.0
+    ],
+    "total_max": 16.93,
+    "total_mean": 16.824,
+    "total_min": 16.662,
+    "total_std": 0.116
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "020m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "020m.plain.sentence.txt"
+        },
+        "audio_length": 1216.63,
+        "description": "20m, plain, sentence",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 217
+    },
+    "environment": {
+        "description": "dev slow laptop",
+        "label": "laptop001",
+        "model": "ThinkPad X120e",
+        "notes": "",
+        "os": "GNU/Linux 4.3.0-1-amd64",
+        "processor": "AMD E-350 1.6GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "020.pla.s",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "020.pla.s.laptop001.json",
+    "rtf_max": 0.026,
+    "rtf_mean": 0.025,
+    "rtf_min": 0.025,
+    "rtf_std": 0.0,
+    "steps_max": [
+        14.148,
+        0.001,
+        4.736,
+        3.281,
+        9.094,
+        0.028,
+        0.028,
+        0.0
+    ],
+    "steps_mean": [
+        13.519,
+        0.001,
+        4.734,
+        3.273,
+        9.043,
+        0.027,
+        0.027,
+        0.0
+    ],
+    "steps_mean_cum": [
+        13.519,
+        13.52,
+        18.253,
+        21.526,
+        30.569,
+        30.596,
+        30.623,
+        30.623
+    ],
+    "steps_min": [
+        12.963,
+        0.001,
+        4.732,
+        3.265,
+        8.968,
+        0.027,
+        0.027,
+        0.0
+    ],
+    "steps_std": [
+        0.487,
+        0.0,
+        0.002,
+        0.007,
+        0.054,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "total_max": 31.274,
+    "total_mean": 30.623,
+    "total_min": 30.113,
+    "total_std": 0.484
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "030m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "030m.plain.sentence.txt"
+        },
+        "audio_length": 1880.45,
+        "description": "30m, plain, sentence",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 308
+    },
+    "environment": {
+        "description": "dev slow laptop",
+        "label": "laptop001",
+        "model": "ThinkPad X120e",
+        "notes": "",
+        "os": "GNU/Linux 4.3.0-1-amd64",
+        "processor": "AMD E-350 1.6GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "030.pla.s",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "030.pla.s.laptop001.json",
+    "rtf_max": 0.026,
+    "rtf_mean": 0.025,
+    "rtf_min": 0.025,
+    "rtf_std": 0.001,
+    "steps_max": [
+        21.724,
+        0.001,
+        7.326,
+        5.572,
+        14.843,
+        0.038,
+        0.03,
+        0.0
+    ],
+    "steps_mean": [
+        21.056,
+        0.001,
+        6.995,
+        5.15,
+        14.473,
+        0.038,
+        0.03,
+        0.0
+    ],
+    "steps_mean_cum": [
+        21.056,
+        21.057,
+        28.052,
+        33.202,
+        47.674,
+        47.712,
+        47.742,
+        47.742
+    ],
+    "steps_min": [
+        20.665,
+        0.001,
+        6.827,
+        4.933,
+        14.266,
+        0.038,
+        0.029,
+        0.0
+    ],
+    "steps_std": [
+        0.474,
+        0.0,
+        0.234,
+        0.299,
+        0.262,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "total_max": 49.534,
+    "total_mean": 47.742,
+    "total_min": 46.76,
+    "total_std": 1.269
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "060m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "060m.plain.sentence.txt"
+        },
+        "audio_length": 3613.7,
+        "description": "60m, plain, sentence",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 629
+    },
+    "environment": {
+        "description": "dev slow laptop",
+        "label": "laptop001",
+        "model": "ThinkPad X120e",
+        "notes": "",
+        "os": "GNU/Linux 4.3.0-1-amd64",
+        "processor": "AMD E-350 1.6GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "060.pla.s",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "060.pla.s.laptop001.json",
+    "rtf_max": 0.027,
+    "rtf_mean": 0.026,
+    "rtf_min": 0.026,
+    "rtf_std": 0.0,
+    "steps_max": [
+        42.347,
+        0.001,
+        14.098,
+        11.578,
+        30.398,
+        0.089,
+        0.177,
+        0.0
+    ],
+    "steps_mean": [
+        41.234,
+        0.001,
+        13.768,
+        10.502,
+        29.463,
+        0.085,
+        0.107,
+        0.0
+    ],
+    "steps_mean_cum": [
+        41.234,
+        41.235,
+        55.003,
+        65.505,
+        94.968,
+        95.053,
+        95.16,
+        95.16
+    ],
+    "steps_min": [
+        40.378,
+        0.001,
+        13.583,
+        9.816,
+        28.645,
+        0.082,
+        0.071,
+        0.0
+    ],
+    "steps_std": [
+        0.824,
+        0.0,
+        0.234,
+        0.77,
+        0.72,
+        0.003,
+        0.05,
+        0.0
+    ],
+    "total_max": 96.689,
+    "total_mean": 95.16,
+    "total_min": 93.8,
+    "total_std": 1.185
+},]}
+    </script>
+    <script src="assets/js/custom.js"></script>
+  </body>
+</html>

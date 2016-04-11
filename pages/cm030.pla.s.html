@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="Shortcut Icon" href="assets/favicon.png" type="image/x-icon">
+
+    <title>aeneas-benchmark</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.plus.checkbox.min.css" rel="stylesheet">
+    <link href="assets/css/c3.min.css" rel="stylesheet">
+
+    <style>
+      body {
+        padding-top: 70px;
+      }
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://readbeyond.github.io/aeneas-benchmark/">aeneas-benchmark</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="http://www.readbeyond.it/aeneas/" target="_blank"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Documentation</a></li>
+            <li><a href="https://github.com/readbeyond/aeneas/" target="_blank"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> aeneas GitHub</a></li>
+            <li><a href="https://github.com/readbeyond/aeneas-benchmark/" target="_blank"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> aeneas-benchmark GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="content" class="container" role="main">
+    <!-- CONTENT -->
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">©2016 <a href="http://www.readbeyond.it/">ReadBeyond</a>, Venice, Italy.</p>
+      </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/d3.min.js"></script>
+    <script src="assets/js/c3.min.js"></script>
+    <script>
+var data = {"title": "Compare Runs 030.pla.s","type": "cm","raw": [{
+    "configuration": {
+        "arguments": {
+            "audio": "030m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "030m.plain.sentence.txt"
+        },
+        "audio_length": 1880.45,
+        "description": "30m, plain, sentence",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 308
+    },
+    "environment": {
+        "description": "dev slow laptop",
+        "label": "laptop001",
+        "model": "ThinkPad X120e",
+        "notes": "",
+        "os": "GNU/Linux 4.3.0-1-amd64",
+        "processor": "AMD E-350 1.6GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "030.pla.s",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "030.pla.s.laptop001.json",
+    "rtf_max": 0.026,
+    "rtf_mean": 0.025,
+    "rtf_min": 0.025,
+    "rtf_std": 0.001,
+    "steps_max": [
+        21.724,
+        0.001,
+        7.326,
+        5.572,
+        14.843,
+        0.038,
+        0.03,
+        0.0
+    ],
+    "steps_mean": [
+        21.056,
+        0.001,
+        6.995,
+        5.15,
+        14.473,
+        0.038,
+        0.03,
+        0.0
+    ],
+    "steps_mean_cum": [
+        21.056,
+        21.057,
+        28.052,
+        33.202,
+        47.674,
+        47.712,
+        47.742,
+        47.742
+    ],
+    "steps_min": [
+        20.665,
+        0.001,
+        6.827,
+        4.933,
+        14.266,
+        0.038,
+        0.029,
+        0.0
+    ],
+    "steps_std": [
+        0.474,
+        0.0,
+        0.234,
+        0.299,
+        0.262,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "total_max": 49.534,
+    "total_mean": 47.742,
+    "total_min": 46.76,
+    "total_std": 1.269
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "030m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "030m.plain.sentence.txt"
+        },
+        "audio_length": 1880.45,
+        "description": "30m, plain, sentence",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 308
+    },
+    "environment": {
+        "description": "personal Mac Mini",
+        "label": "mac001",
+        "model": "Apple Mac Mini",
+        "notes": "",
+        "os": "Mac OS X 10.9.5",
+        "processor": "Intel Core i5 2.3 GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "030.pla.s",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "030.pla.s.mac001.json",
+    "rtf_max": 0.012,
+    "rtf_mean": 0.011,
+    "rtf_min": 0.011,
+    "rtf_std": 0.0,
+    "steps_max": [
+        6.036,
+        0.0,
+        9.937,
+        1.54,
+        4.618,
+        0.016,
+        0.014,
+        0.0
+    ],
+    "steps_mean": [
+        5.759,
+        0.0,
+        9.618,
+        1.496,
+        4.552,
+        0.016,
+        0.013,
+        0.0
+    ],
+    "steps_mean_cum": [
+        5.759,
+        5.759,
+        15.377,
+        16.873,
+        21.425,
+        21.441,
+        21.454,
+        21.454
+    ],
+    "steps_min": [
+        5.647,
+        0.0,
+        9.437,
+        1.467,
+        4.521,
+        0.016,
+        0.012,
+        0.0
+    ],
+    "steps_std": [
+        0.161,
+        0.0,
+        0.191,
+        0.027,
+        0.039,
+        0.0,
+        0.001,
+        0.0
+    ],
+    "total_max": 21.776,
+    "total_mean": 21.454,
+    "total_min": 21.12,
+    "total_std": 0.247
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "030m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "030m.plain.sentence.txt"
+        },
+        "audio_length": 1880.45,
+        "description": "30m, plain, sentence",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 308
+    },
+    "environment": {
+        "description": "dev VPS",
+        "label": "vps001",
+        "model": "unknown",
+        "notes": "",
+        "os": "GNU/Linux 3.16.0-4-amd64",
+        "processor": "AMD Athlon II X2 240 2.8GHz",
+        "python": "2.7.9",
+        "ram": "4 GB"
+    },
+    "id": "030.pla.s",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "030.pla.s.vps001.json",
+    "rtf_max": 0.01,
+    "rtf_mean": 0.01,
+    "rtf_min": 0.01,
+    "rtf_std": 0.0,
+    "steps_max": [
+        7.045,
+        0.0,
+        3.38,
+        1.959,
+        5.881,
+        0.019,
+        0.04,
+        0.0
+    ],
+    "steps_mean": [
+        7.024,
+        0.0,
+        3.377,
+        1.942,
+        5.866,
+        0.019,
+        0.019,
+        0.0
+    ],
+    "steps_mean_cum": [
+        7.024,
+        7.024,
+        10.401,
+        12.342,
+        18.209,
+        18.227,
+        18.246,
+        18.246
+    ],
+    "steps_min": [
+        7.012,
+        0.0,
+        3.374,
+        1.932,
+        5.856,
+        0.019,
+        0.011,
+        0.0
+    ],
+    "steps_std": [
+        0.013,
+        0.0,
+        0.002,
+        0.01,
+        0.01,
+        0.0,
+        0.012,
+        0.0
+    ],
+    "total_max": 18.294,
+    "total_mean": 18.246,
+    "total_min": 18.225,
+    "total_std": 0.028
+},]}
+    </script>
+    <script src="assets/js/custom.js"></script>
+  </body>
+</html>

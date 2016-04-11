@@ -1,0 +1,97 @@
+{
+    "configuration": {
+        "arguments": {
+            "audio": "001m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "001m.plain.sentence.txt"
+        },
+        "audio_length": 53.32,
+        "description": "1m, plain, sentence",
+        "execution": {
+            "timed_runs": 16,
+            "warmup_runs": 1
+        },
+        "text_length": 15
+    },
+    "environment": {
+        "description": "personal Mac Mini",
+        "label": "mac001",
+        "model": "Apple Mac Mini",
+        "notes": "",
+        "os": "Mac OS X 10.9.5",
+        "processor": "Intel Core i5 2.3 GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "001.pla.s",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "001.pla.s.mac001.json",
+    "rtf_max": 0.014,
+    "rtf_mean": 0.012,
+    "rtf_min": 0.011,
+    "rtf_std": 0.001,
+    "steps_max": [
+        0.213,
+        0.0,
+        0.466,
+        0.041,
+        0.044,
+        0.002,
+        0.001,
+        0.0
+    ],
+    "steps_mean": [
+        0.202,
+        0.0,
+        0.348,
+        0.039,
+        0.039,
+        0.001,
+        0.001,
+        0.0
+    ],
+    "steps_mean_cum": [
+        0.202,
+        0.202,
+        0.55,
+        0.589,
+        0.627,
+        0.628,
+        0.629,
+        0.629
+    ],
+    "steps_min": [
+        0.194,
+        0.0,
+        0.331,
+        0.037,
+        0.035,
+        0.001,
+        0.001,
+        0.0
+    ],
+    "steps_std": [
+        0.005,
+        0.0,
+        0.031,
+        0.002,
+        0.002,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "total_max": 0.754,
+    "total_mean": 0.629,
+    "total_min": 0.611,
+    "total_std": 0.033
+}

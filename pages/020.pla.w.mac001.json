@@ -1,0 +1,97 @@
+{
+    "configuration": {
+        "arguments": {
+            "audio": "020m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "020m.plain.word.txt"
+        },
+        "audio_length": 1216.63,
+        "description": "20m, plain, word",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 3200
+    },
+    "environment": {
+        "description": "personal Mac Mini",
+        "label": "mac001",
+        "model": "Apple Mac Mini",
+        "notes": "",
+        "os": "Mac OS X 10.9.5",
+        "processor": "Intel Core i5 2.3 GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "020.pla.w",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "020.pla.w.mac001.json",
+    "rtf_max": 0.058,
+    "rtf_mean": 0.057,
+    "rtf_min": 0.055,
+    "rtf_std": 0.001,
+    "steps_max": [
+        3.893,
+        0.001,
+        61.273,
+        2.219,
+        3.133,
+        0.257,
+        0.247,
+        0.0
+    ],
+    "steps_mean": [
+        3.851,
+        0.001,
+        59.518,
+        2.18,
+        3.013,
+        0.185,
+        0.198,
+        0.0
+    ],
+    "steps_mean_cum": [
+        3.851,
+        3.852,
+        63.37,
+        65.55,
+        68.563,
+        68.748,
+        68.946,
+        68.946
+    ],
+    "steps_min": [
+        3.78,
+        0.0,
+        57.986,
+        2.12,
+        2.966,
+        0.161,
+        0.148,
+        0.0
+    ],
+    "steps_std": [
+        0.043,
+        0.001,
+        1.173,
+        0.038,
+        0.07,
+        0.041,
+        0.048,
+        0.0
+    ],
+    "total_max": 70.723,
+    "total_mean": 68.946,
+    "total_min": 67.502,
+    "total_std": 1.157
+}

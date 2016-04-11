@@ -1,0 +1,121 @@
+{
+    "configuration": {
+        "arguments": {
+            "audio": "001m.mp3",
+            "conf": "task_language=eng|is_text_type=mplain|os_task_file_format=json",
+            "rconf": "",
+            "text": "001m.mplain.txt"
+        },
+        "audio_length": 53.32,
+        "description": "1m, mplain",
+        "execution": {
+            "timed_runs": 8,
+            "warmup_runs": 0
+        },
+        "text_length": 107
+    },
+    "environment": {
+        "description": "dev VPS",
+        "label": "vps001",
+        "model": "unknown",
+        "notes": "",
+        "os": "GNU/Linux 3.16.0-4-amd64",
+        "processor": "AMD Athlon II X2 240 2.8GHz",
+        "python": "2.7.9",
+        "ram": "4 GB"
+    },
+    "id": "001.mpl.m",
+    "labels": [
+        "load audio file",
+        "extract MFCC real wave level 1",
+        "extract MFCC real wave level 2",
+        "extract MFCC real wave level 3",
+        "clear audio file",
+        "compute head tail",
+        "compute alignment level 1",
+        "compute alignment level 2",
+        "compute alignment level 3",
+        "select levels",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "001.mpl.m.vps001.json",
+    "rtf_max": 0.039,
+    "rtf_mean": 0.038,
+    "rtf_min": 0.038,
+    "rtf_std": 0.0,
+    "steps_max": [
+        0.219,
+        0.023,
+        0.052,
+        0.328,
+        0.0,
+        0.0,
+        0.127,
+        0.172,
+        1.148,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "steps_mean": [
+        0.216,
+        0.021,
+        0.049,
+        0.326,
+        0.0,
+        0.0,
+        0.122,
+        0.171,
+        1.121,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "steps_mean_cum": [
+        0.216,
+        0.237,
+        0.287,
+        0.612,
+        0.612,
+        0.612,
+        0.735,
+        0.905,
+        2.026,
+        2.026,
+        2.026,
+        2.026
+    ],
+    "steps_min": [
+        0.214,
+        0.02,
+        0.049,
+        0.323,
+        0.0,
+        0.0,
+        0.12,
+        0.17,
+        1.107,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "steps_std": [
+        0.002,
+        0.001,
+        0.001,
+        0.002,
+        0.0,
+        0.0,
+        0.003,
+        0.001,
+        0.013,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "total_max": 2.053,
+    "total_mean": 2.026,
+    "total_min": 2.012,
+    "total_std": 0.013
+}

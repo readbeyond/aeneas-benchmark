@@ -1,0 +1,97 @@
+{
+    "configuration": {
+        "arguments": {
+            "audio": "060m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "060m.plain.word.txt"
+        },
+        "audio_length": 3613.7,
+        "description": "60m, plain, word",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 8391
+    },
+    "environment": {
+        "description": "personal Mac Mini",
+        "label": "mac001",
+        "model": "Apple Mac Mini",
+        "notes": "",
+        "os": "Mac OS X 10.9.5",
+        "processor": "Intel Core i5 2.3 GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "060.pla.w",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "060.pla.w.mac001.json",
+    "rtf_max": 0.053,
+    "rtf_mean": 0.052,
+    "rtf_min": 0.051,
+    "rtf_std": 0.001,
+    "steps_max": [
+        11.172,
+        0.0,
+        162.52,
+        6.211,
+        8.97,
+        0.948,
+        0.918,
+        0.0
+    ],
+    "steps_mean": [
+        10.957,
+        0.0,
+        160.899,
+        6.045,
+        8.814,
+        0.558,
+        0.719,
+        0.0
+    ],
+    "steps_mean_cum": [
+        10.957,
+        10.957,
+        171.856,
+        177.9,
+        186.714,
+        187.272,
+        187.991,
+        187.991
+    ],
+    "steps_min": [
+        10.749,
+        0.0,
+        158.895,
+        5.94,
+        8.743,
+        0.425,
+        0.398,
+        0.0
+    ],
+    "steps_std": [
+        0.167,
+        0.0,
+        1.541,
+        0.111,
+        0.091,
+        0.225,
+        0.203,
+        0.0
+    ],
+    "total_max": 189.899,
+    "total_mean": 187.991,
+    "total_min": 185.761,
+    "total_std": 1.813
+}

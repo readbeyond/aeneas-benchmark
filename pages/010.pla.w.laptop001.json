@@ -1,0 +1,97 @@
+{
+    "configuration": {
+        "arguments": {
+            "audio": "010m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "010m.plain.word.txt"
+        },
+        "audio_length": 614.45,
+        "description": "10m, plain, word",
+        "execution": {
+            "timed_runs": 8,
+            "warmup_runs": 0
+        },
+        "text_length": 1492
+    },
+    "environment": {
+        "description": "dev slow laptop",
+        "label": "laptop001",
+        "model": "ThinkPad X120e",
+        "notes": "",
+        "os": "GNU/Linux 4.3.0-1-amd64",
+        "processor": "AMD E-350 1.6GHz",
+        "python": "2.7.11",
+        "ram": "4 GB"
+    },
+    "id": "010.pla.w",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map",
+        "check zero duration"
+    ],
+    "output_file": "010.pla.w.laptop001.json",
+    "rtf_max": 0.037,
+    "rtf_mean": 0.036,
+    "rtf_min": 0.035,
+    "rtf_std": 0.001,
+    "steps_max": [
+        7.297,
+        0.001,
+        4.777,
+        4.103,
+        5.874,
+        0.322,
+        0.377,
+        0.0
+    ],
+    "steps_mean": [
+        7.244,
+        0.001,
+        4.641,
+        3.599,
+        5.873,
+        0.228,
+        0.303,
+        0.0
+    ],
+    "steps_mean_cum": [
+        7.244,
+        7.245,
+        11.886,
+        15.485,
+        21.359,
+        21.587,
+        21.89,
+        21.89
+    ],
+    "steps_min": [
+        7.147,
+        0.001,
+        4.564,
+        3.342,
+        5.872,
+        0.181,
+        0.163,
+        0.0
+    ],
+    "steps_std": [
+        0.068,
+        0.0,
+        0.096,
+        0.356,
+        0.001,
+        0.066,
+        0.099,
+        0.0
+    ],
+    "total_max": 22.604,
+    "total_mean": 21.89,
+    "total_min": 21.432,
+    "total_std": 0.511
+}
