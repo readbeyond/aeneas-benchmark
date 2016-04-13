@@ -60,7 +60,7 @@ class RunBenchmarkCLI(AbstractCLIProgram):
             u"--list : list all available tests",
             u"--list-rconf : list all available tests, including those with rconf",
             u"-s, --single : perform one timed run only",
-            u"-t=TESTS, --tests=TESTS : run tests TESTS"
+            u"-t=TESTS, --tests=TESTS : run tests TESTS",
         ]
     }
 
@@ -223,13 +223,15 @@ class RunBenchmarkCLI(AbstractCLIProgram):
     def perform_run(self, audio_file_path, text_file_path, config_string, rconf_string):
         output_file_handler, output_file_path = gf.tmp_file()
         executor = ExecuteTaskCLI(use_sys=False)
+        verbose = "-v" if self.verbose else ""
         executor.run(arguments=[
             "dummy placeholder for aeneas.tools.execute_task",
             audio_file_path,
             text_file_path,
             config_string,
             output_file_path,
-            "-r=\"%s\"" % rconf_string
+            "-r=\"%s\"" % rconf_string,
+            verbose
         ])
         gf.delete_file(output_file_handler, output_file_path)
         return executor.logger
