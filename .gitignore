@@ -4,7 +4,7 @@
 *.swp
 *.so
 tmp
-zzz_leftovers
+zzz_*
 
 # service scripts
 zzz_*.py
