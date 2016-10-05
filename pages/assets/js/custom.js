@@ -25,9 +25,9 @@ if (data["title"] !== undefined) {
 if (data["type"] === "index") {
     var div = "";
 
-    div += "<div class=\"row\">";
-    div += "<div class=\"alert alert-warning\" role=\"alert\"><p><strong>Warning!</strong> This benchmark suite is work in progress!</p></div>";
-    div += "</div>";
+    //div += "<div class=\"row\">";
+    //div += "<div class=\"alert alert-warning\" role=\"alert\"><p><strong>Warning!</strong> This benchmark suite is work in progress!</p></div>";
+    //div += "</div>";
     
     div += "<div class=\"row\">";
     div += " <h2>Comparisons</h2>";
