@@ -122,7 +122,7 @@ class RunBenchmarkCLI(AbstractCLIProgram):
             return self.print_help()
 
         self.load_tests()
-        
+
         if self.has_option([u"--list"]):
             return self.print_list(show_rconf=False)
         if self.has_option([u"--list-rconf"]):
@@ -207,7 +207,7 @@ class RunBenchmarkCLI(AbstractCLIProgram):
                 runs.append(self.get_run_values(logger))
                 if i == 0:
                     labels = self.get_labels(logger)
-           
+
             # save results
             self.save_results(test, config_obj, labels, runs, env_info)
             self.print_info(u"Test %s ... completed" % test)
@@ -251,7 +251,7 @@ class RunBenchmarkCLI(AbstractCLIProgram):
             l = msg.split(" ")
             index = l.index("DURATION")
             labels.append((" ".join(l[index+2:])).replace("(", "").replace(")", ""))
-        return labels 
+        return labels
 
     def save_results(self, test, config_obj, labels, runs, env_info):
         # convert to numpy matrix

@@ -9,14 +9,11 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 import io
-import json
 import os
 import sys
 
 __author__ = "Alberto Pettarin"
-__copyright__ = """
-    Copyright 2016, Alberto Pettarin (www.albertopettarin.it)
-    """
+__copyright__ = "Copyright 2016-2017, Alberto Pettarin (www.albertopettarin.it)"
 __license__ = "GNU AGPL 3"
 __version__ = "0.0.1"
 __email__ = "aeneas@readbeyond.it"
@@ -30,22 +27,21 @@ output_directory_path = "output/pages"
 
 inp = sys.argv[1]
 
-with io.open(os.path.join(input_directory_path, inp + ".json"), "r", encoding="utf-8") as input_file:
+input_file_path = os.path.join(input_directory_path, inp + ".json")
+with io.open(input_file_path, "r", encoding="utf-8") as input_file:
     inp_data = input_file.read()
 
 with io.open(template_file_path, "r", encoding="utf-8") as template_file:
     template_data = template_file.read()
 
 
-replaced  = "var data = {"
+replaced = "var data = {"
 replaced += "\"title\": \"Run " + inp + "\","
 replaced += "\"type\": \"single\","
 replaced += "\"raw\":"
 replaced += inp_data
 replaced += "}"
 
-with io.open(os.path.join(output_directory_path, inp + ".html"), "w", encoding="utf-8") as output_file:
+input_file_path = os.path.join(output_directory_path, inp + ".html")
+with io.open(input_file_path, "w", encoding="utf-8") as output_file:
     output_file.write(template_data.replace("    <!-- DATA -->", replaced))
-
-
-

@@ -2,8 +2,8 @@
 
 The official benchmark suite for **aeneas**
 
-* Version: 0.0.2 (aeneas 1.6.0.1)
-* Date: 2016-10-05
+* Version: 0.0.3 (aeneas 1.7.2)
+* Date: 2017-03-04
 * Developed by: [ReadBeyond](http://www.readbeyond.it/)
 * Lead Developer: [Alberto Pettarin](http://www.albertopettarin.it/)
 * License: the GNU Affero General Public License Version 3 (AGPL v3)
@@ -31,14 +31,14 @@ on different machines and under different I/O and parameter configurations.
     ```
 
 2. Enter the ``benchmark`` directory:
-   
+
    ```bash
    $ cd benchmark
    ```
 
 3. Rename the ``ENVINFO.editme`` file to ``ENVINFO``, and edit it with your system info.
 
-4. Run the benchmark suite (IMPORTANT: it requires several minutes to complete!):
+4. Run the benchmark suite (it requires several minutes to complete):
 
    ```bash
    $ python run_benchmark.py --all
@@ -50,7 +50,26 @@ please contact us via email
 
 ### Creating the static site
 
-TBW
+1. Run the benchmark (see above) on at least one machine.
+
+2. If you run the benchmark on more than one machine, please copy the ``*.json`` files
+   from the other machines into the ``benchmark/output`` directory
+   of the machine you want to build the static HTML files (e.g., your personal PC/laptop).
+   Note that it is crucial each machine to have its own (distinct) ENVINFO file.
+
+3. Edit the last lines of the ``sitebuilder/build_all.sh`` script,
+   and the ``output/index.html`` file,
+   depending on the actual machines you have.
+   (TODO: automate this.)
+
+4. Run:
+
+   ```bash
+   $ cd sitebuilder
+   $ bash build_all.sh
+   ```
+
+   The static HTML files are created in the ``output/`` directory.
 
 
 ## License
