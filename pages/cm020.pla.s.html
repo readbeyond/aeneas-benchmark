@@ -28,7 +28,6 @@
     <![endif]-->
   </head>
   <body role="document">
-    
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -39,7 +38,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="https://readbeyond.github.io/aeneas-benchmark/">aeneas-benchmark v1.6.0</a>
+          <a class="navbar-brand" href="https://readbeyond.github.io/aeneas-benchmark/">aeneas-benchmark v1.7.2</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -57,7 +56,7 @@
 
     <footer class="footer">
       <div class="container">
-        <p class="text-muted">©2016 <a href="http://www.readbeyond.it/">ReadBeyond</a>, Venice, Italy.</p>
+        <p class="text-muted">©2016-2017 <a href="http://www.readbeyond.it/">ReadBeyond</a>, Venice, Italy.</p>
       </div>
     </footer>
 
@@ -84,13 +83,13 @@ var data = {"title": "Compare Runs 020.pla.s","type": "cm","raw": [{
         "text_length": 217
     },
     "environment": {
-        "description": "dev slow laptop",
-        "label": "laptop001",
+        "description": "old dev laptop",
+        "label": "lap001",
         "model": "ThinkPad X120e",
         "notes": "",
-        "os": "GNU/Linux 4.3.0-1-amd64",
+        "os": "GNU/Linux 4.8.0-2-amd64",
         "processor": "AMD E-350 1.6GHz",
-        "python": "2.7.12",
+        "python": "2.7.13",
         "ram": "4 GB"
     },
     "id": "020.pla.s",
@@ -101,68 +100,152 @@ var data = {"title": "Compare Runs 020.pla.s","type": "cm","raw": [{
         "extract MFCC synt wave",
         "align waves",
         "adjust boundaries",
-        "create sync map",
-        "check zero duration"
+        "create sync map"
     ],
-    "output_file": "020.pla.s.laptop001.json",
+    "output_file": "020.pla.s.lap001.json",
     "rtf_max": 0.028,
-    "rtf_mean": 0.027,
-    "rtf_min": 0.027,
+    "rtf_mean": 0.028,
+    "rtf_min": 0.028,
     "rtf_std": 0.0,
     "steps_max": [
-        14.166,
-        0.001,
-        5.184,
-        5.638,
-        9.505,
-        0.029,
-        0.028,
-        0.0
+        14.618,
+        0.002,
+        4.716,
+        5.57,
+        9.322,
+        0.114,
+        0.04
     ],
     "steps_mean": [
-        14.086,
+        14.542,
         0.001,
-        4.823,
-        5.167,
-        9.156,
-        0.029,
-        0.028,
-        0.0
+        4.714,
+        5.521,
+        9.127,
+        0.113,
+        0.04
     ],
     "steps_mean_cum": [
-        14.086,
-        14.087,
-        18.91,
-        24.076,
-        33.233,
-        33.261,
-        33.289,
-        33.289
+        14.542,
+        14.543,
+        19.257,
+        24.778,
+        33.906,
+        34.018,
+        34.058
     ],
     "steps_min": [
-        14.001,
+        14.482,
         0.001,
-        4.698,
-        4.961,
+        4.712,
+        5.459,
         8.991,
-        0.028,
-        0.026,
-        0.0
+        0.112,
+        0.039
     ],
     "steps_std": [
-        0.071,
+        0.049,
         0.0,
-        0.208,
-        0.277,
-        0.207,
-        0.0,
+        0.001,
+        0.043,
+        0.121,
         0.001,
         0.0
     ],
-    "total_max": 33.706,
-    "total_mean": 33.289,
-    "total_min": 32.762,
-    "total_std": 0.415
+    "total_max": 34.268,
+    "total_mean": 34.058,
+    "total_min": 33.842,
+    "total_std": 0.152
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "020m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "020m.plain.sentence.txt"
+        },
+        "audio_length": 1216.63,
+        "description": "20m, plain, sentence",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 217
+    },
+    "environment": {
+        "description": "dev laptop",
+        "label": "lap002",
+        "model": "ThinkPad X260",
+        "notes": "",
+        "os": "GNU/Linux 4.9.0-1-amd64",
+        "processor": "Intel Core i5-6200U 2.30GHz",
+        "python": "2.7.13",
+        "ram": "16 GB"
+    },
+    "id": "020.pla.s",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map"
+    ],
+    "output_file": "020.pla.s.lap002.json",
+    "rtf_max": 0.006,
+    "rtf_mean": 0.006,
+    "rtf_min": 0.006,
+    "rtf_std": 0.0,
+    "steps_max": [
+        2.754,
+        0.001,
+        1.2,
+        1.11,
+        2.537,
+        0.023,
+        0.008
+    ],
+    "steps_mean": [
+        2.738,
+        0.0,
+        1.196,
+        1.101,
+        2.526,
+        0.023,
+        0.008
+    ],
+    "steps_mean_cum": [
+        2.738,
+        2.738,
+        3.933,
+        5.034,
+        7.56,
+        7.583,
+        7.591
+    ],
+    "steps_min": [
+        2.715,
+        0.0,
+        1.19,
+        1.096,
+        2.515,
+        0.023,
+        0.008
+    ],
+    "steps_std": [
+        0.015,
+        0.0,
+        0.004,
+        0.006,
+        0.01,
+        0.0,
+        0.0
+    ],
+    "total_max": 7.623,
+    "total_mean": 7.591,
+    "total_min": 7.574,
+    "total_std": 0.02
 },{
     "configuration": {
         "arguments": {
@@ -181,13 +264,13 @@ var data = {"title": "Compare Runs 020.pla.s","type": "cm","raw": [{
     },
     "environment": {
         "description": "personal Mac Mini",
-        "label": "mac001",
+        "label": "mac002",
         "model": "Apple Mac Mini",
         "notes": "",
-        "os": "Mac OS X 10.9.5",
+        "os": "Mac OS X 10.12.3",
         "processor": "Intel Core i5 2.3 GHz",
         "python": "2.7.12",
-        "ram": "4 GB"
+        "ram": "16 GB"
     },
     "id": "020.pla.s",
     "labels": [
@@ -197,70 +280,63 @@ var data = {"title": "Compare Runs 020.pla.s","type": "cm","raw": [{
         "extract MFCC synt wave",
         "align waves",
         "adjust boundaries",
-        "create sync map",
-        "check zero duration"
+        "create sync map"
     ],
-    "output_file": "020.pla.s.mac001.json",
+    "output_file": "020.pla.s.mac002.json",
     "rtf_max": 0.009,
-    "rtf_mean": 0.008,
-    "rtf_min": 0.008,
+    "rtf_mean": 0.009,
+    "rtf_min": 0.009,
     "rtf_std": 0.0,
     "steps_max": [
-        3.938,
-        0.0,
-        1.625,
-        1.628,
-        3.652,
-        0.012,
-        0.011,
-        0.0
+        4.446,
+        0.001,
+        1.742,
+        1.605,
+        3.49,
+        0.046,
+        0.017
     ],
     "steps_mean": [
-        3.821,
-        0.0,
-        1.608,
-        1.495,
-        3.266,
-        0.011,
-        0.011,
-        0.0
+        4.397,
+        0.001,
+        1.719,
+        1.577,
+        3.363,
+        0.044,
+        0.015
     ],
     "steps_mean_cum": [
-        3.821,
-        3.821,
-        5.429,
-        6.924,
-        10.19,
-        10.201,
-        10.212,
-        10.212
+        4.397,
+        4.398,
+        6.117,
+        7.694,
+        11.057,
+        11.101,
+        11.116
     ],
     "steps_min": [
-        3.753,
+        4.309,
         0.0,
-        1.598,
-        1.443,
-        3.017,
-        0.011,
-        0.01,
-        0.0
+        1.687,
+        1.558,
+        3.308,
+        0.042,
+        0.014
     ],
     "steps_std": [
-        0.07,
-        0.0,
-        0.01,
-        0.077,
-        0.236,
-        0.0,
-        0.0,
-        0.0
+        0.055,
+        0.001,
+        0.02,
+        0.017,
+        0.074,
+        0.002,
+        0.001
     ],
-    "total_max": 10.864,
-    "total_mean": 10.212,
-    "total_min": 9.834,
-    "total_std": 0.391
-}
-,{
+    "total_max": 11.268,
+    "total_mean": 11.116,
+    "total_min": 11.013,
+    "total_std": 0.105
+},{
     "configuration": {
         "arguments": {
             "audio": "020m.mp3",
@@ -294,68 +370,62 @@ var data = {"title": "Compare Runs 020.pla.s","type": "cm","raw": [{
         "extract MFCC synt wave",
         "align waves",
         "adjust boundaries",
-        "create sync map",
-        "check zero duration"
+        "create sync map"
     ],
     "output_file": "020.pla.s.vps001.json",
-    "rtf_max": 0.01,
-    "rtf_mean": 0.01,
-    "rtf_min": 0.01,
+    "rtf_max": 0.011,
+    "rtf_mean": 0.011,
+    "rtf_min": 0.011,
     "rtf_std": 0.0,
     "steps_max": [
-        4.637,
-        0.0,
-        2.491,
-        1.767,
-        3.832,
-        0.014,
-        0.011,
-        0.0
+        4.748,
+        0.001,
+        2.332,
+        1.89,
+        4.101,
+        0.427,
+        0.014
     ],
     "steps_mean": [
-        4.622,
+        4.708,
         0.0,
-        2.38,
-        1.754,
-        3.83,
-        0.014,
-        0.01,
-        0.0
+        2.33,
+        1.857,
+        3.988,
+        0.137,
+        0.014
     ],
     "steps_mean_cum": [
-        4.622,
-        4.622,
-        7.002,
-        8.756,
-        12.586,
-        12.6,
-        12.61,
-        12.61
+        4.708,
+        4.708,
+        7.038,
+        8.896,
+        12.883,
+        13.02,
+        13.034
     ],
     "steps_min": [
-        4.604,
+        4.668,
         0.0,
-        2.333,
-        1.738,
-        3.827,
-        0.014,
-        0.01,
-        0.0
+        2.329,
+        1.817,
+        3.929,
+        0.038,
+        0.014
     ],
     "steps_std": [
-        0.013,
+        0.029,
         0.0,
-        0.065,
-        0.012,
-        0.002,
-        0.0,
-        0.0,
+        0.001,
+        0.027,
+        0.067,
+        0.168,
         0.0
     ],
-    "total_max": 12.749,
-    "total_mean": 12.611,
-    "total_min": 12.539,
-    "total_std": 0.085
+    "total_max": 13.221,
+    "total_mean": 13.034,
+    "total_min": 12.863,
+    "total_std": 0.144
 },]}
     </script>
     <script src="assets/js/custom.js"></script>

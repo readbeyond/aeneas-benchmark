@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="Shortcut Icon" href="assets/favicon.png" type="image/x-icon">
+
+    <title>aeneas-benchmark</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.plus.checkbox.min.css" rel="stylesheet">
+    <link href="assets/css/c3.min.css" rel="stylesheet">
+
+    <style>
+      body {
+        padding-top: 70px;
+      }
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://readbeyond.github.io/aeneas-benchmark/">aeneas-benchmark v1.7.2</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="http://www.readbeyond.it/aeneas/" target="_blank"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Home</a></li>
+            <li><a href="https://github.com/readbeyond/aeneas/" target="_blank"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> GitHub</a></li>
+            <li><a href="https://github.com/readbeyond/aeneas-benchmark/" target="_blank"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> aeneas-benchmark GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="content" class="container" role="main">
+    <!-- CONTENT -->
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">©2016-2017 <a href="http://www.readbeyond.it/">ReadBeyond</a>, Venice, Italy.</p>
+      </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/d3.min.js"></script>
+    <script src="assets/js/c3.min.js"></script>
+    <script>
+var data = {"title": "Run 060.mpl.m.mac002","type": "single","raw":{
+    "configuration": {
+        "arguments": {
+            "audio": "060m.mp3",
+            "conf": "task_language=eng|is_text_type=mplain|os_task_file_format=json",
+            "rconf": "",
+            "text": "060m.mplain.txt"
+        },
+        "audio_length": 3613.7,
+        "description": "60m, mplain",
+        "execution": {
+            "timed_runs": 2,
+            "warmup_runs": 0
+        },
+        "text_length": 8391
+    },
+    "environment": {
+        "description": "personal Mac Mini",
+        "label": "mac002",
+        "model": "Apple Mac Mini",
+        "notes": "",
+        "os": "Mac OS X 10.12.3",
+        "processor": "Intel Core i5 2.3 GHz",
+        "python": "2.7.12",
+        "ram": "16 GB"
+    },
+    "id": "060.mpl.m",
+    "labels": [
+        "load audio file",
+        "extract MFCC real wave level 1",
+        "extract MFCC real wave level 2",
+        "extract MFCC real wave level 3",
+        "clear audio file",
+        "compute head tail",
+        "compute alignment level 1",
+        "compute alignment level 2",
+        "compute alignment level 3",
+        "create sync map"
+    ],
+    "output_file": "060.mpl.m.mac002.json",
+    "rtf_max": 0.065,
+    "rtf_mean": 0.065,
+    "rtf_min": 0.064,
+    "rtf_std": 0.001,
+    "steps_max": [
+        10.341,
+        2.425,
+        4.465,
+        16.987,
+        0.034,
+        0.0,
+        19.055,
+        28.012,
+        154.468,
+        0.704
+    ],
+    "steps_mean": [
+        10.296,
+        2.413,
+        4.461,
+        16.974,
+        0.034,
+        0.0,
+        19.015,
+        27.572,
+        151.875,
+        0.691
+    ],
+    "steps_mean_cum": [
+        10.296,
+        12.71,
+        17.171,
+        34.144,
+        34.178,
+        34.178,
+        53.193,
+        80.765,
+        232.64,
+        233.331
+    ],
+    "steps_min": [
+        10.252,
+        2.401,
+        4.457,
+        16.96,
+        0.034,
+        0.0,
+        18.975,
+        27.132,
+        149.282,
+        0.677
+    ],
+    "steps_std": [
+        0.044,
+        0.012,
+        0.004,
+        0.013,
+        0.0,
+        0.0,
+        0.04,
+        0.44,
+        2.593,
+        0.013
+    ],
+    "total_max": 236.263,
+    "total_mean": 233.331,
+    "total_min": 230.398,
+    "total_std": 2.933
+}}
+    </script>
+    <script src="assets/js/custom.js"></script>
+  </body>
+</html>

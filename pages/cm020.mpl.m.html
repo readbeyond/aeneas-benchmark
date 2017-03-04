@@ -28,7 +28,6 @@
     <![endif]-->
   </head>
   <body role="document">
-    
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -39,7 +38,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="https://readbeyond.github.io/aeneas-benchmark/">aeneas-benchmark v1.6.0</a>
+          <a class="navbar-brand" href="https://readbeyond.github.io/aeneas-benchmark/">aeneas-benchmark v1.7.2</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -57,7 +56,7 @@
 
     <footer class="footer">
       <div class="container">
-        <p class="text-muted">©2016 <a href="http://www.readbeyond.it/">ReadBeyond</a>, Venice, Italy.</p>
+        <p class="text-muted">©2016-2017 <a href="http://www.readbeyond.it/">ReadBeyond</a>, Venice, Italy.</p>
       </div>
     </footer>
 
@@ -84,13 +83,13 @@ var data = {"title": "Compare Runs 020.mpl.m","type": "cm","raw": [{
         "text_length": 3200
     },
     "environment": {
-        "description": "dev slow laptop",
-        "label": "laptop001",
+        "description": "old dev laptop",
+        "label": "lap001",
         "model": "ThinkPad X120e",
         "notes": "",
-        "os": "GNU/Linux 4.3.0-1-amd64",
+        "os": "GNU/Linux 4.8.0-2-amd64",
         "processor": "AMD E-350 1.6GHz",
-        "python": "2.7.12",
+        "python": "2.7.13",
         "ram": "4 GB"
     },
     "id": "020.mpl.m",
@@ -104,89 +103,185 @@ var data = {"title": "Compare Runs 020.mpl.m","type": "cm","raw": [{
         "compute alignment level 1",
         "compute alignment level 2",
         "compute alignment level 3",
-        "select levels",
-        "create sync map",
-        "check zero duration"
+        "create sync map"
     ],
-    "output_file": "020.mpl.m.laptop001.json",
-    "rtf_max": 0.257,
-    "rtf_mean": 0.256,
-    "rtf_min": 0.254,
+    "output_file": "020.mpl.m.lap001.json",
+    "rtf_max": 0.265,
+    "rtf_mean": 0.264,
+    "rtf_min": 0.263,
     "rtf_std": 0.001,
     "steps_max": [
-        11.155,
-        1.475,
-        2.784,
-        18.939,
+        11.475,
+        3.012,
+        5.62,
+        18.378,
         0.016,
-        0.002,
-        9.362,
-        31.265,
-        238.926,
-        0.0,
-        0.002,
-        0.0
+        0.001,
+        19.276,
+        40.351,
+        226.0,
+        0.598
     ],
     "steps_mean": [
-        10.906,
-        1.415,
-        2.779,
-        18.386,
+        11.175,
+        2.873,
+        5.191,
+        18.149,
         0.016,
-        0.002,
-        9.133,
-        30.547,
-        238.008,
-        0.0,
-        0.002,
-        0.0
+        0.001,
+        19.252,
+        39.555,
+        224.719,
+        0.597
     ],
     "steps_mean_cum": [
-        10.906,
-        12.32,
-        15.1,
-        33.486,
-        33.502,
-        33.503,
-        42.636,
-        73.184,
-        311.192,
-        311.192,
-        311.194,
-        311.194
+        11.175,
+        14.049,
+        19.239,
+        37.389,
+        37.405,
+        37.406,
+        56.658,
+        96.213,
+        320.933,
+        321.529
     ],
     "steps_min": [
-        10.657,
-        1.354,
-        2.775,
-        17.833,
+        10.875,
+        2.735,
+        4.762,
+        17.921,
         0.016,
         0.001,
-        8.904,
-        29.83,
-        237.091,
-        0.0,
-        0.001,
-        0.0
+        19.229,
+        38.758,
+        223.439,
+        0.596
     ],
     "steps_std": [
-        0.249,
-        0.06,
-        0.004,
-        0.553,
-        0.0,
-        0.001,
+        0.3,
+        0.139,
+        0.429,
         0.229,
-        0.718,
-        0.917,
         0.0,
-        0.001,
-        0.0
+        0.0,
+        0.024,
+        0.796,
+        1.281,
+        0.001
     ],
-    "total_max": 312.839,
-    "total_mean": 311.194,
-    "total_min": 309.549,
-    "total_std": 1.645
+    "total_max": 322.535,
+    "total_mean": 321.529,
+    "total_min": 320.524,
+    "total_std": 1.006
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "020m.mp3",
+            "conf": "task_language=eng|is_text_type=mplain|os_task_file_format=json",
+            "rconf": "",
+            "text": "020m.mplain.txt"
+        },
+        "audio_length": 1216.63,
+        "description": "20m, mplain",
+        "execution": {
+            "timed_runs": 2,
+            "warmup_runs": 0
+        },
+        "text_length": 3200
+    },
+    "environment": {
+        "description": "dev laptop",
+        "label": "lap002",
+        "model": "ThinkPad X260",
+        "notes": "",
+        "os": "GNU/Linux 4.9.0-1-amd64",
+        "processor": "Intel Core i5-6200U 2.30GHz",
+        "python": "2.7.13",
+        "ram": "16 GB"
+    },
+    "id": "020.mpl.m",
+    "labels": [
+        "load audio file",
+        "extract MFCC real wave level 1",
+        "extract MFCC real wave level 2",
+        "extract MFCC real wave level 3",
+        "clear audio file",
+        "compute head tail",
+        "compute alignment level 1",
+        "compute alignment level 2",
+        "compute alignment level 3",
+        "create sync map"
+    ],
+    "output_file": "020.mpl.m.lap002.json",
+    "rtf_max": 0.062,
+    "rtf_mean": 0.062,
+    "rtf_min": 0.061,
+    "rtf_std": 0.0,
+    "steps_max": [
+        1.955,
+        0.829,
+        1.504,
+        5.587,
+        0.005,
+        0.0,
+        4.834,
+        9.593,
+        51.371,
+        0.123
+    ],
+    "steps_mean": [
+        1.945,
+        0.811,
+        1.47,
+        5.55,
+        0.005,
+        0.0,
+        4.788,
+        9.447,
+        50.889,
+        0.122
+    ],
+    "steps_mean_cum": [
+        1.945,
+        2.756,
+        4.226,
+        9.776,
+        9.781,
+        9.781,
+        14.569,
+        24.016,
+        74.906,
+        75.028
+    ],
+    "steps_min": [
+        1.934,
+        0.794,
+        1.435,
+        5.513,
+        0.005,
+        0.0,
+        4.743,
+        9.301,
+        50.408,
+        0.121
+    ],
+    "steps_std": [
+        0.011,
+        0.017,
+        0.034,
+        0.037,
+        0.0,
+        0.0,
+        0.045,
+        0.146,
+        0.482,
+        0.001
+    ],
+    "total_max": 75.623,
+    "total_mean": 75.028,
+    "total_min": 74.432,
+    "total_std": 0.596
 },{
     "configuration": {
         "arguments": {
@@ -205,13 +300,13 @@ var data = {"title": "Compare Runs 020.mpl.m","type": "cm","raw": [{
     },
     "environment": {
         "description": "personal Mac Mini",
-        "label": "mac001",
+        "label": "mac002",
         "model": "Apple Mac Mini",
         "notes": "",
-        "os": "Mac OS X 10.9.5",
+        "os": "Mac OS X 10.12.3",
         "processor": "Intel Core i5 2.3 GHz",
         "python": "2.7.12",
-        "ram": "4 GB"
+        "ram": "16 GB"
     },
     "id": "020.mpl.m",
     "labels": [
@@ -224,91 +319,78 @@ var data = {"title": "Compare Runs 020.mpl.m","type": "cm","raw": [{
         "compute alignment level 1",
         "compute alignment level 2",
         "compute alignment level 3",
-        "select levels",
-        "create sync map",
-        "check zero duration"
+        "create sync map"
     ],
-    "output_file": "020.mpl.m.mac001.json",
-    "rtf_max": 0.059,
-    "rtf_mean": 0.058,
-    "rtf_min": 0.057,
-    "rtf_std": 0.001,
+    "output_file": "020.mpl.m.mac002.json",
+    "rtf_max": 0.065,
+    "rtf_mean": 0.065,
+    "rtf_min": 0.065,
+    "rtf_std": 0.0,
     "steps_max": [
-        3.022,
-        0.317,
-        0.803,
-        5.67,
-        0.009,
-        0.001,
-        2.939,
-        6.061,
-        52.826,
+        3.536,
+        0.805,
+        1.511,
+        5.695,
+        0.011,
         0.0,
-        0.0,
-        0.0
+        6.611,
+        8.561,
+        52.639,
+        0.266
     ],
     "steps_mean": [
-        3.002,
-        0.306,
-        0.802,
-        5.613,
-        0.009,
-        0.001,
-        2.845,
-        6.034,
-        51.439,
+        3.498,
+        0.804,
+        1.497,
+        5.693,
+        0.011,
         0.0,
-        0.0,
-        0.0
+        6.562,
+        8.486,
+        52.502,
+        0.264
     ],
     "steps_mean_cum": [
-        3.002,
-        3.309,
-        4.112,
-        9.724,
-        9.733,
-        9.734,
-        12.579,
-        18.613,
-        70.052,
-        70.052,
-        70.052,
-        70.052
+        3.498,
+        4.303,
+        5.8,
+        11.492,
+        11.503,
+        11.503,
+        18.066,
+        26.552,
+        79.053,
+        79.316
     ],
     "steps_min": [
-        2.983,
-        0.296,
-        0.802,
-        5.556,
-        0.009,
+        3.461,
+        0.803,
+        1.483,
+        5.691,
+        0.011,
         0.0,
-        2.75,
-        6.008,
-        50.052,
-        0.0,
-        0.0,
-        0.0
+        6.513,
+        8.411,
+        52.364,
+        0.261
     ],
     "steps_std": [
-        0.019,
-        0.011,
+        0.038,
         0.001,
-        0.057,
-        0.0,
-        0.001,
-        0.095,
-        0.026,
-        1.387,
+        0.014,
+        0.002,
         0.0,
         0.0,
-        0.0
+        0.049,
+        0.075,
+        0.138,
+        0.003
     ],
-    "total_max": 71.23,
-    "total_mean": 70.052,
-    "total_min": 68.874,
-    "total_std": 1.178
-}
-,{
+    "total_max": 79.549,
+    "total_mean": 79.317,
+    "total_min": 79.084,
+    "total_std": 0.233
+},{
     "configuration": {
         "arguments": {
             "audio": "020m.mp3",
@@ -345,89 +427,77 @@ var data = {"title": "Compare Runs 020.mpl.m","type": "cm","raw": [{
         "compute alignment level 1",
         "compute alignment level 2",
         "compute alignment level 3",
-        "select levels",
-        "create sync map",
-        "check zero duration"
+        "create sync map"
     ],
     "output_file": "020.mpl.m.vps001.json",
-    "rtf_max": 0.078,
-    "rtf_mean": 0.077,
-    "rtf_min": 0.076,
+    "rtf_max": 0.099,
+    "rtf_mean": 0.098,
+    "rtf_min": 0.096,
     "rtf_std": 0.001,
     "steps_max": [
-        3.468,
-        0.441,
-        1.115,
-        7.558,
-        0.011,
+        3.529,
+        1.11,
+        1.94,
+        7.392,
+        0.008,
         0.0,
-        3.703,
-        8.982,
-        69.457,
-        0.0,
-        0.0,
-        0.0
+        8.173,
+        15.401,
+        83.164,
+        0.22
     ],
     "steps_mean": [
-        3.468,
-        0.441,
-        1.113,
-        7.531,
-        0.01,
+        3.518,
+        1.106,
+        1.934,
+        7.324,
+        0.008,
         0.0,
-        3.671,
-        8.58,
-        68.472,
-        0.0,
-        0.0,
-        0.0
+        8.139,
+        15.354,
+        81.241,
+        0.218
     ],
     "steps_mean_cum": [
-        3.468,
-        3.908,
-        5.021,
-        12.552,
-        12.562,
-        12.562,
-        16.233,
-        24.813,
-        93.286,
-        93.286,
-        93.286,
-        93.286
+        3.518,
+        4.623,
+        6.558,
+        13.881,
+        13.889,
+        13.889,
+        22.028,
+        37.383,
+        118.624,
+        118.842
     ],
     "steps_min": [
-        3.467,
-        0.44,
-        1.11,
-        7.505,
-        0.01,
+        3.506,
+        1.101,
+        1.929,
+        7.256,
+        0.008,
         0.0,
-        3.639,
-        8.178,
-        67.488,
-        0.0,
-        0.0,
-        0.0
+        8.104,
+        15.308,
+        79.318,
+        0.217
     ],
     "steps_std": [
-        0.0,
-        0.001,
-        0.002,
-        0.026,
-        0.0,
-        0.0,
-        0.032,
-        0.402,
-        0.984,
+        0.012,
+        0.005,
+        0.005,
+        0.068,
         0.0,
         0.0,
-        0.0
+        0.035,
+        0.046,
+        1.923,
+        0.002
     ],
-    "total_max": 94.663,
-    "total_mean": 93.286,
-    "total_min": 91.909,
-    "total_std": 1.377
+    "total_max": 120.619,
+    "total_mean": 118.842,
+    "total_min": 117.065,
+    "total_std": 1.777
 },]}
     </script>
     <script src="assets/js/custom.js"></script>

@@ -1,0 +1,91 @@
+{
+    "configuration": {
+        "arguments": {
+            "audio": "010m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "010m.plain.sentence.txt"
+        },
+        "audio_length": 614.45,
+        "description": "10m, plain, sentence",
+        "execution": {
+            "timed_runs": 8,
+            "warmup_runs": 0
+        },
+        "text_length": 84
+    },
+    "environment": {
+        "description": "dev laptop",
+        "label": "lap002",
+        "model": "ThinkPad X260",
+        "notes": "",
+        "os": "GNU/Linux 4.9.0-1-amd64",
+        "processor": "Intel Core i5-6200U 2.30GHz",
+        "python": "2.7.13",
+        "ram": "16 GB"
+    },
+    "id": "010.pla.s",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map"
+    ],
+    "output_file": "010.pla.s.lap002.json",
+    "rtf_max": 0.006,
+    "rtf_mean": 0.006,
+    "rtf_min": 0.006,
+    "rtf_std": 0.0,
+    "steps_max": [
+        1.424,
+        0.0,
+        0.549,
+        0.56,
+        1.407,
+        0.009,
+        0.003
+    ],
+    "steps_mean": [
+        1.411,
+        0.0,
+        0.545,
+        0.551,
+        1.305,
+        0.009,
+        0.003
+    ],
+    "steps_mean_cum": [
+        1.411,
+        1.411,
+        1.956,
+        2.507,
+        3.812,
+        3.821,
+        3.824
+    ],
+    "steps_min": [
+        1.401,
+        0.0,
+        0.542,
+        0.544,
+        1.286,
+        0.008,
+        0.003
+    ],
+    "steps_std": [
+        0.008,
+        0.0,
+        0.002,
+        0.005,
+        0.039,
+        0.0,
+        0.0
+    ],
+    "total_max": 3.919,
+    "total_mean": 3.824,
+    "total_min": 3.792,
+    "total_std": 0.037
+}

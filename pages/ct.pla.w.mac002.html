@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="Shortcut Icon" href="assets/favicon.png" type="image/x-icon">
+
+    <title>aeneas-benchmark</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.plus.checkbox.min.css" rel="stylesheet">
+    <link href="assets/css/c3.min.css" rel="stylesheet">
+
+    <style>
+      body {
+        padding-top: 70px;
+      }
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://readbeyond.github.io/aeneas-benchmark/">aeneas-benchmark v1.7.2</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="http://www.readbeyond.it/aeneas/" target="_blank"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Home</a></li>
+            <li><a href="https://github.com/readbeyond/aeneas/" target="_blank"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> GitHub</a></li>
+            <li><a href="https://github.com/readbeyond/aeneas-benchmark/" target="_blank"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> aeneas-benchmark GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="content" class="container" role="main">
+    <!-- CONTENT -->
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">©2016-2017 <a href="http://www.readbeyond.it/">ReadBeyond</a>, Venice, Italy.</p>
+      </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/d3.min.js"></script>
+    <script src="assets/js/c3.min.js"></script>
+    <script>
+var data = {"title": "Compare Runs pla.w.mac002","type": "ct","raw": [{
+    "configuration": {
+        "arguments": {
+            "audio": "001m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "001m.plain.word.txt"
+        },
+        "audio_length": 53.32,
+        "description": "1m, plain, word",
+        "execution": {
+            "timed_runs": 16,
+            "warmup_runs": 1
+        },
+        "text_length": 107
+    },
+    "environment": {
+        "description": "personal Mac Mini",
+        "label": "mac002",
+        "model": "Apple Mac Mini",
+        "notes": "",
+        "os": "Mac OS X 10.12.3",
+        "processor": "Intel Core i5 2.3 GHz",
+        "python": "2.7.12",
+        "ram": "16 GB"
+    },
+    "id": "001.pla.w",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map"
+    ],
+    "output_file": "001.pla.w.mac002.json",
+    "rtf_max": 0.013,
+    "rtf_mean": 0.012,
+    "rtf_min": 0.012,
+    "rtf_std": 0.0,
+    "steps_max": [
+        0.233,
+        0.001,
+        0.134,
+        0.165,
+        0.102,
+        0.054,
+        0.011
+    ],
+    "steps_mean": [
+        0.224,
+        0.0,
+        0.128,
+        0.156,
+        0.096,
+        0.025,
+        0.009
+    ],
+    "steps_mean_cum": [
+        0.224,
+        0.224,
+        0.352,
+        0.508,
+        0.604,
+        0.629,
+        0.638
+    ],
+    "steps_min": [
+        0.216,
+        0.0,
+        0.12,
+        0.15,
+        0.09,
+        0.02,
+        0.007
+    ],
+    "steps_std": [
+        0.004,
+        0.0,
+        0.004,
+        0.004,
+        0.004,
+        0.008,
+        0.001
+    ],
+    "total_max": 0.674,
+    "total_mean": 0.638,
+    "total_min": 0.621,
+    "total_std": 0.011
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "005m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "005m.plain.word.txt"
+        },
+        "audio_length": 320.91,
+        "description": "5m, plain, word",
+        "execution": {
+            "timed_runs": 16,
+            "warmup_runs": 1
+        },
+        "text_length": 868
+    },
+    "environment": {
+        "description": "personal Mac Mini",
+        "label": "mac002",
+        "model": "Apple Mac Mini",
+        "notes": "",
+        "os": "Mac OS X 10.12.3",
+        "processor": "Intel Core i5 2.3 GHz",
+        "python": "2.7.12",
+        "ram": "16 GB"
+    },
+    "id": "005.pla.w",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map"
+    ],
+    "output_file": "005.pla.w.mac002.json",
+    "rtf_max": 0.014,
+    "rtf_mean": 0.014,
+    "rtf_min": 0.013,
+    "rtf_std": 0.0,
+    "steps_max": [
+        1.266,
+        0.001,
+        1.049,
+        1.01,
+        1.026,
+        0.287,
+        0.071
+    ],
+    "steps_mean": [
+        1.228,
+        0.0,
+        0.969,
+        0.991,
+        0.928,
+        0.192,
+        0.065
+    ],
+    "steps_mean_cum": [
+        1.228,
+        1.228,
+        2.196,
+        3.188,
+        4.116,
+        4.308,
+        4.373
+    ],
+    "steps_min": [
+        1.203,
+        0.0,
+        0.948,
+        0.968,
+        0.886,
+        0.17,
+        0.06
+    ],
+    "steps_std": [
+        0.016,
+        0.0,
+        0.03,
+        0.012,
+        0.045,
+        0.035,
+        0.003
+    ],
+    "total_max": 4.438,
+    "total_mean": 4.373,
+    "total_min": 4.312,
+    "total_std": 0.046
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "010m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "010m.plain.word.txt"
+        },
+        "audio_length": 614.45,
+        "description": "10m, plain, word",
+        "execution": {
+            "timed_runs": 8,
+            "warmup_runs": 0
+        },
+        "text_length": 1492
+    },
+    "environment": {
+        "description": "personal Mac Mini",
+        "label": "mac002",
+        "model": "Apple Mac Mini",
+        "notes": "",
+        "os": "Mac OS X 10.12.3",
+        "processor": "Intel Core i5 2.3 GHz",
+        "python": "2.7.12",
+        "ram": "16 GB"
+    },
+    "id": "010.pla.w",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map"
+    ],
+    "output_file": "010.pla.w.mac002.json",
+    "rtf_max": 0.013,
+    "rtf_mean": 0.013,
+    "rtf_min": 0.013,
+    "rtf_std": 0.0,
+    "steps_max": [
+        2.291,
+        0.001,
+        1.788,
+        1.662,
+        1.969,
+        0.475,
+        0.12
+    ],
+    "steps_mean": [
+        2.265,
+        0.0,
+        1.63,
+        1.614,
+        1.827,
+        0.358,
+        0.115
+    ],
+    "steps_mean_cum": [
+        2.265,
+        2.265,
+        3.896,
+        5.51,
+        7.337,
+        7.695,
+        7.809
+    ],
+    "steps_min": [
+        2.215,
+        0.0,
+        1.567,
+        1.58,
+        1.768,
+        0.294,
+        0.108
+    ],
+    "steps_std": [
+        0.024,
+        0.0,
+        0.064,
+        0.023,
+        0.082,
+        0.07,
+        0.004
+    ],
+    "total_max": 7.888,
+    "total_mean": 7.809,
+    "total_min": 7.715,
+    "total_std": 0.063
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "020m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "020m.plain.word.txt"
+        },
+        "audio_length": 1216.63,
+        "description": "20m, plain, word",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 3200
+    },
+    "environment": {
+        "description": "personal Mac Mini",
+        "label": "mac002",
+        "model": "Apple Mac Mini",
+        "notes": "",
+        "os": "Mac OS X 10.12.3",
+        "processor": "Intel Core i5 2.3 GHz",
+        "python": "2.7.12",
+        "ram": "16 GB"
+    },
+    "id": "020.pla.w",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map"
+    ],
+    "output_file": "020.pla.w.mac002.json",
+    "rtf_max": 0.013,
+    "rtf_mean": 0.013,
+    "rtf_min": 0.013,
+    "rtf_std": 0.0,
+    "steps_max": [
+        4.407,
+        0.0,
+        3.836,
+        3.4,
+        3.449,
+        0.832,
+        0.252
+    ],
+    "steps_mean": [
+        4.357,
+        0.0,
+        3.671,
+        3.35,
+        3.404,
+        0.815,
+        0.248
+    ],
+    "steps_mean_cum": [
+        4.357,
+        4.357,
+        8.027,
+        11.378,
+        14.782,
+        15.598,
+        15.846
+    ],
+    "steps_min": [
+        4.327,
+        0.0,
+        3.485,
+        3.306,
+        3.373,
+        0.802,
+        0.24
+    ],
+    "steps_std": [
+        0.033,
+        0.0,
+        0.135,
+        0.034,
+        0.028,
+        0.011,
+        0.005
+    ],
+    "total_max": 16.019,
+    "total_mean": 15.846,
+    "total_min": 15.697,
+    "total_std": 0.149
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "030m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "030m.plain.word.txt"
+        },
+        "audio_length": 1880.45,
+        "description": "30m, plain, word",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 4512
+    },
+    "environment": {
+        "description": "personal Mac Mini",
+        "label": "mac002",
+        "model": "Apple Mac Mini",
+        "notes": "",
+        "os": "Mac OS X 10.12.3",
+        "processor": "Intel Core i5 2.3 GHz",
+        "python": "2.7.12",
+        "ram": "16 GB"
+    },
+    "id": "030.pla.w",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map"
+    ],
+    "output_file": "030.pla.w.mac002.json",
+    "rtf_max": 0.013,
+    "rtf_mean": 0.012,
+    "rtf_min": 0.012,
+    "rtf_std": 0.0,
+    "steps_max": [
+        6.782,
+        0.0,
+        5.376,
+        4.752,
+        5.57,
+        1.164,
+        0.355
+    ],
+    "steps_mean": [
+        6.692,
+        0.0,
+        5.081,
+        4.717,
+        5.475,
+        1.121,
+        0.347
+    ],
+    "steps_mean_cum": [
+        6.692,
+        6.692,
+        11.773,
+        16.49,
+        21.966,
+        23.087,
+        23.434
+    ],
+    "steps_min": [
+        6.61,
+        0.0,
+        4.953,
+        4.68,
+        5.389,
+        1.088,
+        0.333
+    ],
+    "steps_std": [
+        0.061,
+        0.0,
+        0.172,
+        0.031,
+        0.082,
+        0.033,
+        0.008
+    ],
+    "total_max": 23.59,
+    "total_mean": 23.434,
+    "total_min": 23.333,
+    "total_std": 0.108
+},{
+    "configuration": {
+        "arguments": {
+            "audio": "060m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "060m.plain.word.txt"
+        },
+        "audio_length": 3613.7,
+        "description": "60m, plain, word",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 8391
+    },
+    "environment": {
+        "description": "personal Mac Mini",
+        "label": "mac002",
+        "model": "Apple Mac Mini",
+        "notes": "",
+        "os": "Mac OS X 10.12.3",
+        "processor": "Intel Core i5 2.3 GHz",
+        "python": "2.7.12",
+        "ram": "16 GB"
+    },
+    "id": "060.pla.w",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map"
+    ],
+    "output_file": "060.pla.w.mac002.json",
+    "rtf_max": 0.012,
+    "rtf_mean": 0.012,
+    "rtf_min": 0.012,
+    "rtf_std": 0.0,
+    "steps_max": [
+        12.807,
+        0.0,
+        9.749,
+        9.026,
+        10.576,
+        2.344,
+        0.658
+    ],
+    "steps_mean": [
+        12.787,
+        0.0,
+        9.519,
+        8.91,
+        10.367,
+        2.261,
+        0.642
+    ],
+    "steps_mean_cum": [
+        12.787,
+        12.787,
+        22.305,
+        31.215,
+        41.582,
+        43.843,
+        44.485
+    ],
+    "steps_min": [
+        12.743,
+        0.0,
+        9.333,
+        8.818,
+        10.163,
+        2.188,
+        0.624
+    ],
+    "steps_std": [
+        0.025,
+        0.0,
+        0.149,
+        0.082,
+        0.195,
+        0.067,
+        0.015
+    ],
+    "total_max": 44.753,
+    "total_mean": 44.485,
+    "total_min": 44.272,
+    "total_std": 0.172
+},]}
+    </script>
+    <script src="assets/js/custom.js"></script>
+  </body>
+</html>

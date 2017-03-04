@@ -2,8 +2,8 @@
 
 The official benchmark suite for **aeneas**
 
-* Version: 0.0.2 (aeneas 1.6.0.1)
-* Date: 2016-10-05
+* Version: 0.0.3 (aeneas 1.7.2)
+* Date: 2017-03-04
 * Developed by: [ReadBeyond](http://www.readbeyond.it/)
 * Lead Developer: [Alberto Pettarin](http://www.albertopettarin.it/)
 * License: the GNU Affero General Public License Version 3 (AGPL v3)

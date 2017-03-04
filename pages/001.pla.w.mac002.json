@@ -1,0 +1,91 @@
+{
+    "configuration": {
+        "arguments": {
+            "audio": "001m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "001m.plain.word.txt"
+        },
+        "audio_length": 53.32,
+        "description": "1m, plain, word",
+        "execution": {
+            "timed_runs": 16,
+            "warmup_runs": 1
+        },
+        "text_length": 107
+    },
+    "environment": {
+        "description": "personal Mac Mini",
+        "label": "mac002",
+        "model": "Apple Mac Mini",
+        "notes": "",
+        "os": "Mac OS X 10.12.3",
+        "processor": "Intel Core i5 2.3 GHz",
+        "python": "2.7.12",
+        "ram": "16 GB"
+    },
+    "id": "001.pla.w",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map"
+    ],
+    "output_file": "001.pla.w.mac002.json",
+    "rtf_max": 0.013,
+    "rtf_mean": 0.012,
+    "rtf_min": 0.012,
+    "rtf_std": 0.0,
+    "steps_max": [
+        0.233,
+        0.001,
+        0.134,
+        0.165,
+        0.102,
+        0.054,
+        0.011
+    ],
+    "steps_mean": [
+        0.224,
+        0.0,
+        0.128,
+        0.156,
+        0.096,
+        0.025,
+        0.009
+    ],
+    "steps_mean_cum": [
+        0.224,
+        0.224,
+        0.352,
+        0.508,
+        0.604,
+        0.629,
+        0.638
+    ],
+    "steps_min": [
+        0.216,
+        0.0,
+        0.12,
+        0.15,
+        0.09,
+        0.02,
+        0.007
+    ],
+    "steps_std": [
+        0.004,
+        0.0,
+        0.004,
+        0.004,
+        0.004,
+        0.008,
+        0.001
+    ],
+    "total_max": 0.674,
+    "total_mean": 0.638,
+    "total_min": 0.621,
+    "total_std": 0.011
+}

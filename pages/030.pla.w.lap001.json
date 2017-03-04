@@ -1,0 +1,91 @@
+{
+    "configuration": {
+        "arguments": {
+            "audio": "030m.mp3",
+            "conf": "task_language=eng|is_text_type=plain|os_task_file_format=json",
+            "rconf": "",
+            "text": "030m.plain.word.txt"
+        },
+        "audio_length": 1880.45,
+        "description": "30m, plain, word",
+        "execution": {
+            "timed_runs": 4,
+            "warmup_runs": 0
+        },
+        "text_length": 4512
+    },
+    "environment": {
+        "description": "old dev laptop",
+        "label": "lap001",
+        "model": "ThinkPad X120e",
+        "notes": "",
+        "os": "GNU/Linux 4.8.0-2-amd64",
+        "processor": "AMD E-350 1.6GHz",
+        "python": "2.7.13",
+        "ram": "4 GB"
+    },
+    "id": "030.pla.w",
+    "labels": [
+        "extract MFCC real wave",
+        "compute head tail",
+        "synthesize text",
+        "extract MFCC synt wave",
+        "align waves",
+        "adjust boundaries",
+        "create sync map"
+    ],
+    "output_file": "030.pla.w.lap001.json",
+    "rtf_max": 0.037,
+    "rtf_mean": 0.037,
+    "rtf_min": 0.037,
+    "rtf_std": 0.0,
+    "steps_max": [
+        22.26,
+        0.001,
+        14.757,
+        15.935,
+        14.921,
+        2.778,
+        0.814
+    ],
+    "steps_mean": [
+        21.822,
+        0.001,
+        14.064,
+        15.594,
+        14.528,
+        2.689,
+        0.81
+    ],
+    "steps_mean_cum": [
+        21.822,
+        21.823,
+        35.888,
+        51.482,
+        66.01,
+        68.699,
+        69.509
+    ],
+    "steps_min": [
+        21.466,
+        0.001,
+        13.673,
+        15.167,
+        13.95,
+        2.606,
+        0.802
+    ],
+    "steps_std": [
+        0.288,
+        0.0,
+        0.412,
+        0.276,
+        0.362,
+        0.061,
+        0.005
+    ],
+    "total_max": 69.924,
+    "total_mean": 69.509,
+    "total_min": 69.103,
+    "total_std": 0.321
+}
